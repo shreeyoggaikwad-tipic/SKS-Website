@@ -5,28 +5,19 @@ const EnhancedLoadingScreen = ({ Logo }) => {
       <>
         <style>
           {`
-          @keyframes grow-shrink {
+          @keyframes pulse-glow {
             0%, 100% {
-              transform: scale(1);
+              box-shadow: 0 0 20px rgba(59, 130, 246, 0.5);
             }
             50% {
-              transform: scale(1.1);
+              box-shadow: 0 0 40px rgba(59, 130, 246, 0.8);
             }
           }
           
-          @keyframes float {
-            0%, 100% {
-              transform: translateY(0px);
-            }
-            50% {
-              transform: translateY(-10px);
-            }
-          }
-          
-          @keyframes fadeInUp {
+          @keyframes slide-up {
             0% {
               opacity: 0;
-              transform: translateY(30px);
+              transform: translateY(40px);
             }
             100% {
               opacity: 1;
@@ -34,87 +25,111 @@ const EnhancedLoadingScreen = ({ Logo }) => {
             }
           }
           
-          @keyframes shimmer {
+          @keyframes gradient-shift {
             0% {
-              background-position: -200% 0;
-            }
-            100% {
-              background-position: 200% 0;
-            }
-          }
-          
-          @keyframes leafSway {
-            0%, 100% {
-              transform: rotate(-2deg);
+              background-position: 0% 50%;
             }
             50% {
-              transform: rotate(2deg);
+              background-position: 100% 50%;
+            }
+            100% {
+              background-position: 0% 50%;
             }
           }
           
-          @keyframes dotPulse {
-            0%, 20% {
-              color: #10b981;
+          @keyframes rotate-slow {
+            0% {
+              transform: rotate(0deg);
+            }
+            100% {
+              transform: rotate(360deg);
+            }
+          }
+          
+          @keyframes bounce-dot {
+            0%, 20%, 50%, 80%, 100% {
+              transform: translateY(0);
             }
             40% {
-              color: #065f46;
+              transform: translateY(-10px);
             }
-            60%, 100% {
-              color: #10b981;
+            60% {
+              transform: translateY(-5px);
             }
           }
           
-          .animate-grow-shrink {
-            animation: grow-shrink 2s ease-in-out infinite;
+          @keyframes shimmer-text {
+            0% {
+              background-position: -100% 0;
+            }
+            100% {
+              background-position: 100% 0;
+            }
           }
           
-          .animate-float {
-            animation: float 3s ease-in-out infinite;
+          .gradient-bg {
+            background: linear-gradient(135deg, #282b40 0%, #3a3d5c 25%, #4d5178 50%, #606594 75%, #7379b0 100%);
+            background-size: 400% 400%;
+            animation: gradient-shift 15s ease infinite;
           }
           
-          .animate-fade-in-up {
-            animation: fadeInUp 1s ease-out forwards;
+          .glass-effect {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
           }
           
-          .animate-shimmer {
-            background: linear-gradient(90deg, #10b981 0%, #34d399 50%, #10b981 100%);
+          .shimmer-text {
+            background: linear-gradient(90deg, #fff 0%, #f0f0f0 50%, #fff 100%);
             background-size: 200% 100%;
-            animation: shimmer 2s ease-in-out infinite;
+            animation: shimmer-text 3s ease-in-out infinite;
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
           }
           
-          .animate-leaf-sway {
-            animation: leafSway 2.5s ease-in-out infinite;
+          .loading-spinner {
+            border: 3px solid rgba(255, 255, 255, 0.3);
+            border-top: 3px solid #fff;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            animation: rotate-slow 1s linear infinite;
           }
           
-          .animate-dot-pulse {
-            animation: dotPulse 1.5s ease-in-out infinite;
+          .bounce-dot {
+            animation: bounce-dot 1.4s infinite ease-in-out both;
           }
           
-          .loading-bg {
-            background: 
-              radial-gradient(circle at 20% 80%, rgba(16, 185, 129, 0.1) 0%, transparent 50%),
-              radial-gradient(circle at 80% 20%, rgba(52, 211, 153, 0.1) 0%, transparent 50%),
-              radial-gradient(circle at 40% 40%, rgba(167, 243, 208, 0.05) 0%, transparent 50%),
-              linear-gradient(135deg, #f0fdf4 0%, #ecfdf5 100%);
+          .bounce-dot:nth-child(1) { animation-delay: -0.32s; }
+          .bounce-dot:nth-child(2) { animation-delay: -0.16s; }
+          
+          .pulse-glow {
+            animation: pulse-glow 2s ease-in-out infinite;
           }
+          
+          .slide-up {
+            animation: slide-up 0.8s ease-out forwards;
+          }
+          
+          .slide-up-delay-1 { animation-delay: 0.2s; opacity: 0; }
+          .slide-up-delay-2 { animation-delay: 0.4s; opacity: 0; }
+          .slide-up-delay-3 { animation-delay: 0.6s; opacity: 0; }
           
           @media (max-width: 768px) {
-            .mobile-text {
+            .mobile-title {
               font-size: 2rem;
             }
             .mobile-subtitle {
               font-size: 0.875rem;
             }
             .mobile-logo {
-              height: 6rem;
+              height: 5rem;
             }
           }
           
           @media (max-width: 480px) {
-            .mobile-text {
+            .mobile-title {
               font-size: 1.5rem;
             }
             .mobile-subtitle {
@@ -127,59 +142,62 @@ const EnhancedLoadingScreen = ({ Logo }) => {
         `}
         </style>
 
-        <div className="fixed inset-0 loading-bg flex flex-col items-center justify-center z-50 px-4">
-          {/* Decorative elements */}
-          <div className="absolute top-10 left-10 w-16 h-16 bg-green-200/30 rounded-full animate-float"></div>
-          <div className="absolute top-32 right-16 w-8 h-8 bg-emerald-300/40 rounded-full animate-float" style={{ animationDelay: '0.5s' }}></div>
-          <div className="absolute bottom-20 left-20 w-12 h-12 bg-green-100/50 rounded-full animate-float" style={{ animationDelay: '1s' }}></div>
-          <div className="absolute bottom-32 right-10 w-6 h-6 bg-emerald-200/60 rounded-full animate-float" style={{ animationDelay: '1.5s' }}></div>
+        <div className="fixed inset-0 gradient-bg flex flex-col items-center justify-center z-50 px-4">
+          {/* Overlay for better text readability */}
+          <div className="absolute inset-0 bg-black/20"></div>
           
-          {/* Main loading content */}
-          <div className="text-center max-w-md mx-auto">
-            {/* Logo with enhanced animation */}
-            <div className="relative mb-8">
-              <div className="absolute inset-0 bg-gradient-to-r from-green-400 to-emerald-500 rounded-full blur-xl opacity-20 animate-leaf-sway"></div>
-              <img
-                src={Logo}
-                alt="Loading..."
-                className="relative h-24 sm:h-28 md:h-36 mobile-logo w-auto mx-auto animate-grow-shrink animate-leaf-sway"
-              />
+          {/* Floating geometric elements */}
+          <div className="absolute top-20 left-20 w-16 h-16 border-2 border-white/20 rounded-lg rotate-45 animate-spin-slow"></div>
+          <div className="absolute top-40 right-32 w-8 h-8 border border-white/30 rounded-full bounce-dot"></div>
+          <div className="absolute bottom-32 left-32 w-12 h-12 border-2 border-white/25 rounded-lg pulse-glow"></div>
+          <div className="absolute bottom-20 right-20 w-6 h-6 bg-white/20 rounded-full bounce-dot" style={{ animationDelay: '0.5s' }}></div>
+          
+          {/* Main loading container */}
+          <div className="relative z-10 text-center max-w-lg mx-auto">
+            {/* Logo container with glass effect */}
+            <div className="slide-up mb-8">
+              <div className="glass-effect rounded-2xl p-6 inline-block pulse-glow">
+                <img
+                  src={Logo}
+                  alt="Smart Kitchen Solutions"
+                  className="h-20 sm:h-24 md:h-32 mobile-logo w-auto mx-auto"
+                />
+              </div>
             </div>
             
-            {/* Main title with shimmer effect */}
-            <div className="animate-fade-in-up" style={{ animationDelay: '0.3s' }}>
-              <h1 className="text-3xl sm:text-4xl md:text-5xl mobile-text font-bold mb-4 animate-shimmer">
-                Ranveer Rose Nursery
+            {/* Company name */}
+            <div className="slide-up slide-up-delay-1 mb-4">
+              <h1 className="text-4xl sm:text-5xl md:text-6xl mobile-title font-bold text-white mb-2">
+                Smart Kitchen
               </h1>
+              <h2 className="text-3xl sm:text-4xl md:text-5xl font-light text-white/90 shimmer-text">
+                Solutions
+              </h2>
             </div>
             
-            {/* Subtitle */}
-            <div className="animate-fade-in-up" style={{ animationDelay: '0.6s' }}>
-              <p className="text-sm sm:text-base md:text-lg mobile-subtitle text-green-700 mb-8 font-medium">
-                Growing Beauty, Nurturing Nature
+            {/* Tagline */}
+            <div className="slide-up slide-up-delay-2 mb-8">
+              <p className="text-base sm:text-lg md:text-xl text-white/80 font-light tracking-wide">
+                Innovating Culinary Excellence
               </p>
             </div>
             
             {/* Loading indicator */}
-            <div className="animate-fade-in-up" style={{ animationDelay: '0.9s' }}>
-              <div className="flex items-center justify-center space-x-2 mb-4">
-                <div className="w-2 h-2 bg-green-500 rounded-full animate-dot-pulse"></div>
-                <div className="w-2 h-2 bg-green-500 rounded-full animate-dot-pulse" style={{ animationDelay: '0.2s' }}></div>
-                <div className="w-2 h-2 bg-green-500 rounded-full animate-dot-pulse" style={{ animationDelay: '0.4s' }}></div>
+            <div className="slide-up slide-up-delay-3">
+              <div className="flex items-center justify-center space-x-3 mb-6">
+                <div className="w-3 h-3 bg-white rounded-full bounce-dot"></div>
+                <div className="w-3 h-3 bg-white rounded-full bounce-dot"></div>
+                <div className="w-3 h-3 bg-white rounded-full bounce-dot"></div>
               </div>
-              <p className="text-green-600 text-xs sm:text-sm font-medium">
-                Preparing your garden experience...
-              </p>
             </div>
           </div>
           
-          {/* Bottom decorative pattern */}
-          <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-green-100/20 to-transparent"></div>
+          {/* Bottom gradient overlay */}
+          <div className="absolute bottom-0 left-0 right-0 h-24 bg-gradient-to-t from-black/30 to-transparent"></div>
           
-          {/* Floating leaves decoration */}
-          <div className="absolute top-1/4 left-1/4 text-green-300/40 text-2xl animate-float animate-leaf-sway">🌿</div>
-          <div className="absolute top-1/3 right-1/3 text-green-400/30 text-xl animate-float" style={{ animationDelay: '1s' }}>🌱</div>
-          <div className="absolute bottom-1/4 right-1/4 text-emerald-300/40 text-2xl animate-float animate-leaf-sway" style={{ animationDelay: '0.7s' }}>🍃</div>
+          {/* Side decorative lines */}
+          <div className="absolute left-8 top-1/2 -translate-y-1/2 w-px h-32 bg-white/20"></div>
+          <div className="absolute right-8 top-1/2 -translate-y-1/2 w-px h-32 bg-white/20"></div>
         </div>
       </>
     );

@@ -1,22 +1,22 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { NavLink } from 'react-router-dom';
-import Logo from '../assets/logo.png';
+import logo from "../assets/logo.jpg"
 
 function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
-  const [isPlantsDropdownOpen, setIsPlantsDropdownOpen] = useState(false);
-  const [isMobilePlantsOpen, setIsMobilePlantsOpen] = useState(false);
+  const [isProductsDropdownOpen, setIsProductsDropdownOpen] = useState(false);
+  const [isMobileProductsOpen, setIsMobileProductsOpen] = useState(false);
   const dropdownRef = useRef(null);
   const hoverTimeoutRef = useRef(null);
 
-  const activeClass = "text-green-600 font-semibold border-b-2 border-green-500";
-  const normalClass = "text-gray-700 hover:text-green-600 transition-all duration-300 hover:scale-105";
+  const activeClass = "text-white bg-[#3a3f5c] border-b-2 border-cyan-400";
+  const normalClass = "text-gray-300 hover:text-white hover:bg-[#3a3f5c] transition-all duration-300";
 
   // Close dropdown when clicking outside
   useEffect(() => {
     function handleClickOutside(event) {
       if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
-        setIsPlantsDropdownOpen(false);
+        setIsProductsDropdownOpen(false);
       }
     }
     document.addEventListener('mousedown', handleClickOutside);
@@ -28,12 +28,12 @@ function Navbar() {
     if (hoverTimeoutRef.current) {
       clearTimeout(hoverTimeoutRef.current);
     }
-    setIsPlantsDropdownOpen(true);
+    setIsProductsDropdownOpen(true);
   };
 
   const handleMouseLeave = () => {
     hoverTimeoutRef.current = setTimeout(() => {
-      setIsPlantsDropdownOpen(false);
+      setIsProductsDropdownOpen(false);
     }, 150);
   };
 
@@ -46,198 +46,171 @@ function Navbar() {
     };
   }, []);
 
-  const plantCategories = [
-    { name: 'Indoor Plants', path: '/plants', emoji: '🏡' },       // house plant
-    { name: 'Outdoor Plants', path: '/plants', emoji: '🌳' },      // tree outdoors
-    { name: 'Fruit Plants', path: '/plants', emoji: '🍎' },        // apple
-    { name: 'Forest Plants', path: '/plants', emoji: '🌲' },       // evergreen tree
-    { name: 'Micro Plants', path: '/plants', emoji: '🌱' },        // potted plant
-    { name: 'Landscaping Plants', path: '/plants', emoji: '🌿' },  // leaf / greenery
-    { name: 'Flowering Plants', path: '/plants', emoji: '🌸' },    // flower blossom
-    { name: 'Imported Plants', path: '/plants', emoji: '✈️' },    // Imported varieties
+  const productCategories = [
+    { name: 'Smart Appliances', path: '/products', icon: '📱' },
+    { name: 'Modular Kitchens', path: '/products', icon: '🏗️' },
+    { name: 'Storage Solutions', path: '/products', icon: '📦' },
+    { name: 'Lighting Systems', path: '/products', icon: '💡' },
+    { name: 'Countertops', path: '/products', icon: '🪨' },
+    { name: 'Cabinets & Drawers', path: '/products', icon: '🗄️' },
+    { name: 'Kitchen Accessories', path: '/products', icon: '🔧' },
+    { name: 'Premium Collection', path: '/products', icon: '⭐' },
   ];
 
-
   return (
-    <header className="bg-gradient-to-r from-green-50 to-amber-50 backdrop-blur-md shadow-md sticky top-0 z-50 transition-all duration-300 border-b border-green-100">
+    <header className="bg-[#282b40] shadow-xl sticky top-0 z-50 border-b-2 border-[#3a3f5c]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between items-center py-2">
+        <div className="flex justify-between items-center py-4">
           {/* Logo Section */}
-          <div className="flex items-center space-x-3">
-            <NavLink to="/" className="w-16 h-16 flex items-center justify-center">
-              <img src={Logo} alt="Ranveer Rose Nursery Logo" className="w-14 h-14 object-contain" />
+          <div className="flex items-center space-x-4">
+            <NavLink to="/" className="flex items-center space-x-3 group">
+              <div className="w-18 flex items-center justify-center">
+                <img src={logo} alt="" />
+              </div>
+              <div>
+                <h1 className="text-xl font-bold text-white tracking-wide uppercase">Smart Kitchen Solutions</h1>
+                <p className="text-xs text-cyan-400 font-medium tracking-wider">INNOVATION IN EVERY CORNER</p>
+              </div>
             </NavLink>
-            <div>
-              <h1 className="text-2xl font-bold text-green-800">Ranveer Rose Nursery</h1>
-              <p className="text-sm text-amber-700 font-medium">Growing Nature's Beauty</p>
-            </div>
           </div>
 
           {/* Desktop Nav */}
-          <nav className="hidden lg:flex justify-center space-x-6">
+          <nav className="hidden lg:flex items-center space-x-1">
             <NavLink
               to="/"
-              className={({ isActive }) => `px-4 py-2 rounded-md ${isActive ? activeClass : normalClass}`}
+              className={({ isActive }) => `px-5 py-3 text-sm font-medium tracking-wide uppercase ${isActive ? activeClass : normalClass}`}
             >
-              🏠 Home
+              Home
             </NavLink>
             <NavLink
               to="/about"
-              className={({ isActive }) => `px-4 py-2 rounded-md ${isActive ? activeClass : normalClass}`}
+              className={({ isActive }) => `px-5 py-3 text-sm font-medium tracking-wide uppercase ${isActive ? activeClass : normalClass}`}
             >
-              🌱 About
+              Who we are?
             </NavLink>
 
-            {/* Plants Dropdown */}
+            {/* Products Dropdown */}
             <div className="relative" ref={dropdownRef}>
               <button
-                className={`px-4 py-2 rounded-md flex items-center space-x-1 ${normalClass}`}
+                className={`px-5 py-3 text-sm font-medium tracking-wide uppercase flex items-center space-x-2 ${normalClass}`}
                 onMouseEnter={handleMouseEnter}
                 onMouseLeave={handleMouseLeave}
-                onClick={() => setIsPlantsDropdownOpen(!isPlantsDropdownOpen)}
+                onClick={() => setIsProductsDropdownOpen(!isProductsDropdownOpen)}
               >
-                <span>🌿 Plants</span>
+                <span>Products</span>
                 <svg
-                  className={`w-4 h-4 transition-transform duration-200 ${isPlantsDropdownOpen ? 'rotate-180' : ''}`}
+                  className={`w-4 h-4 transition-transform duration-200 ${isProductsDropdownOpen ? 'rotate-180' : ''}`}
                   fill="none"
                   stroke="currentColor"
                   viewBox="0 0 24 24"
                 >
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                  <path strokeLinecap="square" strokeLinejoin="miter" strokeWidth={2} d="M19 9l-7 7-7-7" />
                 </svg>
               </button>
 
               {/* Dropdown Menu */}
-              {isPlantsDropdownOpen && (
+              {isProductsDropdownOpen && (
                 <div
-                  className="absolute top-full left-0 mt-1 w-56 bg-white rounded-lg shadow-lg border border-green-100 py-2 z-10"
+                  className="absolute top-full left-0 mt-0 w-64 bg-[#1f2235] shadow-2xl border-t-2 border-cyan-400 z-10"
                   onMouseEnter={handleMouseEnter}
                   onMouseLeave={handleMouseLeave}
                 >
-                  {plantCategories.map((category) => (
+                  {productCategories.map((category) => (
                     <NavLink
                       key={category.name}
                       to={category.path}
-                      state={{ category: category.name }} // ✅ Pass category name in state
-                      className="flex items-center space-x-3 px-4 py-3 text-gray-700 hover:bg-green-50 hover:text-green-600 transition-all duration-200"
-                      onClick={() => setIsPlantsDropdownOpen(false)}
+                      state={{ category: category.name }}
+                      className="flex items-center space-x-3 px-5 py-4 text-gray-300 hover:bg-[#282b40] hover:text-white border-b border-[#282b40] transition-all duration-200"
+                      onClick={() => setIsProductsDropdownOpen(false)}
                     >
-                      <span>{category.emoji}</span>
-                      <span>{category.name}</span>
+                      <span className="text-xl">{category.icon}</span>
+                      <span className="text-sm font-medium">{category.name}</span>
                     </NavLink>
                   ))}
                 </div>
               )}
             </div>
-
-            <NavLink
-              to="/services"
-              className={({ isActive }) => `px-4 py-2 rounded-md ${isActive ? activeClass : normalClass}`}
-            >
-              🛠️ Services
-            </NavLink>
-            {/* <NavLink
-              to="/reviews"
-              className={({ isActive }) => `px-4 py-2 rounded-md ${isActive ? activeClass : normalClass}`}
-            >
-              💬 Reviews
-            </NavLink> */}
             <NavLink
               to="/contact"
-              className={({ isActive }) => `px-4 py-2 rounded-md bg-green-600 text-white hover:bg-green-700 shadow-md hover:shadow-lg transition-all duration-300 ${isActive ? 'bg-green-700' : ''}`}
+              className={({ isActive }) => `px-5 py-3 ml-2 text-sm font-bold tracking-wider uppercase bg-gradient-to-r from-cyan-500 to-blue-600 text-white hover:from-cyan-600 hover:to-blue-700 shadow-lg hover:shadow-cyan-500/50 transition-all duration-300 ${isActive ? 'shadow-xl' : ''}`}
             >
-              📞 Contact Us
+              Reach Us
             </NavLink>
           </nav>
 
           {/* Mobile Menu Button */}
           <button
-            className="lg:hidden p-3 focus:outline-none bg-white rounded-lg shadow-sm hover:shadow-md transition-shadow duration-300"
+            className="lg:hidden p-2 focus:outline-none bg-[#3a3f5c] hover:bg-[#4a4f6c] transition-colors duration-300"
             onClick={() => setIsOpen(!isOpen)}
           >
             <div className="w-6 h-6 flex flex-col justify-center items-center">
-              <span className={`w-5 h-0.5 bg-green-700 mb-1 transform transition-transform duration-300 ${isOpen ? 'rotate-45 translate-y-2' : ''}`}></span>
-              <span className={`w-5 h-0.5 bg-green-700 mb-1 transition-opacity duration-300 ${isOpen ? 'opacity-0' : ''}`}></span>
-              <span className={`w-5 h-0.5 bg-green-700 transform transition-transform duration-300 ${isOpen ? '-rotate-45 -translate-y-1' : ''}`}></span>
+              <span className={`w-6 h-0.5 bg-white mb-1.5 transform transition-transform duration-300 ${isOpen ? 'rotate-45 translate-y-2' : ''}`}></span>
+              <span className={`w-6 h-0.5 bg-white mb-1.5 transition-opacity duration-300 ${isOpen ? 'opacity-0' : ''}`}></span>
+              <span className={`w-6 h-0.5 bg-white transform transition-transform duration-300 ${isOpen ? '-rotate-45 -translate-y-2' : ''}`}></span>
             </div>
           </button>
         </div>
 
         {/* Mobile Nav */}
         {isOpen && (
-          <nav className="lg:hidden mt-4 mb-4 flex flex-col space-y-2 bg-white/90 backdrop-blur-sm rounded-xl shadow-lg p-4 border border-green-100">
+          <nav className="lg:hidden pb-4 flex flex-col space-y-0 bg-[#1f2235] mt-2 border-t-2 border-[#3a3f5c]">
             <NavLink
               to="/"
-              className={({ isActive }) => `px-4 py-3 rounded-lg flex items-center space-x-3 ${isActive ? 'bg-green-100 text-green-700 font-semibold' : 'text-gray-700 hover:bg-green-50 hover:text-green-600'} transition-all duration-300`}
+              className={({ isActive }) => `px-5 py-4 flex items-center space-x-3 border-b border-[#282b40] ${isActive ? 'bg-[#3a3f5c] text-white font-semibold' : 'text-gray-300 hover:bg-[#282b40] hover:text-white'} transition-all duration-300`}
               onClick={() => setIsOpen(false)}
             >
-              <span>🏠</span><span>Home</span>
+              <span className="text-lg">🏠</span><span className="text-sm font-medium">Home</span>
             </NavLink>
             <NavLink
               to="/about"
-              className={({ isActive }) => `px-4 py-3 rounded-lg flex items-center space-x-3 ${isActive ? 'bg-green-100 text-green-700 font-semibold' : 'text-gray-700 hover:bg-green-50 hover:text-green-600'} transition-all duration-300`}
+              className={({ isActive }) => `px-5 py-4 flex items-center space-x-3 border-b border-[#282b40] ${isActive ? 'bg-[#3a3f5c] text-white font-semibold' : 'text-gray-300 hover:bg-[#282b40] hover:text-white'} transition-all duration-300`}
               onClick={() => setIsOpen(false)}
             >
-              <span>🌱</span><span>About</span>
+              <span className="text-lg">ℹ️</span><span className="text-sm font-medium">About</span>
             </NavLink>
 
-            {/* Mobile Plants Section with Submenu */}
+            {/* Mobile Products Section with Submenu */}
             <div>
               <button
-                className="w-full px-4 py-3 rounded-lg flex items-center justify-between text-gray-700 hover:bg-green-50 hover:text-green-600 transition-all duration-300"
-                onClick={() => setIsMobilePlantsOpen(!isMobilePlantsOpen)}
+                className="w-full px-5 py-4 flex items-center justify-between text-gray-300 hover:bg-[#282b40] hover:text-white border-b border-[#282b40] transition-all duration-300"
+                onClick={() => setIsMobileProductsOpen(!isMobileProductsOpen)}
               >
                 <div className="flex items-center space-x-3">
-                  <span>🌿</span><span>Plants</span>
+                  <span className="text-lg">📦</span><span className="text-sm font-medium">Products</span>
                 </div>
                 <svg
-                  className={`w-4 h-4 transition-transform duration-200 ${isMobilePlantsOpen ? 'rotate-180' : ''}`}
+                  className={`w-4 h-4 transition-transform duration-200 ${isMobileProductsOpen ? 'rotate-180' : ''}`}
                   fill="none"
                   stroke="currentColor"
                   viewBox="0 0 24 24"
                 >
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                  <path strokeLinecap="square" strokeLinejoin="miter" strokeWidth={2} d="M19 9l-7 7-7-7" />
                 </svg>
               </button>
 
-              {isMobilePlantsOpen && (
-                <div className="ml-4 mt-2 space-y-1">
-                  {plantCategories.map((category) => (
+              {isMobileProductsOpen && (
+                <div className="bg-[#282b40]">
+                  {productCategories.map((category) => (
                     <NavLink
-                      key={category.path}
+                      key={category.name}
                       to={category.path}
                       state={{ category: category.name }}
-                      className="px-4 py-2 rounded-lg flex items-center space-x-3 text-gray-600 hover:bg-green-50 hover:text-green-600 transition-all duration-300 text-sm"
-                      onClick={() => { setIsOpen(false); setIsMobilePlantsOpen(false); }}
+                      className="px-8 py-3 flex items-center space-x-3 text-gray-400 hover:bg-[#3a3f5c] hover:text-white border-b border-[#1f2235] transition-all duration-300 text-sm"
+                      onClick={() => { setIsOpen(false); setIsMobileProductsOpen(false); }}
                     >
-                      <span>{category.emoji}</span>
+                      <span>{category.icon}</span>
                       <span>{category.name}</span>
                     </NavLink>
                   ))}
                 </div>
               )}
             </div>
-
-            <NavLink
-              to="/services"
-              className={({ isActive }) => `px-4 py-3 rounded-lg flex items-center space-x-3 ${isActive ? 'bg-green-100 text-green-700 font-semibold' : 'text-gray-700 hover:bg-green-50 hover:text-green-600'} transition-all duration-300`}
-              onClick={() => setIsOpen(false)}
-            >
-              <span>🛠️</span><span>Services</span>
-            </NavLink>
-            {/* <NavLink
-              to="/reviews"
-              className={({ isActive }) => `px-4 py-3 rounded-lg flex items-center space-x-3 ${isActive ? 'bg-green-100 text-green-700 font-semibold' : 'text-gray-700 hover:bg-green-50 hover:text-green-600'} transition-all duration-300`}
-              onClick={() => setIsOpen(false)}
-            >
-              <span>💬</span><span>Reviews</span>
-            </NavLink> */}
             <NavLink
               to="/contact"
-              className="px-4 py-3 rounded-lg flex items-center space-x-3 bg-green-600 text-white hover:bg-green-700 transition-all duration-300 mt-2"
+              className="px-5 py-4 flex items-center space-x-3 bg-gradient-to-r from-cyan-500 to-blue-600 text-white hover:from-cyan-600 hover:to-blue-700 transition-all duration-300"
               onClick={() => setIsOpen(false)}
             >
-              <span>📞</span><span>Contact Us</span>
+              <span className="text-lg">📞</span><span className="text-sm font-bold">Get Quote</span>
             </NavLink>
           </nav>
         )}

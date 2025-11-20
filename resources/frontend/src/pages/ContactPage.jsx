@@ -29,7 +29,6 @@ function ContactForm() {
             alert('Name must contain only alphabets and spaces, and be at most 100 characters long');
             return;
         } else if (formData.email && !/\S+@\S+\.\S+/.test(formData.email)) {
-            // ✅ Only check if email is not empty
             alert('Please enter a valid email address');
             return;
         } else if (!/^[9876]\d{9}$/.test(formData.phone)) {
@@ -60,48 +59,59 @@ function ContactForm() {
         }
     };
 
-
-
     if (submitted) {
         return (
-            <div className="bg-white p-10 rounded-3xl shadow-xl text-center animate-fade-in">
-                <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                    <span className="text-green-600 text-3xl">✓</span>
+            <div className="bg-[#1f2235] border-2 border-[#06b6d4] p-12 text-center animate-fade-in">
+                <div className="w-20 h-20 bg-[#06b6d4] flex items-center justify-center mx-auto mb-6">
+                    <span className="text-white text-4xl font-bold">✓</span>
                 </div>
-                <h3 className="text-2xl font-bold text-green-800 mb-2">Thank You!</h3>
-                <p className="text-gray-600">Your message has been received. We’ll get back to you soon!</p>
+                <h3 className="text-3xl font-bold text-white mb-4">Thank You!</h3>
+                <p className="text-gray-300 text-lg">Your message has been received. We'll get back to you soon!</p>
             </div>
         );
     }
 
     return (
-        <div className="bg-white p-10 rounded-3xl shadow-xl border border-green-100 animate-fade-in">
-            <h3 className="text-3xl font-bold text-green-800 mb-6">🌱 Send Us a Message</h3>
-            <p className="text-gray-500 mb-6">We’d love to hear from you! Fill out the form below and we’ll respond as quickly as possible.</p>
+        <div className="bg-[#1f2235] border-2 border-[#06b6d4]/30 p-10 animate-fade-in">
+            <div className="mb-8">
+                <span className="text-[#06b6d4] text-sm font-semibold tracking-wider uppercase border border-[#06b6d4] px-4 py-2 inline-block mb-4">Contact Form</span>
+                <h3 className="text-3xl font-bold text-white mb-3">Send Us a Message</h3>
+                <p className="text-gray-300">We'd love to hear from you! Fill out the form below and we'll respond as quickly as possible.</p>
+            </div>
 
             <div className="space-y-6">
-                {errorMessage && <p className="text-red-600 font-medium">{errorMessage}</p>}
+                {errorMessage && (
+                    <div className="bg-red-500/10 border border-red-500 p-4 text-red-400">
+                        {errorMessage}
+                    </div>
+                )}
 
                 <InputField
                     label="Full Name *"
                     name="name"
                     value={formData.name}
                     onChange={(e) => {
-                        // Allow only alphabets and spaces, max 100 chars
                         const onlyAlphabets = e.target.value.replace(/[^A-Za-z\s]/g, "").slice(0, 100);
                         setFormData({ ...formData, name: onlyAlphabets });
                     }}
                     placeholder="Enter your full name"
                     required
                 />
-                <InputField label="Email Address (optional)" name="email" value={formData.email} onChange={handleChange} placeholder="Enter your email address" type="email" />
+                <InputField 
+                    label="Email Address (optional)" 
+                    name="email" 
+                    value={formData.email} 
+                    onChange={handleChange} 
+                    placeholder="Enter your email address" 
+                    type="email" 
+                />
                 <InputField
                     label="Phone Number *"
                     name="phone"
                     value={formData.phone}
                     onChange={(e) => {
-                        const onlyDigits = e.target.value.replace(/\D/g, ""); // remove non-digits
-                        setFormData({ ...formData, phone: onlyDigits.slice(0, 10) }); // max 10 digits
+                        const onlyDigits = e.target.value.replace(/\D/g, "");
+                        setFormData({ ...formData, phone: onlyDigits.slice(0, 10) });
                     }}
                     placeholder="Enter your phone number"
                     type="tel"
@@ -109,14 +119,14 @@ function ContactForm() {
                 />
 
                 <div>
-                    <label className="block text-sm font-semibold text-green-700 mb-2">Message *</label>
+                    <label className="block text-sm font-semibold text-[#06b6d4] mb-2 uppercase tracking-wider">Message *</label>
                     <textarea
                         name="message"
                         value={formData.message}
                         onChange={handleChange}
                         required
                         rows="5"
-                        className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-green-500 focus:border-transparent transition-all duration-300 resize-none"
+                        className="w-full px-4 py-3 bg-[#282b40] border border-[#06b6d4]/30 text-white placeholder-gray-500 focus:border-[#06b6d4] focus:outline-none transition-all duration-300 resize-none"
                         placeholder="Tell us about your project requirements..."
                     ></textarea>
                 </div>
@@ -124,7 +134,7 @@ function ContactForm() {
                 <button
                     onClick={handleSubmit}
                     disabled={isSubmitting}
-                    className="w-full bg-green-600 text-white py-4 rounded-xl font-semibold hover:bg-green-700 transform hover:scale-105 transition-all duration-300 shadow-lg disabled:opacity-70 disabled:cursor-not-allowed disabled:transform-none"
+                    className="w-full bg-[#06b6d4] text-white py-4 font-semibold hover:bg-[#0891b2] transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed"
                 >
                     {isSubmitting ? (
                         <div className="flex items-center justify-center">
@@ -143,14 +153,14 @@ function ContactForm() {
 function InputField({ label, name, value, onChange, placeholder, type = 'text' }) {
     return (
         <div>
-            <label className="block text-sm font-semibold text-green-700 mb-2">{label}</label>
+            <label className="block text-sm font-semibold text-[#06b6d4] mb-2 uppercase tracking-wider">{label}</label>
             <input
                 type={type}
                 name={name}
                 value={value}
                 onChange={onChange}
                 required
-                className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-green-500 focus:border-transparent transition-all duration-300"
+                className="w-full px-4 py-3 bg-[#282b40] border border-[#06b6d4]/30 text-white placeholder-gray-500 focus:border-[#06b6d4] focus:outline-none transition-all duration-300"
                 placeholder={placeholder}
             />
         </div>
@@ -159,12 +169,31 @@ function InputField({ label, name, value, onChange, placeholder, type = 'text' }
 
 function ContactPage() {
     return (
-        <div className="min-h-screen bg-gradient-to-br from-green-50 via-white to-green-100">
+        <div className="min-h-screen bg-[#282b40]">
             <Navbar />
-            <section className="py-12 px-4 sm:px-6 lg:px-8">
+            
+            {/* Hero Section */}
+            <section className="pt-20 pb-12 bg-[#282b40] relative overflow-hidden">
+                <div className="absolute inset-0 opacity-5">
+                    <div className="absolute top-0 left-0 w-96 h-96 bg-[#06b6d4] blur-3xl"></div>
+                    <div className="absolute bottom-0 right-0 w-96 h-96 bg-[#06b6d4] blur-3xl"></div>
+                </div>
+
+                <div className="max-w-7xl mx-auto px-4 text-center relative z-10">
+                    <h1 className="text-5xl sm:text-6xl font-bold text-white mb-6">
+                        Contact <span className="text-[#06b6d4]">Us</span>
+                    </h1>
+                    <p className="text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed">
+                        Have questions about our smart kitchen solutions? We're here to help you transform your cooking space.
+                    </p>
+                </div>
+            </section>
+
+            {/* Contact Form and Info Section */}
+            <section className="py-16 px-4 sm:px-6 lg:px-8">
                 <div className="max-w-7xl mx-auto">
                     <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
-                        <div className="animate-fade-in-up" style={{ animationDelay: "0.3s" }}>
+                        <div className="animate-fade-in-up" style={{ animationDelay: "0.2s" }}>
                             <ContactForm />
                         </div>
                         <div className="space-y-8">
@@ -173,23 +202,57 @@ function ContactPage() {
                     </div>
                 </div>
             </section>
+
+            {/* Contact Info Cards */}
+            <section className="py-16 px-4 bg-[#1f2235]">
+                <div className="max-w-7xl mx-auto">
+                    <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+                        <ContactInfoCard 
+                            icon="📧"
+                            title="Email Us"
+                            info="support@smartkitchen.com"
+                            description="Send us an email anytime"
+                        />
+                        <ContactInfoCard 
+                            icon="📞"
+                            title="Call Us"
+                            info="+91 98765 43210"
+                            description="Mon-Sat, 9AM to 6PM"
+                        />
+                        <ContactInfoCard 
+                            icon="📍"
+                            title="Visit Us"
+                            info="Pune, Maharashtra"
+                            description="Schedule an appointment"
+                        />
+                    </div>
+                </div>
+            </section>
+
             <Footer />
         </div>
     );
 }
 
-function MapAndBusinessHours() {
+function ContactInfoCard({ icon, title, info, description }) {
+    return (
+        <div className="bg-[#282b40] border border-[#06b6d4]/30 p-8 hover:border-[#06b6d4] transition-all duration-300 text-center">
+            <div className="text-5xl mb-4">{icon}</div>
+            <h3 className="text-xl font-bold text-white mb-2">{title}</h3>
+            <p className="text-[#06b6d4] font-semibold mb-2">{info}</p>
+            <p className="text-gray-400 text-sm">{description}</p>
+        </div>
+    );
+}
 
+function MapAndBusinessHours() {
     const [user, setUser] = useState({});
 
     useEffect(() => {
         const fetchStats = async () => {
             try {
-
-                // Fetch user (assuming 1st user = admin)
                 const userRes = await axios.get(`${host}/api/users/1`);
                 const user = userRes.data.data;
-
                 setUser(user);
             } catch (error) {
                 console.error("Error fetching stats:", error);
@@ -198,12 +261,12 @@ function MapAndBusinessHours() {
         fetchStats();
     }, []);
 
-
     return (
         <>
-            <div className="bg-white rounded-3xl shadow-xl overflow-hidden border border-green-100 animate-fade-in-up" style={{ animationDelay: "0.4s" }}>
-                <div className="p-6">
-                    <h3 className="text-2xl font-bold text-green-800 mb-4">📍 Our Location</h3>
+            <div className="bg-[#1f2235] border-2 border-[#06b6d4]/30 overflow-hidden animate-fade-in-up" style={{ animationDelay: "0.3s" }}>
+                <div className="p-6 border-b border-[#06b6d4]/30">
+                    <span className="text-[#06b6d4] text-sm font-semibold tracking-wider uppercase">Location</span>
+                    <h3 className="text-2xl font-bold text-white mt-2">Our Location</h3>
                 </div>
                 <div className="h-80">
                     <iframe
@@ -214,19 +277,30 @@ function MapAndBusinessHours() {
                         allowFullScreen=""
                         loading="lazy"
                         referrerPolicy="no-referrer-when-downgrade"
-                        title="Nursery Location"
+                        title="Office Location"
                     ></iframe>
                 </div>
             </div>
 
-            <div className="bg-white p-8 rounded-3xl shadow-xl border border-green-100 animate-fade-in-up" style={{ animationDelay: "0.5s" }}>
-                <h3 className="text-2xl font-bold text-green-800 mb-6">🕒 Business Hours</h3>
-                <div className="space-y-3 text-gray-700 font-medium">
-                    <div>Monday-Saturday: <span className="text-red-500">{user?.business_hours}</span></div>
-                    <div>Sunday: <span className="text-red-500">Closed</span></div>
+            <div className="bg-[#1f2235] border-2 border-[#06b6d4]/30 p-8 animate-fade-in-up" style={{ animationDelay: "0.4s" }}>
+                <div className="mb-6">
+                    <span className="text-[#06b6d4] text-sm font-semibold tracking-wider uppercase">Hours</span>
+                    <h3 className="text-2xl font-bold text-white mt-2">Business Hours</h3>
                 </div>
-                <div className="mt-6 p-4 bg-green-50 rounded-xl">
-                    <p className="text-green-700 text-sm"><strong>Contact:</strong> Available 24/7 for any issues or help.</p>
+                <div className="space-y-4">
+                    <div className="flex justify-between items-center py-3 border-b border-[#06b6d4]/20">
+                        <span className="text-gray-300 font-medium">Monday - Saturday</span>
+                        <span className="text-[#06b6d4] font-bold">{user?.business_hours || '9:00 AM - 6:00 PM'}</span>
+                    </div>
+                    <div className="flex justify-between items-center py-3 border-b border-[#06b6d4]/20">
+                        <span className="text-gray-300 font-medium">Sunday</span>
+                        <span className="text-red-400 font-bold">Closed</span>
+                    </div>
+                </div>
+                <div className="mt-6 p-4 bg-[#282b40] border-l-4 border-[#06b6d4]">
+                    <p className="text-gray-300 text-sm">
+                        <span className="text-[#06b6d4] font-bold">24/7 Support:</span> Available round the clock for emergency assistance and technical support.
+                    </p>
                 </div>
             </div>
         </>

@@ -1,237 +1,301 @@
 import React, { useEffect, useState } from "react";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
-import PlantCard from "../components/PlantCard";
+import ProductCard from "../components/ProductCard";
 import { Link } from "react-router-dom";
-import host from "../utils/host"
-import axios from 'axios';
-import Plants from "../utils/Plants";
-import Plantss from "../components/Plants"
 
+const SmartKitchenHomepage = () => {
+  const [currentSlide, setCurrentSlide] = useState(0);
 
-const NurseryHomepage = () => {
-
-  const [user, setUser] = useState();
-
-  useEffect(() => {
-    const fetchStats = async () => {
-      try {
-
-        // Fetch user (assuming 1st user = admin)
-        const userRes = await axios.get(`${host}/api/users/1`);
-        const user = userRes.data.data;
-
-        setUser(user);
-        setHappyCustomers(user?.happy_clients)
-        setYearsExperience(user?.years_of_experience)
-      } catch (error) {
-        console.error("Error fetching stats:", error);
-      }
-    }
-    fetchStats();
-  }, []);
-
+ 
 
   // Animated numbers
-  const [plantVarieties, setPlantVarieties] = useState(500);
-  const [happyCustomers, setHappyCustomers] = useState();
-  const [yearsExperience, setYearsExperience] = useState();
-  const [isScrolled, setIsScrolled] = useState(false);
+  const [projectsCompleted, setProjectsCompleted] = useState(500);
+  const [yearsExperience, setYearsExperience] = useState(15);
+  const [productsInstalled, setProductsInstalled] = useState(1000);
 
+  // Featured products for carousel
+  const featuredProducts = [
+    {
+      id: 1,
+      name: "Smart Refrigerator Pro",
+      category: "Smart Appliances",
+      image: "https://images.unsplash.com/photo-1571175443880-49e1d25b2bc5?w=500",
+      price: "$2,499"
+    },
+    {
+      id: 2,
+      name: "Modular Cabinet System",
+      category: "Modular Kitchens",
+      image: "https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=500",
+      price: "$4,999"
+    },
+    {
+      id: 3,
+      name: "LED Ambient Lighting",
+      category: "Lighting Systems",
+      image: "https://images.unsplash.com/photo-1556911220-bff31c812dba?w=500",
+      price: "$799"
+    },
+    {
+      id: 4,
+      name: "Granite Countertop",
+      category: "Countertops",
+      image: "https://images.unsplash.com/photo-1556912172-45b7abe8b7e1?w=500",
+      price: "$3,499"
+    },
+    {
+      id: 5,
+      name: "Smart Oven System",
+      category: "Smart Appliances",
+      image: "https://images.unsplash.com/photo-1585659722983-3a675dabf23d?w=500",
+      price: "$1,899"
+    },
+    {
+      id: 6,
+      name: "Storage Organizer Pro",
+      category: "Storage Solutions",
+      image: "https://images.unsplash.com/photo-1556909212-d5b604d0c90d?w=500",
+      price: "$599"
+    }
+  ];
+
+  // Auto-scroll carousel
   useEffect(() => {
-    const animateValue = (setter, start, target, duration = 2000) => {
-      let current = start;
-      const increment = (target - start) / (duration / 16);
-      const timer = setInterval(() => {
-        current += increment;
-        if (current >= target) {
-          current = target;
-          clearInterval(timer);
-        }
-        setter(Math.floor(current));
-      }, 16);
-    };
-
-    // Handle scroll for navbar
-    const handleScroll = () => {
-      setIsScrolled(window.scrollY > 100);
-    };
-
-    window.addEventListener('scroll', handleScroll);
-
-    return () => {
-      window.removeEventListener('scroll', handleScroll);
-    };
+    const timer = setInterval(() => {
+      setCurrentSlide((prev) => (prev + 1) % Math.ceil(featuredProducts.length / 3));
+    }, 4000);
+    return () => clearInterval(timer);
   }, []);
 
-  const scrollToSection = (sectionId) => {
-    const element = document.getElementById(sectionId);
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
-    }
+  const nextSlide = () => {
+    setCurrentSlide((prev) => (prev + 1) % Math.ceil(featuredProducts.length / 3));
+  };
+
+  const prevSlide = () => {
+    setCurrentSlide((prev) => (prev - 1 + Math.ceil(featuredProducts.length / 3)) % Math.ceil(featuredProducts.length / 3));
   };
 
   return (
-    <div className="min-h-screen bg-green-50">
+    <div className="min-h-screen bg-[#1a1d2e]">
       <Navbar />
 
-      {/* Hero Section */}
-      <section id="home" className="flex items-center bg-green-50 px-6 pt-4">
-        <div className="max-w-6xl mx-auto w-full">
-          <div className="flex flex-col lg:flex-row items-center lg:gap-12 xl:gap-16">
-            {/* Left Side Content */}
-            <div className="flex-1 max-w-xl animate-fade-in-left items-center justify-center">
-              <h1 className="text-5xl lg:text-6xl font-bold leading-tight mb-6">
-                Crafting{" "}
-                <span className="text-green-600 relative">
-                  Botanical Dreams
-                  <svg className="absolute -bottom-2 left-0 w-full h-3 text-green-200" viewBox="0 0 100 10">
-                    <path d="M0,8 Q25,2 50,8 T100,8" stroke="currentColor" strokeWidth="2" fill="none" />
-                  </svg>
-                </span>{" "}
-                Into Reality
+      {/* Hero Section with Background Image */}
+      <section className="relative h-screen overflow-hidden">
+        {/* Background Image with Overlay */}
+        <div 
+          className="absolute inset-0 bg-cover bg-center"
+          style={{
+            backgroundImage: "url('https://images.unsplash.com/photo-1556911220-bff31c812dba?w=1920&q=80')",
+          }}
+        >
+          <div className="absolute inset-0 bg-gradient-to-r from-[#282b40]/95 via-[#282b40]/85 to-transparent"></div>
+        </div>
+
+        {/* Content */}
+        <div className="relative z-10 h-full flex items-center">
+          <div className="max-w-7xl mx-auto px-6 w-full">
+            <div className="max-w-3xl">
+              {/* Badge */}
+              <div className="inline-flex items-center space-x-2 bg-cyan-500/10 border border-cyan-500/30 px-4 py-2 mb-6">
+                <span className="w-2 h-2 bg-cyan-400 animate-pulse"></span>
+                <span className="text-cyan-400 text-sm font-medium tracking-wider uppercase">Innovation Meets Design</span>
+              </div>
+
+              {/* Main Heading */}
+              <h1 className="text-6xl lg:text-7xl font-bold text-white mb-6 leading-tight">
+                TRANSFORM YOUR
+                <span className="block text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-blue-500">
+                  KITCHEN EXPERIENCE
+                </span>
               </h1>
-              <p className="text-gray-600 text-lg mb-8 leading-relaxed">
-                Transform your spaces with our curated collection of premium plants,
-                innovative landscaping solutions, and personalized garden design services
-                that bring nature's beauty to your doorstep.
+
+              <p className="text-gray-300 text-lg mb-8 leading-relaxed max-w-2xl">
+                Discover cutting-edge smart kitchen solutions that blend technology, 
+                functionality, and aesthetic excellence. Build the kitchen of your dreams 
+                with our premium modular systems and intelligent appliances.
               </p>
-            </div>
 
-            {/* Right Side Image */}
-            <div className="flex-1 relative animate-fade-in-right">
-              <div className=" ">
-                {/* Decorative circles */}
-                <div className="absolute -top-10 -right-6 w-32 h-32 bg-green-200/30 rounded-full animate-pulse"></div>
-                {/* <div className="absolute -bottom-10 -left-10 w-24 h-24 bg-green-300/40 rounded-full animate-pulse delay-1000"></div> */}
+              {/* CTA Buttons */}
+              <div className="flex flex-col sm:flex-row gap-4 mb-12">
+                <Link 
+                  to="/contact"
+                  className="bg-gradient-to-r from-cyan-500 to-blue-600 text-white px-8 py-4 font-bold tracking-wider uppercase hover:from-cyan-600 hover:to-blue-700 transition-all duration-300 shadow-lg hover:shadow-cyan-500/50 text-center"
+                >
+                  Download Broucher
+                </Link>
+                <Link 
+                  to="/products"
+                  className="border-2 border-cyan-500 text-cyan-400 px-8 py-4 font-bold tracking-wider uppercase hover:bg-cyan-500 hover:text-white transition-all duration-300 text-center"
+                >
+                  View Products
+                </Link>
+              </div>
 
-                {/* Main image container */}
-                <div className="relative ">
-                  <div className="flex flex-col items-center justify-center py-6">
-                    {/* Tags */}
-                    <div className="flex flex-wrap gap-3 mb-8">
-                      <span className="px-4 py-2 bg-white/80 backdrop-blur-sm rounded-full text-sm font-medium text-gray-700 shadow-sm hover:shadow-md transition-shadow">
-                        🌺 Exotic Flowers
-                      </span>
-                      <span className="px-4 py-2 bg-white/80 backdrop-blur-sm rounded-full text-sm font-medium text-gray-700 shadow-sm hover:shadow-md transition-shadow">
-                        🏡 Home Gardens
-                      </span>
-                      <span className="px-4 py-2 bg-white/80 backdrop-blur-sm rounded-full text-sm font-medium text-gray-700 shadow-sm hover:shadow-md transition-shadow">
-                        🌿 Landscaping
-                      </span>
-                    </div>
-
-                    {/* Buttons */}
-                    <div className="flex flex-col sm:flex-row gap-4 mb-10">
-                      <Link to="/contact"
-                        className="bg-green-600 hover:bg-green-700 text-white px-8 py-4 rounded-full font-semibold transition-all hover:scale-105 hover:shadow-lg"
-                      >
-                        Visit our Nusery
-                      </Link>
-                      <Link to="/plants"
-                        onClick={() => scrollToSection('plants')}
-                        className="flex justify-center items-center border-2 border-green-600 text-green-700 hover:bg-green-600 hover:text-white px-8 py-4 rounded-full font-semibold transition-all hover:scale-105"
-                      >
-                        See Plants
-                      </Link>
-                    </div>
-
-                    {/* Stats */}
-                    <div className="flex gap-8 text-center">
-                      <div className="group">
-                        <p className="text-3xl font-bold text-green-700 group-hover:scale-110 transition-transform">
-                          {plantVarieties}+
-                        </p>
-                        <p className="text-sm text-gray-600">Plant Varieties</p>
-                      </div>
-                      <div className="group">
-                        <p className="text-3xl font-bold text-green-700 group-hover:scale-110 transition-transform">
-                          {happyCustomers}+
-                        </p>
-                        <p className="text-sm text-gray-600">Happy Customers</p>
-                      </div>
-                      <div className="group">
-                        <p className="text-3xl font-bold text-green-700 group-hover:scale-110 transition-transform">
-                          {yearsExperience}+
-                        </p>
-                        <p className="text-sm text-gray-600">Years of Experience</p>
-                      </div>
-                    </div>
-
-                    {/* Floating particles */}
-                    <div className="absolute top-10 left-10 w-2 h-2 bg-yellow-300 rounded-full animate-float"></div>
-                    <div className="absolute top-20 right-16 w-1.5 h-1.5 bg-green-300 rounded-full animate-float delay-700"></div>
-                    <div className="absolute bottom-16 left-20 w-1 h-1 bg-pink-300 rounded-full animate-float delay-1400"></div>
-                  </div>
+              {/* Stats */}
+              <div className="grid grid-cols-3 gap-8 max-w-2xl">
+                <div className="border-l-2 border-cyan-500 pl-4">
+                  <p className="text-4xl font-bold text-white mb-1">{projectsCompleted}+</p>
+                  <p className="text-sm text-gray-400 uppercase tracking-wide">Projects Done</p>
+                </div>
+                <div className="border-l-2 border-cyan-500 pl-4">
+                  <p className="text-4xl font-bold text-white mb-1">{yearsExperience}+</p>
+                  <p className="text-sm text-gray-400 uppercase tracking-wide">Years Experience</p>
+                </div>
+                <div className="border-l-2 border-cyan-500 pl-4">
+                  <p className="text-4xl font-bold text-white mb-1">{productsInstalled}+</p>
+                  <p className="text-sm text-gray-400 uppercase tracking-wide">Products Installed</p>
                 </div>
               </div>
             </div>
           </div>
         </div>
+      </section>
 
-        {/* Floating leaves animation */}
-        <div className="absolute inset-0 pointer-events-none overflow-hidden">
-          <div className="absolute top-1/4 left-10 text-2xl animate-float-leaf">🍃</div>
-          <div className="absolute top-1/3 right-20 text-xl animate-float-leaf delay-2000">🌿</div>
-          <div className="absolute bottom-1/4 left-1/4 text-lg animate-float-leaf delay-4000">🍂</div>
-          <div className="absolute top-1/2 right-10 text-2xl animate-float-leaf delay-6000">🌱</div>
+      {/* Featured Products Carousel */}
+      <section className="py-20 bg-[#1f2235]">
+        <div className="max-w-7xl mx-auto px-6">
+          <div className="text-center mb-12">
+            <h2 className="text-4xl font-bold text-white mb-4 uppercase tracking-wide">
+              FEATURED <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-blue-500">PRODUCTS</span>
+            </h2>
+            <div className="w-24 h-1 bg-gradient-to-r from-cyan-500 to-blue-600 mx-auto"></div>
+            <p className="mt-6 text-gray-400 text-lg max-w-2xl mx-auto">
+              Explore our premium selection of smart kitchen solutions
+            </p>
+          </div>
+
+          {/* Carousel Container */}
+          <div className="relative">
+            {/* Carousel Track */}
+            <div className="overflow-hidden">
+              <div 
+                className="flex transition-transform duration-500 ease-out"
+                style={{ transform: `translateX(-${currentSlide * 100}%)` }}
+              >
+                {Array.from({ length: Math.ceil(featuredProducts.length / 3) }).map((_, slideIndex) => (
+                  <div key={slideIndex} className="min-w-full grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 px-2">
+                    {featuredProducts.slice(slideIndex * 3, slideIndex * 3 + 3).map((product) => (
+                      <div
+                        key={product.id}
+                        className="bg-[#282b40] border border-[#3a3f5c] overflow-hidden group hover:border-cyan-500 transition-all duration-300"
+                      >
+                        <div className="relative overflow-hidden h-64">
+                          <img 
+                            src={product.image} 
+                            alt={product.name}
+                            className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                          />
+                          <div className="absolute inset-0 bg-gradient-to-t from-[#282b40] via-transparent to-transparent opacity-60"></div>
+                          <span className="absolute top-4 right-4 bg-cyan-500 text-white px-3 py-1 text-xs font-bold uppercase">
+                            Featured
+                          </span>
+                        </div>
+                        <div className="p-6">
+                          <p className="text-cyan-400 text-xs uppercase tracking-wider mb-2">{product.category}</p>
+                          <h3 className="text-xl font-bold text-white mb-3">{product.name}</h3>
+                          <div className="flex items-center justify-between">
+                            <span className="text-2xl font-bold text-white">{product.price}</span>
+                            <button className="bg-gradient-to-r from-cyan-500 to-blue-600 text-white px-6 py-2 text-sm font-bold uppercase hover:from-cyan-600 hover:to-blue-700 transition-all">
+                              View Details
+                            </button>
+                          </div>
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            {/* Navigation Buttons */}
+            <button 
+              onClick={prevSlide}
+              className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-4 bg-[#282b40] border border-cyan-500 text-cyan-400 p-3 hover:bg-cyan-500 hover:text-white transition-all duration-300 z-10"
+            >
+              <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="square" strokeLinejoin="miter" strokeWidth={2} d="M15 19l-7-7 7-7" />
+              </svg>
+            </button>
+            <button 
+              onClick={nextSlide}
+              className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-4 bg-[#282b40] border border-cyan-500 text-cyan-400 p-3 hover:bg-cyan-500 hover:text-white transition-all duration-300 z-10"
+            >
+              <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="square" strokeLinejoin="miter" strokeWidth={2} d="M9 5l7 7-7 7" />
+              </svg>
+            </button>
+
+            {/* Dots Indicator */}
+            <div className="flex justify-center gap-2 mt-8">
+              {Array.from({ length: Math.ceil(featuredProducts.length / 3) }).map((_, index) => (
+                <button
+                  key={index}
+                  onClick={() => setCurrentSlide(index)}
+                  className={`w-3 h-3 transition-all duration-300 ${
+                    currentSlide === index ? 'bg-cyan-500 w-8' : 'bg-gray-600'
+                  }`}
+                />
+              ))}
+            </div>
+          </div>
         </div>
       </section>
 
       {/* Features Section */}
-      <section id="plants" className="pb-10 pt-6 bg-white">
-        <div className="max-w-6xl mx-auto px-6">
+      <section className="py-20 bg-[#282b40]">
+        <div className="max-w-7xl mx-auto px-6">
           <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold text-gray-800 mb-4">
-              Why Choose <span className="text-green-600">Ranveer Rose Nursery?</span>
+            <h2 className="text-4xl font-bold text-white mb-4 uppercase tracking-wide">
+              WHY CHOOSE <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-blue-500">US</span>
             </h2>
-            <div className="w-24 h-1 bg-green-600 mx-auto rounded-full"></div>
+            <div className="w-24 h-1 bg-gradient-to-r from-cyan-500 to-blue-600 mx-auto"></div>
           </div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
             {[
               {
-                icon: "🌱",
-                title: "Premium Quality Plants",
-                description: "Hand-selected, healthy plants sourced from the finest growers. Each plant comes with our quality guarantee and care instructions."
+                icon: "🎯",
+                title: "PRECISION DESIGN",
+                description: "Custom-tailored kitchen solutions designed to maximize space efficiency and aesthetic appeal with millimeter precision."
               },
               {
-                icon: "👨‍🌾",
-                title: "Expert Guidance",
-                description: "Our certified horticulturists provide personalized advice to help your plants thrive in any environment."
+                icon: "🔧",
+                title: "EXPERT INSTALLATION",
+                description: "Professional installation by certified technicians ensuring perfect fit and optimal performance of every component."
               },
               {
-                icon: "🚚",
-                title: "Fast Delivery",
-                description: "Same-day delivery is available for local orders. We ensure your plants arrive fresh and ready to flourish."
+                icon: "⚡",
+                title: "SMART TECHNOLOGY",
+                description: "Cutting-edge IoT-enabled appliances that bring automation and convenience to your daily cooking experience."
               },
               {
                 icon: "🛡️",
-                title: "Plant Protection",
-                description: "Comprehensive care support and plant health monitoring to keep your green friends happy and healthy."
+                title: "LIFETIME WARRANTY",
+                description: "Comprehensive warranty coverage and dedicated after-sales support for complete peace of mind."
               },
               {
-                icon: "🌿",
-                title: "Eco-Friendly",
-                description: "Sustainable growing practices and biodegradable packaging. Growing green for a greener planet."
+                icon: "♻️",
+                title: "ECO-FRIENDLY",
+                description: "Sustainable materials and energy-efficient solutions that reduce environmental impact without compromising quality."
               },
               {
-                icon: "💚",
-                title: "Best Value",
-                description: "Competitive prices with loyalty rewards, seasonal discounts, and bundle deals for plant enthusiasts."
+                icon: "💎",
+                title: "PREMIUM QUALITY",
+                description: "Only the finest materials and world-class brands for durability and elegance that lasts generations."
               }
             ].map((feature, index) => (
               <div
                 key={index}
-                className="group bg-green-50/50 p-8 rounded-2xl hover:bg-white hover:shadow-xl transition-all duration-300 border border-green-100/50"
+                className="bg-[#1f2235] p-8 border-2 border-[#3a3f5c] hover:border-cyan-500 transition-all duration-300 group"
               >
                 <div className="text-5xl mb-6 group-hover:scale-110 transition-transform duration-300">
                   {feature.icon}
                 </div>
-                <h3 className="text-xl font-semibold text-green-800 mb-4 group-hover:text-green-600 transition-colors">
+                <h3 className="text-lg font-bold text-white mb-4 uppercase tracking-wider group-hover:text-cyan-400 transition-colors">
                   {feature.title}
                 </h3>
-                <p className="text-gray-600 leading-relaxed">
+                <p className="text-gray-400 leading-relaxed">
                   {feature.description}
                 </p>
               </div>
@@ -240,142 +304,60 @@ const NurseryHomepage = () => {
         </div>
       </section>
 
-      {/* Gallery Section */}
-      <section id="gallery" className="py-10 bg-green-50 ">
-        {/* Decorative floating elements */}
-        <div className="absolute top-10 left-10 text-2xl animate-float opacity-20">🍃</div>
-        <div className="absolute bottom-16 right-16 text-xl animate-float delay-1000 opacity-20">🌱</div>
-
-        <div className="max-w-6xl mx-auto px-6">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold text-gray-800 mb-4">
-              Our <span className="text-green-600">Plant Collection</span>
-            </h2>
-            <div className="w-24 h-1 bg-green-600 mx-auto rounded-full"></div>
-            <p className="mt-6 text-gray-600 text-lg max-w-2xl mx-auto leading-relaxed">
-              Explore a curated selection of lush plants to elevate your home, garden, or workspace.
-            </p>
-          </div>
-
-          {/* Show only 4 random plants */}
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
-            {Plants
-              .sort(() => 0.5 - Math.random()) // shuffle
-              .slice(0, 4) // pick 4
-              .map((plant) => (
-                <PlantCard
-                  key={plant.id}
-                  image={plant.image}
-                  name={plant.name}
-                  description={plant.description}
-                  category={plant.category}
-                />
-              ))}
-          </div>
-        </div>
-      </section>
-
-      <Plantss/>
-
-
-
       {/* Contact Section */}
-      <section id="contact" className="py-6 bg-gradient-to-br from-green-100 to-green-200 text-gray-800 relative overflow-hidden">
-        {/* Floating accents */}
-        <div className="absolute top-1/4 left-10 text-xl animate-float opacity-10">🍂</div>
-        <div className="absolute bottom-10 right-10 text-lg animate-float delay-700 opacity-10">🌿</div>
-
-        <div className="max-w-5xl mx-auto px-4 text-center relative z-10">
-          <h2 className="text-3xl font-bold mb-4">Let's Grow Together</h2>
-          <div className="w-16 h-1 bg-green-600 mx-auto rounded-full mb-6"></div>
-          <p className="text-lg mb-10 opacity-80 max-w-xl mx-auto leading-relaxed">
-            Ready to transform your space into a green paradise? Get in touch with our plant experts today!
+      <section className="py-20 bg-gradient-to-b from-[#1f2235] to-[#282b40]">
+        <div className="max-w-6xl mx-auto px-6 text-center">
+          <h2 className="text-4xl font-bold text-white mb-4 uppercase tracking-wide">
+            READY TO UPGRADE YOUR KITCHEN?
+          </h2>
+          <div className="w-24 h-1 bg-gradient-to-r from-cyan-500 to-blue-600 mx-auto mb-6"></div>
+          <p className="text-lg text-gray-300 mb-12 max-w-2xl mx-auto">
+            Contact our design experts today for a free consultation and transform your kitchen into a masterpiece
           </p>
 
-          <div className="grid md:grid-cols-3 gap-6 mb-8">
+          <div className="grid md:grid-cols-3 gap-6 mb-12">
             {[
               {
                 icon: "📍",
-                title: "Visit Us",
-                content: "Ranveer Rose Nursery, A/p. Koregaon Mul, Pune Solapur Road, Near Uruli Kanchan, tal. Haveli, Pune-412202 NH9"
+                title: "VISIT SHOWROOM",
+                content: "123 Design Avenue, Tech Park\nSmart City, Innovation District\nOpen Mon-Sat 9AM-7PM"
               },
               {
                 icon: "📞",
-                title: "Call Us",
-                content: `+91 97641 23636\nMon-Sat ${user?.business_hours}`
+                title: "CALL US",
+                content: "+91 98765 43210\n+91 98765 43211\n24/7 Support Available"
               },
               {
                 icon: "✉️",
-                title: "Email Us",
-                content: "ranveerrosenursery8644@gmail.com\nQuick response guaranteed"
+                title: "EMAIL US",
+                content: "info@smartkitchenpro.com\nsales@smartkitchenpro.com\nQuick Response Guaranteed"
               }
             ].map((contact, index) => (
               <div
                 key={index}
-                className="bg-white p-6 rounded-xl hover:bg-green-50 transition-all duration-300 group shadow-md hover:shadow-lg border border-green-100"
+                className="bg-[#282b40] border-2 border-[#3a3f5c] p-8 hover:border-cyan-500 transition-all duration-300 group"
               >
-                <div className="text-4xl mb-3 group-hover:scale-110 transform transition-transform">
+                <div className="text-5xl mb-4 group-hover:scale-110 transform transition-transform">
                   {contact.icon}
                 </div>
-                <h3 className="text-lg font-semibold mb-2">{contact.title}</h3>
-                <p className="whitespace-pre-line text-sm opacity-80">{contact.content}</p>
+                <h3 className="text-sm font-bold text-cyan-400 mb-3 uppercase tracking-wider">{contact.title}</h3>
+                <p className="whitespace-pre-line text-sm text-gray-300">{contact.content}</p>
               </div>
             ))}
           </div>
+
+          <Link 
+            to="/contact"
+            className="inline-block bg-gradient-to-r from-cyan-500 to-blue-600 text-white px-12 py-4 font-bold tracking-wider uppercase hover:from-cyan-600 hover:to-blue-700 transition-all duration-300 shadow-lg hover:shadow-cyan-500/50"
+          >
+            Schedule Consultation
+          </Link>
         </div>
       </section>
 
-
-
       <Footer />
-
-      <style>{`
-                @keyframes bounce {
-                    0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
-                    40% { transform: translateY(-10px); }
-                    60% { transform: translateY(-5px); }
-                }
-                
-                @keyframes fade-in-left {
-                    from { opacity: 0; transform: translateX(-50px); }
-                    to { opacity: 1; transform: translateX(0); }
-                }
-                
-                @keyframes fade-in-right {
-                    from { opacity: 0; transform: translateX(50px); }
-                    to { opacity: 1; transform: translateX(0); }
-                }
-                
-                @keyframes float {
-                    0%, 100% { transform: translateY(0px); }
-                    50% { transform: translateY(-10px); }
-                }
-                
-                @keyframes float-leaf {
-                    0% { transform: translateY(0px) rotate(0deg); opacity: 0.3; }
-                    50% { transform: translateY(-20px) rotate(180deg); opacity: 0.6; }
-                    100% { transform: translateY(0px) rotate(360deg); opacity: 0.3; }
-                }
-                
-                @keyframes sway {
-                    0%, 100% { transform: rotate(0deg); }
-                    50% { transform: rotate(5deg); }
-                }
-                
-                @keyframes bloom {
-                    0%, 100% { transform: scale(1); }
-                    50% { transform: scale(1.1); }
-                }
-                
-                .animate-fade-in-left { animation: fade-in-left 1s ease-out; }
-                .animate-fade-in-right { animation: fade-in-right 1s ease-out 0.3s both; }
-                .animate-float { animation: float 3s ease-in-out infinite; }
-                .animate-float-leaf { animation: float-leaf 8s ease-in-out infinite; }
-                .animate-sway { animation: sway 4s ease-in-out infinite; }
-                .animate-bloom { animation: bloom 2s ease-in-out infinite; }
-            `}</style>
     </div>
   );
 };
 
-export default NurseryHomepage;
+export default SmartKitchenHomepage;
