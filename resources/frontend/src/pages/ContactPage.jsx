@@ -74,7 +74,6 @@ function ContactForm() {
     return (
         <div className="bg-[#1f2235] border-2 border-[#06b6d4]/30 p-10 animate-fade-in">
             <div className="mb-8">
-                <span className="text-[#06b6d4] text-sm font-semibold tracking-wider uppercase border border-[#06b6d4] px-4 py-2 inline-block mb-4">Contact Form</span>
                 <h3 className="text-3xl font-bold text-white mb-3">Send Us a Message</h3>
                 <p className="text-gray-300">We'd love to hear from you! Fill out the form below and we'll respond as quickly as possible.</p>
             </div>
@@ -97,13 +96,14 @@ function ContactForm() {
                     placeholder="Enter your full name"
                     required
                 />
-                <InputField 
-                    label="Email Address (optional)" 
-                    name="email" 
-                    value={formData.email} 
-                    onChange={handleChange} 
-                    placeholder="Enter your email address" 
-                    type="email" 
+                <InputField
+                    label="Email Address *"
+                    name="email"
+                    value={formData.email}
+                    onChange={handleChange}
+                    placeholder="Enter your email address"
+                    type="email"
+                    required
                 />
                 <InputField
                     label="Phone Number *"
@@ -171,9 +171,9 @@ function ContactPage() {
     return (
         <div className="min-h-screen bg-[#282b40]">
             <Navbar />
-            
+
             {/* Hero Section */}
-            <section className="pt-20 pb-12 bg-[#282b40] relative overflow-hidden">
+            <section className="relative py-10 bg-[#282b40] border-b-2 border-cyan-500">
                 <div className="absolute inset-0 opacity-5">
                     <div className="absolute top-0 left-0 w-96 h-96 bg-[#06b6d4] blur-3xl"></div>
                     <div className="absolute bottom-0 right-0 w-96 h-96 bg-[#06b6d4] blur-3xl"></div>
@@ -184,7 +184,7 @@ function ContactPage() {
                         Contact <span className="text-[#06b6d4]">Us</span>
                     </h1>
                     <p className="text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed">
-                        Have questions about our smart kitchen solutions? We're here to help you transform your cooking space.
+                        Have questions about our smart buffet solutions? We're here to help you transform your cooking space.
                     </p>
                 </div>
             </section>
@@ -199,32 +199,6 @@ function ContactPage() {
                         <div className="space-y-8">
                             <MapAndBusinessHours />
                         </div>
-                    </div>
-                </div>
-            </section>
-
-            {/* Contact Info Cards */}
-            <section className="py-16 px-4 bg-[#1f2235]">
-                <div className="max-w-7xl mx-auto">
-                    <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-                        <ContactInfoCard 
-                            icon="📧"
-                            title="Email Us"
-                            info="support@smartkitchen.com"
-                            description="Send us an email anytime"
-                        />
-                        <ContactInfoCard 
-                            icon="📞"
-                            title="Call Us"
-                            info="+91 98765 43210"
-                            description="Mon-Sat, 9AM to 6PM"
-                        />
-                        <ContactInfoCard 
-                            icon="📍"
-                            title="Visit Us"
-                            info="Pune, Maharashtra"
-                            description="Schedule an appointment"
-                        />
                     </div>
                 </div>
             </section>
@@ -265,12 +239,11 @@ function MapAndBusinessHours() {
         <>
             <div className="bg-[#1f2235] border-2 border-[#06b6d4]/30 overflow-hidden animate-fade-in-up" style={{ animationDelay: "0.3s" }}>
                 <div className="p-6 border-b border-[#06b6d4]/30">
-                    <span className="text-[#06b6d4] text-sm font-semibold tracking-wider uppercase">Location</span>
                     <h3 className="text-2xl font-bold text-white mt-2">Our Location</h3>
                 </div>
-                <div className="h-80">
+                <div className="h-96">
                     <iframe
-                        src="https://www.google.com/maps/embed?pb=!1m16!1m12!1m3!1d15135.80530187668!2d74.1077792151833!3d18.485863852577438!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!2m1!1sA%2Fp.%20Koregaon%20Mul%2C%20Pune%20Solapur%20Road%2C%20Near%20Uruli%20Kanchan%2C%20tal.%20Haveli%2C%20Pune-412202%20NH9!5e0!3m2!1sen!2sin!4v1757313204232!5m2!1sen!2sin"
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d945.7190964999253!2d73.9456518!3d18.5344874!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bc2c17e4fc0dd3f%3A0x377b6a6b7ae2da81!2sSMART%20KITCHEN%20SOLUTIONS!5e0!3m2!1sen!2sin!4v1763800182651!5m2!1sen!2sin"
                         width="100%"
                         height="100%"
                         style={{ border: 0 }}
@@ -284,24 +257,23 @@ function MapAndBusinessHours() {
 
             <div className="bg-[#1f2235] border-2 border-[#06b6d4]/30 p-8 animate-fade-in-up" style={{ animationDelay: "0.4s" }}>
                 <div className="mb-6">
-                    <span className="text-[#06b6d4] text-sm font-semibold tracking-wider uppercase">Hours</span>
                     <h3 className="text-2xl font-bold text-white mt-2">Business Hours</h3>
                 </div>
                 <div className="space-y-4">
                     <div className="flex justify-between items-center py-3 border-b border-[#06b6d4]/20">
                         <span className="text-gray-300 font-medium">Monday - Saturday</span>
-                        <span className="text-[#06b6d4] font-bold">{user?.business_hours || '9:00 AM - 6:00 PM'}</span>
+                        <span className="text-[#06b6d4] font-bold">{user?.business_hours || '9:00 AM - 8:00 PM'}</span>
                     </div>
                     <div className="flex justify-between items-center py-3 border-b border-[#06b6d4]/20">
                         <span className="text-gray-300 font-medium">Sunday</span>
                         <span className="text-red-400 font-bold">Closed</span>
                     </div>
                 </div>
-                <div className="mt-6 p-4 bg-[#282b40] border-l-4 border-[#06b6d4]">
+                {/* <div className="mt-6 p-4 bg-[#282b40] border-l-4 border-[#06b6d4]">
                     <p className="text-gray-300 text-sm">
                         <span className="text-[#06b6d4] font-bold">24/7 Support:</span> Available round the clock for emergency assistance and technical support.
                     </p>
-                </div>
+                </div> */}
             </div>
         </>
     );

@@ -1,6 +1,16 @@
+import P1 from "../assets/P1.jpg"
+import P2 from "../assets/P2.jpg"
+import P3 from "../assets/P3.png"
+import P4 from "../assets/P4.jpg"
+import P5 from "../assets/P5.jpg"
+import P6 from "../assets/P6.png"
+
+
 const Products = [
     {
+        id:1,
         product_name: "Built-in Ceramic Hot Plate",
+        image : P1,
         description:
             "A flush mount ceramic glass hot plate designed for buffet setups, offering flame-free warming with robust build quality and efficient heat transfer.",
         features: [
@@ -144,7 +154,9 @@ const Products = [
         ],
     },
     {
+        id:2,
         product_name: "Drop-in Ceramic Hot Plate",
+        image : P2,
         description:
             "Efficient ceramic hot plate for buffet counters with adjustable thermostat and easy installation.",
         features: [
@@ -164,7 +176,7 @@ const Products = [
                 voltage: "230V",
                 power: "750W",
                 cut_out_size_AXB: "610x410",
-                control_panel_size_AXBxC: "160x90x80",
+                controller_size_AXBxC: "160x90x80",
             },
             {
                 model: "CDS6050",
@@ -173,7 +185,7 @@ const Products = [
                 voltage: "230V",
                 power: "1000W",
                 cut_out_size_AXB: "610x510",
-                control_panel_size_AXBxC: "160x90x80",
+                controller_size_AXBxC: "160x90x80",
             },
             {
                 model: "CDS8040",
@@ -182,7 +194,7 @@ const Products = [
                 voltage: "230V",
                 power: "1050W",
                 cut_out_size_AXB: "810x410",
-                control_panel_size_AXBxC: "160x90x80",
+                controller_size_AXBxC: "160x90x80",
             },
             {
                 model: "CDS8050",
@@ -191,7 +203,7 @@ const Products = [
                 voltage: "230V",
                 power: "1350W",
                 cut_out_size_AXB: "810x510",
-                control_panel_size_AXBxC: "160x90x80",
+                controller_size_AXBxC: "160x90x80",
             },
             {
                 model: "CDS9040",
@@ -200,7 +212,7 @@ const Products = [
                 voltage: "230V",
                 power: "1200W",
                 cut_out_size_AXB: "930x410",
-                control_panel_size_AXBxC: "160x90x80",
+                controller_size_AXBxC: "160x90x80",
             },
             {
                 model: "CDS9050",
@@ -209,57 +221,68 @@ const Products = [
                 voltage: "230V",
                 power: "1550W",
                 cut_out_size_AXB: "930x510",
-                control_panel_size_AXBxC: "160x90x80",
+                controller_size_AXBxC: "160x90x80",
             },
             {
                 model: "CDS12040",
                 description: "Ceramic + Hotplate (Drop-in Series)",
                 dimensions: { L: 1246, W: 446, H: 90 },
                 voltage: "230V",
-                power: "2000W",
-                cut_out_size_AXB: "930x510",
-                control_panel_size_AXBxC: "160x90x80",
+                power: "1600W",
+                cut_out_size_AXB: "1210x410",
+                controller_size_AXBxC: "160x90x80",
             },
             {
                 model: "CDS12050",
                 description: "Ceramic + Hotplate (Drop-in Series)",
                 dimensions: { L: 1246, W: 546, H: 90 },
                 voltage: "230V",
-                power: "1600W",
+                power: "2000W",
                 cut_out_size_AXB: "1210x510",
-                control_panel_size_AXBxC: "160x90x80",
+                controller_size_AXBxC: "160x90x80",
+            },
+            {
+                model: "CDS15040",
+                description: "Ceramic + Hotplate (Drop-in Series)",
+                dimensions: { L: 1546, W: 446, H: 90 },
+                voltage: "230V",
+                power: "2000W",
+                cut_out_size_AXB: "1510x410",
+                controller_size_AXBxC: "160x90x80",
             },
             {
                 model: "CDS15050",
                 description: "Ceramic + Hotplate (Drop-in Series)",
-                dimensions: { L: 1500, W: 546, H: 90 },
-                voltage: "230V",
-                power: "2000W",
-                cut_out_size_AXB: "1210x510",
-                control_panel_size_AXBxC: "160x90x80",
-            },
-            {
-                model: "CDS15550",
-                description: "Ceramic + Hotplate (Drop-in Series)",
                 dimensions: { L: 1546, W: 546, H: 90 },
                 voltage: "230V",
-                power: "2500W",
+                power: "2600W",
                 cut_out_size_AXB: "1510x510",
-                control_panel_size_AXBxC: "160x90x80",
+                controller_size_AXBxC: "160x90x80",
+            },
+            {
+                model: "CDS18040",
+                description: "Ceramic + Hotplate (Drop-in Series)",
+                dimensions: { L: 1889, W: 446, H: 90 },
+                voltage: "230V",
+                power: "2500W",
+                cut_out_size_AXB: "1853x410",
+                controller_size_AXBxC: "160x90x80",
             },
             {
                 model: "CDS18050",
                 description: "Ceramic + Hotplate (Drop-in Series)",
-                dimensions: { L: 1889, W: 446, H: 90 },
+                dimensions: { L: 1889, W: 546, H: 90 },
                 voltage: "230V",
                 power: "3200W",
-                cut_out_size_AXB: "1853x410",
-                control_panel_size_AXBxC: "160x90x80",
+                cut_out_size_AXB: "1853x510",
+                controller_size_AXBxC: "160x90x80",
             }
         ],
     },
     {
+        id:3,
         product_name: "Ceramic Hot Plates with Thermal Bridge",
+        image : P3,
         description:
             "Ceramic hot plate with additional thermal bridge heating for enhanced holding and staged warming.",
         features: [
@@ -272,108 +295,119 @@ const Products = [
         ],
         models: [
             {
-                model: "CTB18050",
+                model: "CTB06040",
                 description: "Ceramic Hot Plate with Thermal Bridge",
-                dimensions: { L: 1889, W: 586, H: "90+45D" },
+                dimensions: { L: 686, W: 486, H: "90+450" },
                 voltage: "230V",
-                power: "3200W",
-                cut_out_size_AXB: "1809x566",
+                power: "750W",
+                cut_out_size_AXB: "606x406",
                 controller_size_AXBxC: "160x90x80",
             },
             {
-                model: "CTB18040",
+                model: "CTB6050",
                 description: "Ceramic Hot Plate with Thermal Bridge",
-                dimensions: { L: 1889, W: 486, H: "90+45D" },
+                dimensions: { L: 686, W: 586, H: "90+450" },
                 voltage: "230V",
-                power: "2500W",
-                cut_out_size_AXB: "1809x456",
+                power: "1000W",
+                cut_out_size_AXB: "606x506",
                 controller_size_AXBxC: "160x90x80",
             },
             {
-                model: "CTB15050",
+                model: "CTB8040",
                 description: "Ceramic Hot Plate with Thermal Bridge",
-                dimensions: { L: 1546, W: 586, H: "90+45D" },
+                dimensions: { L: 886, W: 486, H: "90+450" },
                 voltage: "230V",
-                power: "2500W",
-                cut_out_size_AXB: "1509x546",
+                power: "1050W",
+                cut_out_size_AXB: "806x406",
                 controller_size_AXBxC: "160x90x80",
             },
             {
-                model: "CTB15040",
+                model: "CTB8050",
                 description: "Ceramic Hot Plate with Thermal Bridge",
-                dimensions: { L: 1546, W: 486, H: "90+45D" },
+                dimensions: { L: 886, W: 586, H: "90+450" },
                 voltage: "230V",
-                power: "2000W",
-                cut_out_size_AXB: "1509x456",
+                power: "1350W",
+                cut_out_size_AXB: "806x506",
                 controller_size_AXBxC: "160x90x80",
             },
             {
-                model: "CTB12050",
+                model: "CTB9040",
                 description: "Ceramic Hot Plate with Thermal Bridge",
-                dimensions: { L: 1289, W: 586, H: "90+45D" },
+                dimensions: { L: 1006, W: 486, H: "90+450" },
                 voltage: "230V",
-                power: "1600W",
-                cut_out_size_AXB: "1209x546",
+                power: "1200W",
+                cut_out_size_AXB: "926x406",
+                controller_size_AXBxC: "160x90x80",
+            },
+            {
+                model: "CTB9050",
+                description: "Ceramic Hot Plate with Thermal Bridge",
+                dimensions: { L: 1006, W: 586, H: "90+450" },
+                voltage: "230V",
+                power: "1550W",
+                cut_out_size_AXB: "926x506",
                 controller_size_AXBxC: "160x90x80",
             },
             {
                 model: "CTB12040",
                 description: "Ceramic Hot Plate with Thermal Bridge",
-                dimensions: { L: 1289, W: 486, H: "90+45D" },
+                dimensions: { L: 1289, W: 486, H: "90+450" },
+                voltage: "230V",
+                power: "1600W",
+                cut_out_size_AXB: "1209x406",
+                controller_size_AXBxC: "160x90x80",
+            },
+            {
+                model: "CTB12050",
+                description: "Ceramic Hot Plate with Thermal Bridge",
+                dimensions: { L: 1289, W: 586, H: "90+450" },
                 voltage: "230V",
                 power: "2000W",
-                cut_out_size_AXB: "1209x456",
+                cut_out_size_AXB: "1209x506",
                 controller_size_AXBxC: "160x90x80",
             },
             {
-                model: "CTB0950",
+                model: "CTB15040",
                 description: "Ceramic Hot Plate with Thermal Bridge",
-                dimensions: { L: 1006, W: 586, H: "90+45D" },
+                dimensions: { L: 1589, W: 486, H: "90+450" },
                 voltage: "230V",
-                power: "1550W",
-                cut_out_size_AXB: "926x546",
+                power: "2000W",
+                cut_out_size_AXB: "1509x406",
                 controller_size_AXBxC: "160x90x80",
             },
             {
-                model: "CTB0940",
+                model: "CTB15050",
                 description: "Ceramic Hot Plate with Thermal Bridge",
-                dimensions: { L: 1006, W: 486, H: "90+45D" },
+                dimensions: { L: 1589, W: 586, H: "90+450" },
                 voltage: "230V",
-                power: "1350W",
-                cut_out_size_AXB: "926x456",
+                power: "2600W",
+                cut_out_size_AXB: "1509x506",
                 controller_size_AXBxC: "160x90x80",
             },
             {
-                model: "CTB08050",
+                model: "CTB18040",
                 description: "Ceramic Hot Plate with Thermal Bridge",
-                dimensions: { L: 866, W: 586, H: "90+45D" },
+                dimensions: { L: 1889, W: 486, H: "90+450" },
                 voltage: "230V",
-                power: "1200W",
-                cut_out_size_AXB: "806x546",
+                power: "2500W",
+                cut_out_size_AXB: "1809x406",
                 controller_size_AXBxC: "160x90x80",
             },
             {
-                model: "CTB08040",
+                model: "CTB18050",
                 description: "Ceramic Hot Plate with Thermal Bridge",
-                dimensions: { L: 866, W: 486, H: "90+45D" },
+                dimensions: { L: 1889, W: 586, H: "90+450" },
                 voltage: "230V",
-                power: "1050W",
-                cut_out_size_AXB: "806x456",
+                power: "3200W",
+                cut_out_size_AXB: "1809x506",
                 controller_size_AXBxC: "160x90x80",
-            },
-            {
-                model: "CTB06040",
-                description: "Ceramic Hot Plate with Thermal Bridge",
-                dimensions: { L: 686, W: 586, H: "90+45D" },
-                voltage: "230V",
-                power: "750W",
-                cut_out_size_AXB: "606x546",
-                controller_size_AXBxC: "160x90x80",
-            },
+            }
         ],
     },
     {
+        id:4,
         product_name: "Digital Electronic Touch Panel",
+        image : P4,
         description:
             "Advanced temperature control panel with precise digital adjustment for ceramic hot plates.",
         features: [
@@ -388,7 +422,9 @@ const Products = [
         models: [],
     },
     {
+        id:5,
         product_name: "Analog Infinity Controller",
+        image : P5,
         description:
             "Analog temperature controller for ceramic hot plates offering easy and preferred manual control.",
         features: [
@@ -403,9 +439,11 @@ const Products = [
         models: [],
     },
     {
-        "product_name": "Heated Decorative Lamps",
-        "description": "Decorative heating lamps designed to integrate lighting and warming functionalities. These lamps enhance the overall aesthetic while providing consistent heat distribution, making them ideal for food display and serving areas in professional settings.",
-        "features": [
+        id:6,
+        product_name: "Heated Decorative Lamps",
+        image : P6,
+        description: "Decorative lamps that provide uniform heating while enhancing food display aesthetics.",
+        features: [
             "Integrates decoration, lighting, and warming functions for enhanced visual appeal.",
             "Allows flexible matching with different styles and colors.",
             "Available in a wide range of shades, gloss finishes, and plated options to match décor.",
@@ -458,7 +496,7 @@ const Products = [
             },
             {
                 model: "SKS-750-TL",
-                diameter_mm: 265,
+                diameter_mm: 285,
                 height_mm: "720-2445",
                 voltage: "220V",
                 power: "250W",
@@ -522,7 +560,7 @@ const Products = [
             },
             {
                 model: "SKS-750-ML",
-                diameter_mm: 265,
+                diameter_mm: 285,
                 height_mm: "320-2445",
                 voltage: "220V",
                 power: "250W",
@@ -586,7 +624,7 @@ const Products = [
             },
             {
                 model: "SKS-750-ST",
-                diameter_mm: 265,
+                diameter_mm: 285,
                 height_mm: "950-1800",
                 voltage: "220V",
                 power: "250W",
@@ -611,3 +649,6 @@ const Products = [
         ],
     },
 ];
+
+
+export default Products;

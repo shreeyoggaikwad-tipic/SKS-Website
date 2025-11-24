@@ -5,6 +5,7 @@ import Logo from './assets/logo.jpg';
 import Loader from "./components/Loader"
 import HomePage from './pages/HomePage'
 import AboutPage from './pages/AboutPage'
+import ProductsPage from './pages/ProductsPage'
 import ContactPage from './pages/ContactPage';
 
 import WatsappButton from './components/WatsappButton';
@@ -40,6 +41,7 @@ function App() {
         {/* Public routes */}
         <Route path="/" element={<HomePage />} />
         <Route path="/about" element={<AboutPage />} />
+        <Route path="/products" element={<ProductsPage />} />
         <Route path="/contact" element={<ContactPage />} />
       </Routes>
       <WatsappButton />

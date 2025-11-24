@@ -3,24 +3,11 @@ import React, {useState, useEffect} from 'react'
 import host from "../utils/host"
 
 function WatsappButton() {
-    const [user, setUser] = useState({});
-    useEffect(() => {
-        const fetchUser = async () => {
-            try {
-                const res = await axios.get(`${host}/api/users/1`);
-                const userData = res.data.data;
-                setUser({ number: userData.number });
-            } catch (error) {
-                console.error("Error fetching user:", error);
-            }
-        };
-        fetchUser();
-    }, []);
 
     const handleWhatsAppClick = () => {
-        if (!user.number) return;
+        const number = "8600516230"
         const message = "Hello! I'm interested in your nursery plants. Could we discuss my requirements?";
-        let phoneNumber = user.number.replace(/\D/g, '');
+        let phoneNumber = number.replace(/\D/g, '');
         if (phoneNumber.length === 10) {
             phoneNumber = '91' + phoneNumber;
         }
@@ -33,7 +20,6 @@ function WatsappButton() {
         <div className="fixed bottom-6 right-6 z-50">
             <button
                 onClick={handleWhatsAppClick}
-                disabled={!user.number}
                 className="bg-green-500 hover:bg-green-600 text-white p-4 rounded-full shadow-lg hover:shadow-xl transform hover:scale-110 transition-all duration-300 animate-bounce"
             >
                 <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
