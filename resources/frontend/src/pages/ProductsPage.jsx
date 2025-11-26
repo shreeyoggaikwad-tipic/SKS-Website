@@ -3,9 +3,19 @@ import Products from "../utils/Products"
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import Broucher from "../assets/Broucher.pdf"
+import axios from 'axios';
+import host from '../utils/host';
 
 const ProductsPage = () => {
   const [selectedProduct, setSelectedProduct] = useState(null);
+
+  const [showModal, setShowModal] = useState(false);
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    phone: ""
+  });
+
 
   const openProductModal = (productId) => {
     setSelectedProduct(Products[productId - 1]);
@@ -26,15 +36,43 @@ const ProductsPage = () => {
     </div>
   );
 
-  const handleBroucherDownload = () => {
-      const link = document.createElement("a");
-      link.href = Broucher; // Update with your actual file name
-      link.download = "SmartKitchenSolutions-Brochure.pdf"; // Optional: rename while downloading
-      document.body.appendChild(link);
-      link.click();
-      document.body.removeChild(link);
-    };
-  
+  const handleBroucherDownload = async () => {
+    if (!formData.name) {
+      alert('Please fill in your name');
+      return;
+    } else if (!/^[A-Za-z\s]{1,100}$/.test(formData.name)) {
+      alert('Name must contain only alphabets and spaces, and be at most 100 characters long');
+      return;
+    } else if (formData.email && !/\S+@\S+\.\S+/.test(formData.email)) {
+      alert('Please enter a valid email address');
+      return;
+    } else if (!/^[9876]\d{9}$/.test(formData.phone)) {
+      alert('Phone number must be 10 digits long and start with 9, 8, 7 or 6.');
+      return;
+    }
+
+    // 📌 Step 4: API Call
+    try {
+      const response = await axios.post(`${host}/api/inquiries`, formData);
+      if (response.status >= 200 && response.status < 300) {
+        setFormData({ name: '', email: '', phone: ''});
+      }
+    } catch (error) {
+      console.error("Error submitting contact form:", error);
+      setErrorMessage('Failed to send your message. Please try again later.');
+    }
+
+    // 📥 Download File
+    const link = document.createElement("a");
+    link.href = Broucher;
+    link.download = "SmartKitchenSolutions-Brochure.pdf";
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+
+    setShowModal(false);
+  };
+
   return (
     <div className="min-h-screen bg-[#1a1d2e]">
       <Navbar />
@@ -99,7 +137,7 @@ const ProductsPage = () => {
                       View Models
                     </button>
                     <button
-                    onClick={handleBroucherDownload}
+                      onClick={() => setShowModal(true)}
                       className="mt-3 w-full bg-gradient-to-r from-cyan-500 to-blue-600 text-white px-6 py-3 text-sm font-bold uppercase hover:from-cyan-600 hover:to-blue-700 transition-all duration-300"
                     >
                       Download Broucher
@@ -210,6 +248,57 @@ const ProductsPage = () => {
           </div>
         </div>
       )}
+
+      {showModal && (
+        <div className="fixed inset-0 bg-black/70 flex items-center justify-center z-50">
+          <div className="bg-[#1f2235] p-6 w-full max-w-md rounded-lg shadow-lg border border-cyan-500">
+
+            <h2 className="text-xl font-bold text-white mb-4">Enter Your Details</h2>
+
+            <input
+              type="text"
+              placeholder="Your Name"
+              value={formData.name}
+              onChange={(e) => setFormData({ ...formData, name: e.target.value })}
+              className="w-full mb-3 px-3 py-2 bg-[#282b40] border border-gray-600 text-white"
+            />
+
+            <input
+              type="email"
+              placeholder="Your Email"
+              value={formData.email}
+              onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+              className="w-full mb-3 px-3 py-2 bg-[#282b40] border border-gray-600 text-white"
+            />
+
+            <input
+              type="number"
+              placeholder="Your Mobile Number"
+              value={formData.mobile}
+              maxLength={10}
+              onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
+              className="w-full mb-3 px-3 py-2 bg-[#282b40] border border-gray-600 text-white"
+            />
+
+            <div className="flex justify-end gap-3 mt-4">
+              <button
+                onClick={() => setShowModal(false)}
+                className="px-4 py-2 bg-red-500 text-white hover:bg-red-600"
+              >
+                Cancel
+              </button>
+
+              <button
+                onClick={handleBroucherDownload} 
+                className="px-4 py-2 bg-gradient-to-r from-cyan-500 to-blue-600 text-white hover:from-cyan-600 hover:to-blue-700 transition-all duration-300"
+              >
+                Submit & Download
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
+
     </div>
   );
 };
