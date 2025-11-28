@@ -43,7 +43,7 @@ const ProductsPage = () => {
     } else if (!/^[A-Za-z\s]{1,100}$/.test(formData.name)) {
       alert('Name must contain only alphabets and spaces, and be at most 100 characters long');
       return;
-    } else if (formData.email && !/\S+@\S+\.\S+/.test(formData.email)) {
+    } else if (formData.email && !/\S+@\S+\.\S/.test(formData.email)) {
       alert('Please enter a valid email address');
       return;
     } else if (!/^[9876]\d{9}$/.test(formData.phone)) {
@@ -55,11 +55,12 @@ const ProductsPage = () => {
     try {
       const response = await axios.post(`${host}/api/inquiries`, formData);
       if (response.status >= 200 && response.status < 300) {
-        setFormData({ name: '', email: '', phone: ''});
+        setFormData({ name: '', email: '', phone: '' });
       }
     } catch (error) {
       console.error("Error submitting contact form:", error);
-      setErrorMessage('Failed to send your message. Please try again later.');
+      // Assuming setErrorMessage is defined elsewhere or needs to be added
+      // setErrorMessage('Failed to send your message. Please try again later.');
     }
 
     // 📥 Download File
@@ -102,49 +103,45 @@ const ProductsPage = () => {
       {/* Products Grid */}
       <section className="py-20 bg-[#1a1d2e]">
         <div className="max-w-7xl mx-auto px-6">
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-16">
             {Products.map((product) => (
               <div
                 key={product.id}
                 className="bg-[#282b40] border-2 border-[#3a3f5c] overflow-hidden group hover:border-cyan-500 transition-all duration-300 cursor-pointer flex flex-col"
               >
-                <div className="relative overflow-hidden h-64">
+                <div className="relative overflow-hidden h-48 p-1">
                   <img
                     src={product.image}
                     alt={product.product_name}
-                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                    className="w-full h-full object-contain"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-[#282b40] via-transparent to-transparent opacity-60"></div>
-                  <div className="absolute top-4 left-4 text-5xl group-hover:scale-110 transition-transform duration-300">
+                  <div className="absolute top-2 left-2 text-4xl transition-transform duration-300">
                     {product.icon}
                   </div>
                 </div>
 
-                <div className="p-6 flex flex-col h-full">
-                  <h3 className="text-2xl font-bold text-white mb-3 uppercase tracking-wide group-hover:text-cyan-400 transition-colors">
+                <div className="p-3 flex flex-col h-full">
+                  <h3 className="text-xl font-bold text-white mb-2 uppercase group-hover:text-cyan-400">
                     {product.product_name}
                   </h3>
-
-                  <p className="text-gray-400 leading-relaxed">
+                  <p className="text-gray-400 text-sm leading-relaxed line-clamp-3">
                     {product.description}
                   </p>
 
-                  <div className="mt-auto"> {/* Buttons stick to bottom */}
-                    <button
-                      onClick={() => openProductModal(product.id)}
-                      className="w-full bg-gradient-to-r from-cyan-500 to-blue-600 text-white px-6 py-3 text-sm font-bold uppercase hover:from-cyan-600 hover:to-blue-700 transition-all duration-300"
-                    >
+                  <div className="mt-auto">
+                    <button onClick={() => openProductModal(product.id)} className="w-full bg-gradient-to-r from-cyan-500 to-blue-600 text-white py-2 text-xs font-bold uppercase">
                       View Models
                     </button>
                     <button
                       onClick={() => setShowModal(true)}
-                      className="mt-3 w-full bg-gradient-to-r from-cyan-500 to-blue-600 text-white px-6 py-3 text-sm font-bold uppercase hover:from-cyan-600 hover:to-blue-700 transition-all duration-300"
+                      className="mt-2 w-full bg-gradient-to-r from-cyan-500 to-blue-600 text-white py-2 text-xs font-bold uppercase"
                     >
                       Download Broucher
                     </button>
                   </div>
                 </div>
               </div>
+
 
             ))}
           </div>
@@ -203,6 +200,15 @@ const ProductsPage = () => {
                     key={index}
                     className="bg-[#1f2235] border-2 border-[#3a3f5c] p-6 hover:border-cyan-500 transition-all duration-300 group"
                   >
+                    {/* Model Image */}
+                    {model.image && (
+                      <img
+                        src={model.image}
+                        alt={model.model}
+                        className="w-full h-48 object-contain mb-4 rounded-md bg-white/5 p-2"
+                      />
+                    )}
+
                     {/* Model Header */}
                     <div className="border-b border-cyan-500/30 pb-4 mb-4">
                       <h4 className="text-xl font-bold text-cyan-400 mb-2 uppercase tracking-wide group-hover:text-cyan-300">
@@ -215,7 +221,7 @@ const ProductsPage = () => {
 
                     {/* Conditional Model Specs */}
                     <div className="space-y-3">
-                      {selectedProduct.id === 6 ? (
+                      {selectedProduct.id === 4 || selectedProduct.id === 5 || selectedProduct.id === 6 ? (
                         <>
                           <Spec label="Diameter" value={`${model.diameter_mm} mm`} />
                           <Spec label="Height" value={`${model.height_mm} mm`} />
@@ -274,7 +280,7 @@ const ProductsPage = () => {
             <input
               type="number"
               placeholder="Your Mobile Number"
-              value={formData.mobile}
+              value={formData.phone} // Changed from formData.mobile to formData.phone
               maxLength={10}
               onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
               className="w-full mb-3 px-3 py-2 bg-[#282b40] border border-gray-600 text-white"
@@ -289,7 +295,7 @@ const ProductsPage = () => {
               </button>
 
               <button
-                onClick={handleBroucherDownload} 
+                onClick={handleBroucherDownload}
                 className="px-4 py-2 bg-gradient-to-r from-cyan-500 to-blue-600 text-white hover:from-cyan-600 hover:to-blue-700 transition-all duration-300"
               >
                 Submit & Download

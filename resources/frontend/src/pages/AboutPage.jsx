@@ -54,56 +54,6 @@ const AboutPage = () => {
         },
     ];
 
-    const whyChooseUs = [
-        {
-            title: "Energy Saving",
-            description:
-                "Power consumption is equated to around 15% of induction cooker.",
-            icon: "⚡",
-        },
-        {
-            title: "More Safety",
-            description: "No electromagnetic radiation to do harm to people.",
-            icon: "🛡️",
-        },
-        {
-            title: "Large Heating Area",
-            description:
-                "With only 15% power consumption to provide over three times heating area of induction cooker.",
-            icon: "🔥",
-        },
-        {
-            title: "Even Heating",
-            description:
-                "With constant temperature and even heating surface, without human intervention.",
-            icon: "🌡️",
-        },
-        {
-            title: "Long-Term Effect",
-            description:
-                "Long term to keep the best temperature and flavour. Particularly well suited for buffet restaurants, banquets, staff cafeterias and food courts.",
-            icon: "⏳",
-        },
-        {
-            title: "Clean and Tidy",
-            description:
-                "To be cleaned more easily with the integral type unitized design. Keeping the best image to the guests.",
-            icon: "🧼",
-        },
-        {
-            title: "Long Working Life",
-            description:
-                "With high-tech heating element and high-grade ceramic glass, long working life, especially suited for commercial use.",
-            icon: "🏭",
-        },
-        {
-            title: "Eco-Friendly & Safe",
-            description:
-                "No waste gas, no electromagnetic radiation, energy conservation and environmental protection. Suitable for pregnant women, children, elderly families.",
-            icon: "🌍",
-        },
-    ];
-
     const timeline = [
         {
             year: "2014",
@@ -113,9 +63,9 @@ const AboutPage = () => {
         },
         {
             year: "2017",
-            title: "Complete Supply & Installation at Ritz Carlton",
+            title: "Complete Supply & Installation at Ritz Carlton Pune",
             description:
-                "By 2017, after delivering impressive results at JW Marriott, we were entrusted with the complete supply and installation of our products for Ritz Carlton, a luxury brand under the same Marriott Group and owned by Panchshil Corporate. The successful execution of this project further solidified our reputation for consistent excellence and reliability in premium hospitality environments.",
+                "By 2017, after delivering impressive results at JW Marriott, we were entrusted with the complete supply and installation of our products for Ritz Carlton Pune, a luxury brand under the same Marriott Group and owned by Panchshil Corporate. The successful execution of this project further solidified our reputation for consistent excellence and reliability in premium hospitality environments.",
         },
         {
             year: "2019",
@@ -127,7 +77,7 @@ const AboutPage = () => {
             year: "2021",
             title: "International Entry - Maldives Project & Upgrades",
             description:
-                "The year 2021 marked a significant milestone with our entry into the international market. Encouraged by our long-term client, we supplied our solutions to the Maldives project RAAYA by Atmosphere (formerly known as Amari). During the same period, we also upgraded the Marriott Suites by integrating advanced versions of our products, demonstrating our ability to meet global standards and adapt to sophisticated design requirements.",
+                "The year 2021 marked a significant milestone with our entry into the international market. Encouraged by our long-term client, we supplied our solutions to the Maldives project RAAYA by Atmosphere (formerly known as Amari). During the same period, we also upgraded the Marriott Suites, demonstrating our ability to meet global standards and adapt to sophisticated design requirements.",
         },
         {
             year: "2022",
@@ -289,47 +239,6 @@ const AboutPage = () => {
                                         {item.description}
                                     </p>
                                 </div>
-                            </div>
-                        ))}
-                    </div>
-                </div>
-            </section>
-
-            {/* Why Choose Us Section */}
-            <section
-                id="section-why-choose"
-                className={`py-20 bg-[#282b40] transition-all duration-1000 ${
-                    isVisible["section-why-choose"]
-                        ? "translate-y-0 opacity-100"
-                        : "translate-y-10 opacity-0"
-                }`}
-            >
-                <div className="max-w-7xl mx-auto px-4">
-                    <div className="text-center mb-16">
-                        <span className="text-[#06b6d4] text-sm font-semibold tracking-wider uppercase">
-                            Benefits
-                        </span>
-                        <h2 className="text-4xl font-bold text-white mt-2 mb-4">
-                            Why{" "}
-                            <span className="text-[#06b6d4]">Choose Us?</span>
-                        </h2>
-                        <div className="w-20 h-1 bg-[#06b6d4] mx-auto"></div>
-                    </div>
-                    <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-8">
-                        {whyChooseUs.map((item, index) => (
-                            <div
-                                key={index}
-                                className="bg-[#1f2235] border border-[#06b6d4]/30 p-8 hover:border-[#06b6d4] transition-all duration-300 text-center group"
-                            >
-                                <div className="text-5xl mb-6 group-hover:scale-110 transition-transform duration-300">
-                                    {item.icon}
-                                </div>
-                                <h3 className="font-bold text-white mb-3 text-xl">
-                                    {item.title}
-                                </h3>
-                                <p className="text-gray-300">
-                                    {item.description}
-                                </p>
                             </div>
                         ))}
                     </div>

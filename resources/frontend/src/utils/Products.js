@@ -1,16 +1,43 @@
 import P1 from "../assets/P1.jpg"
 import P2 from "../assets/P2.jpg"
 import P3 from "../assets/P3.png"
-import P4 from "../assets/P4.jpg"
-import P5 from "../assets/P5.jpg"
-import P6 from "../assets/P6.png"
+import P4 from "../assets/P4.png"
+
+import P41 from "../assets/P41.png"
+import P42 from "../assets/P42.png"
+import P43 from "../assets/P43.png"
+import P44 from "../assets/P44.png"
+import P45 from "../assets/P45.png"
+import P46 from "../assets/P46.png"
+import P47 from "../assets/P47.png"
+import P48 from "../assets/P48.png"
+
+import P51 from "../assets/P51.png"
+import P52 from "../assets/P52.png"
+import P53 from "../assets/P53.png"
+import P54 from "../assets/P54.png"
+import P55 from "../assets/P55.png"
+import P56 from "../assets/P56.png"
+import P57 from "../assets/P57.png"
+import P58 from "../assets/P58.png"
+
+import P61 from "../assets/P61.png"
+import P62 from "../assets/P62.png"
+import P63 from "../assets/P63.png"
+import P64 from "../assets/P64.png"
+import P65 from "../assets/P65.png"
+import P66 from "../assets/P66.png"
+import P67 from "../assets/P67.png"
+import P68 from "../assets/P68.png"
+
+
 
 
 const Products = [
     {
-        id:1,
+        id: 1,
         product_name: "Built-in Ceramic Hot Plate",
-        image : P1,
+        image: P1,
         description:
             "A flush mount ceramic glass hot plate designed for buffet setups, offering flame-free warming with robust build quality and efficient heat transfer.",
         features: [
@@ -27,6 +54,7 @@ const Products = [
         models: [
             {
                 model: "CBS3838",
+                image: P1,
                 description: "Ceramic + Hotplate",
                 dimensions: { L: 380, W: 380, H: 90 },
                 voltage: "230V",
@@ -36,6 +64,7 @@ const Products = [
             },
             {
                 model: "CBS4040",
+                image: P1,
                 description: "Ceramic + Hotplate",
                 dimensions: { L: 400, W: 400, H: 90 },
                 voltage: "230V",
@@ -45,6 +74,7 @@ const Products = [
             },
             {
                 model: "CBS6040",
+                image: P1,
                 description: "Ceramic + Hotplate",
                 dimensions: { L: 600, W: 400, H: 90 },
                 voltage: "230V",
@@ -54,6 +84,7 @@ const Products = [
             },
             {
                 model: "CBS6050",
+                image: P1,
                 description: "Ceramic + Hotplate",
                 dimensions: { L: 600, W: 500, H: 90 },
                 voltage: "230V",
@@ -63,6 +94,7 @@ const Products = [
             },
             {
                 model: "CBS8040",
+                image: P1,
                 description: "Ceramic + Hotplate",
                 dimensions: { L: 800, W: 400, H: 90 },
                 voltage: "230V",
@@ -72,6 +104,7 @@ const Products = [
             },
             {
                 model: "CBS8050",
+                image: P1,
                 description: "Ceramic + Hotplate",
                 dimensions: { L: 800, W: 500, H: 90 },
                 voltage: "230V",
@@ -81,6 +114,7 @@ const Products = [
             },
             {
                 model: "CBS9040",
+                image: P1,
                 description: "Ceramic + Hotplate",
                 dimensions: { L: 920, W: 400, H: 90 },
                 voltage: "230V",
@@ -90,6 +124,7 @@ const Products = [
             },
             {
                 model: "CBS9050",
+                image: P1,
                 description: "Ceramic + Hotplate",
                 dimensions: { L: 920, W: 500, H: 90 },
                 voltage: "230V",
@@ -99,6 +134,7 @@ const Products = [
             },
             {
                 model: "CBS12040",
+                image: P1,
                 description: "Ceramic + Hotplate",
                 dimensions: { L: 1200, W: 400, H: 90 },
                 voltage: "230V",
@@ -108,6 +144,7 @@ const Products = [
             },
             {
                 model: "CBS12050",
+                image: P1,
                 description: "Ceramic + Hotplate",
                 dimensions: { L: 1200, W: 500, H: 90 },
                 voltage: "230V",
@@ -117,6 +154,7 @@ const Products = [
             },
             {
                 model: "CBS15040",
+                image: P1,
                 description: "Ceramic + Hotplate",
                 dimensions: { L: 1500, W: 400, H: 90 },
                 voltage: "230V",
@@ -126,6 +164,7 @@ const Products = [
             },
             {
                 model: "CBS15050",
+                image: P1,
                 description: "Ceramic + Hotplate",
                 dimensions: { L: 1500, W: 500, H: 90 },
                 voltage: "230V",
@@ -135,6 +174,7 @@ const Products = [
             },
             {
                 model: "CBS18040",
+                image: P1,
                 description: "Ceramic + Hotplate",
                 dimensions: { L: 1843, W: 400, H: 90 },
                 voltage: "230V",
@@ -144,6 +184,7 @@ const Products = [
             },
             {
                 model: "CBS18050",
+                image: P1,
                 description: "Ceramic + Hotplate",
                 dimensions: { L: 1843, W: 500, H: 90 },
                 voltage: "230V",
@@ -153,10 +194,11 @@ const Products = [
             }
         ],
     },
+
     {
-        id:2,
+        id: 2,
         product_name: "Drop-in Ceramic Hot Plate",
-        image : P2,
+        image: P2,
         description:
             "Efficient ceramic hot plate for buffet counters with adjustable thermostat and easy installation.",
         features: [
@@ -171,6 +213,7 @@ const Products = [
         models: [
             {
                 model: "CDS6040",
+                image: P2,
                 description: "Ceramic + Hotplate (Drop-in Series)",
                 dimensions: { L: 646, W: 446, H: 90 },
                 voltage: "230V",
@@ -180,6 +223,7 @@ const Products = [
             },
             {
                 model: "CDS6050",
+                image: P2,
                 description: "Ceramic + Hotplate (Drop-in Series)",
                 dimensions: { L: 646, W: 546, H: 90 },
                 voltage: "230V",
@@ -189,6 +233,7 @@ const Products = [
             },
             {
                 model: "CDS8040",
+                image: P2,
                 description: "Ceramic + Hotplate (Drop-in Series)",
                 dimensions: { L: 846, W: 446, H: 90 },
                 voltage: "230V",
@@ -198,6 +243,7 @@ const Products = [
             },
             {
                 model: "CDS8050",
+                image: P2,
                 description: "Ceramic + Hotplate (Drop-in Series)",
                 dimensions: { L: 846, W: 546, H: 90 },
                 voltage: "230V",
@@ -207,6 +253,7 @@ const Products = [
             },
             {
                 model: "CDS9040",
+                image: P2,
                 description: "Ceramic + Hotplate (Drop-in Series)",
                 dimensions: { L: 966, W: 446, H: 90 },
                 voltage: "230V",
@@ -216,6 +263,7 @@ const Products = [
             },
             {
                 model: "CDS9050",
+                image: P2,
                 description: "Ceramic + Hotplate (Drop-in Series)",
                 dimensions: { L: 966, W: 546, H: 90 },
                 voltage: "230V",
@@ -225,6 +273,7 @@ const Products = [
             },
             {
                 model: "CDS12040",
+                image: P2,
                 description: "Ceramic + Hotplate (Drop-in Series)",
                 dimensions: { L: 1246, W: 446, H: 90 },
                 voltage: "230V",
@@ -234,6 +283,7 @@ const Products = [
             },
             {
                 model: "CDS12050",
+                image: P2,
                 description: "Ceramic + Hotplate (Drop-in Series)",
                 dimensions: { L: 1246, W: 546, H: 90 },
                 voltage: "230V",
@@ -243,6 +293,7 @@ const Products = [
             },
             {
                 model: "CDS15040",
+                image: P2,
                 description: "Ceramic + Hotplate (Drop-in Series)",
                 dimensions: { L: 1546, W: 446, H: 90 },
                 voltage: "230V",
@@ -252,6 +303,7 @@ const Products = [
             },
             {
                 model: "CDS15050",
+                image: P2,
                 description: "Ceramic + Hotplate (Drop-in Series)",
                 dimensions: { L: 1546, W: 546, H: 90 },
                 voltage: "230V",
@@ -261,6 +313,7 @@ const Products = [
             },
             {
                 model: "CDS18040",
+                image: P2,
                 description: "Ceramic + Hotplate (Drop-in Series)",
                 dimensions: { L: 1889, W: 446, H: 90 },
                 voltage: "230V",
@@ -270,6 +323,7 @@ const Products = [
             },
             {
                 model: "CDS18050",
+                image: P2,
                 description: "Ceramic + Hotplate (Drop-in Series)",
                 dimensions: { L: 1889, W: 546, H: 90 },
                 voltage: "230V",
@@ -280,9 +334,9 @@ const Products = [
         ],
     },
     {
-        id:3,
+        id: 3,
         product_name: "Ceramic Hot Plates with Thermal Bridge",
-        image : P3,
+        image: P3,
         description:
             "Ceramic hot plate with additional thermal bridge heating for enhanced holding and staged warming.",
         features: [
@@ -296,6 +350,7 @@ const Products = [
         models: [
             {
                 model: "CTB06040",
+                image: P3,
                 description: "Ceramic Hot Plate with Thermal Bridge",
                 dimensions: { L: 686, W: 486, H: "90+450" },
                 voltage: "230V",
@@ -305,6 +360,7 @@ const Products = [
             },
             {
                 model: "CTB6050",
+                image: P3,
                 description: "Ceramic Hot Plate with Thermal Bridge",
                 dimensions: { L: 686, W: 586, H: "90+450" },
                 voltage: "230V",
@@ -314,6 +370,7 @@ const Products = [
             },
             {
                 model: "CTB8040",
+                image: P3,
                 description: "Ceramic Hot Plate with Thermal Bridge",
                 dimensions: { L: 886, W: 486, H: "90+450" },
                 voltage: "230V",
@@ -323,6 +380,7 @@ const Products = [
             },
             {
                 model: "CTB8050",
+                image: P3,
                 description: "Ceramic Hot Plate with Thermal Bridge",
                 dimensions: { L: 886, W: 586, H: "90+450" },
                 voltage: "230V",
@@ -332,6 +390,7 @@ const Products = [
             },
             {
                 model: "CTB9040",
+                image: P3,
                 description: "Ceramic Hot Plate with Thermal Bridge",
                 dimensions: { L: 1006, W: 486, H: "90+450" },
                 voltage: "230V",
@@ -341,6 +400,7 @@ const Products = [
             },
             {
                 model: "CTB9050",
+                image: P3,
                 description: "Ceramic Hot Plate with Thermal Bridge",
                 dimensions: { L: 1006, W: 586, H: "90+450" },
                 voltage: "230V",
@@ -350,6 +410,7 @@ const Products = [
             },
             {
                 model: "CTB12040",
+                image: P3,
                 description: "Ceramic Hot Plate with Thermal Bridge",
                 dimensions: { L: 1289, W: 486, H: "90+450" },
                 voltage: "230V",
@@ -359,6 +420,7 @@ const Products = [
             },
             {
                 model: "CTB12050",
+                image: P3,
                 description: "Ceramic Hot Plate with Thermal Bridge",
                 dimensions: { L: 1289, W: 586, H: "90+450" },
                 voltage: "230V",
@@ -368,6 +430,7 @@ const Products = [
             },
             {
                 model: "CTB15040",
+                image: P3,
                 description: "Ceramic Hot Plate with Thermal Bridge",
                 dimensions: { L: 1589, W: 486, H: "90+450" },
                 voltage: "230V",
@@ -377,6 +440,7 @@ const Products = [
             },
             {
                 model: "CTB15050",
+                image: P3,
                 description: "Ceramic Hot Plate with Thermal Bridge",
                 dimensions: { L: 1589, W: 586, H: "90+450" },
                 voltage: "230V",
@@ -386,6 +450,7 @@ const Products = [
             },
             {
                 model: "CTB18040",
+                image: P3,
                 description: "Ceramic Hot Plate with Thermal Bridge",
                 dimensions: { L: 1889, W: 486, H: "90+450" },
                 voltage: "230V",
@@ -395,6 +460,7 @@ const Products = [
             },
             {
                 model: "CTB18050",
+                image: P3,
                 description: "Ceramic Hot Plate with Thermal Bridge",
                 dimensions: { L: 1889, W: 586, H: "90+450" },
                 voltage: "230V",
@@ -404,44 +470,11 @@ const Products = [
             }
         ],
     },
+
     {
-        id:4,
-        product_name: "Digital Electronic Touch Panel",
-        image : P4,
-        description:
-            "Advanced temperature control panel with precise digital adjustment for ceramic hot plates.",
-        features: [
-            "Touch-based operation",
-            "User-friendly interface",
-            "Allows precise temperature control",
-            "Maintains efficiency during peak hours",
-            "Automatic resume feature after power failure",
-            "Compact ABS enclosure with IP65 protection",
-            "Surface mountable",
-        ],
-        models: [],
-    },
-    {
-        id:5,
-        product_name: "Analog Infinity Controller",
-        image : P5,
-        description:
-            "Analog temperature controller for ceramic hot plates offering easy and preferred manual control.",
-        features: [
-            "Simple knob-based control",
-            "Quick to operate and safe",
-            "No complicated settings",
-            "Perfect for ease of use",
-            "Temperature output cable for hot plate",
-            "ABS enclosure with IP65 rating",
-            "Moisture-resistant",
-        ],
-        models: [],
-    },
-    {
-        id:6,
+        id: 4,
         product_name: "Heated Decorative Lamps",
-        image : P6,
+        image: P41,
         description: "Decorative lamps that provide uniform heating while enhancing food display aesthetics.",
         features: [
             "Integrates decoration, lighting, and warming functions for enhanced visual appeal.",
@@ -461,6 +494,7 @@ const Products = [
                 voltage: "220V",
                 power: "250W",
                 colour_choices: "Multiple",
+                image: P41,
             },
             {
                 model: "SKS-500-TL",
@@ -469,6 +503,7 @@ const Products = [
                 voltage: "220V",
                 power: "250W",
                 colour_choices: "Multiple",
+                image: P42,
             },
             {
                 model: "SKS-600-TL",
@@ -477,6 +512,7 @@ const Products = [
                 voltage: "220V",
                 power: "250W",
                 colour_choices: "Multiple",
+                image: P43,
             },
             {
                 model: "SKS-700-TL",
@@ -485,6 +521,7 @@ const Products = [
                 voltage: "220V",
                 power: "250W",
                 colour_choices: "Multiple",
+                image: P44,
             },
             {
                 model: "SKS-725-TL",
@@ -493,6 +530,7 @@ const Products = [
                 voltage: "220V",
                 power: "250W",
                 colour_choices: "Multiple",
+                image: P45,
             },
             {
                 model: "SKS-750-TL",
@@ -501,6 +539,7 @@ const Products = [
                 voltage: "220V",
                 power: "250W",
                 colour_choices: "Multiple",
+                image: P46,
             },
             {
                 model: "SKS-775-TL",
@@ -509,6 +548,7 @@ const Products = [
                 voltage: "220V",
                 power: "250W",
                 colour_choices: "Multiple",
+                image: P47,
             },
             {
                 model: "SKS-800-TL",
@@ -517,7 +557,26 @@ const Products = [
                 voltage: "220V",
                 power: "250W",
                 colour_choices: "Multiple",
+                image: P48,
             },
+        ],
+    },
+    {
+        id: 5,
+        product_name: "Heated Decorative Lamps",
+        image: P51,
+        description: "Decorative lamps that provide uniform heating while enhancing food display aesthetics.",
+        features: [
+            "Integrates decoration, lighting, and warming functions for enhanced visual appeal.",
+            "Allows flexible matching with different styles and colors.",
+            "Available in a wide range of shades, gloss finishes, and plated options to match décor.",
+            "Features heat dissipation holes to protect the main structure and extend service life.",
+            "Provides even heating and effectively inhibits bacterial growth.",
+            "Suitable for hotels, restaurants, institutional food courts, staff cafeterias, and similar environments.",
+            "Standard height ranges from 320mm to 3245mm with customizable options.",
+            "Complies with safety, health, environmental, and hygiene standards."
+        ],
+        models: [
             {
                 model: "SKS-400-ML",
                 diameter_mm: 180,
@@ -525,6 +584,7 @@ const Products = [
                 voltage: "220V",
                 power: "250W",
                 colour_choices: "Multiple",
+                image: P51,
             },
             {
                 model: "SKS-500-ML",
@@ -533,6 +593,7 @@ const Products = [
                 voltage: "220V",
                 power: "250W",
                 colour_choices: "Multiple",
+                image: P52,
             },
             {
                 model: "SKS-600-ML",
@@ -541,6 +602,7 @@ const Products = [
                 voltage: "220V",
                 power: "250W",
                 colour_choices: "Multiple",
+                image: P53,
             },
             {
                 model: "SKS-700-ML",
@@ -549,6 +611,7 @@ const Products = [
                 voltage: "220V",
                 power: "250W",
                 colour_choices: "Multiple",
+                image: P54,
             },
             {
                 model: "SKS-725-ML",
@@ -557,6 +620,7 @@ const Products = [
                 voltage: "220V",
                 power: "250W",
                 colour_choices: "Multiple",
+                image: P55,
             },
             {
                 model: "SKS-750-ML",
@@ -565,6 +629,7 @@ const Products = [
                 voltage: "220V",
                 power: "250W",
                 colour_choices: "Multiple",
+                image: P56,
             },
             {
                 model: "SKS-775-ML",
@@ -573,6 +638,7 @@ const Products = [
                 voltage: "220V",
                 power: "250W",
                 colour_choices: "Multiple",
+                image: P57,
             },
             {
                 model: "SKS-800-ML",
@@ -581,7 +647,27 @@ const Products = [
                 voltage: "220V",
                 power: "250W",
                 colour_choices: "Multiple",
+                image: P58,
             },
+        ],
+    },
+
+    {
+        id: 6,
+        product_name: "Heated Decorative Lamps",
+        image: P61,
+        description: "Decorative lamps that provide uniform heating while enhancing food display aesthetics.",
+        features: [
+            "Integrates decoration, lighting, and warming functions for enhanced visual appeal.",
+            "Allows flexible matching with different styles and colors.",
+            "Available in a wide range of shades, gloss finishes, and plated options to match décor.",
+            "Features heat dissipation holes to protect the main structure and extend service life.",
+            "Provides even heating and effectively inhibits bacterial growth.",
+            "Suitable for hotels, restaurants, institutional food courts, staff cafeterias, and similar environments.",
+            "Standard height ranges from 320mm to 3245mm with customizable options.",
+            "Complies with safety, health, environmental, and hygiene standards."
+        ],
+        models: [
             {
                 model: "SKS-400-ST",
                 diameter_mm: 180,
@@ -589,6 +675,7 @@ const Products = [
                 voltage: "220V",
                 power: "250W",
                 colour_choices: "Multiple",
+                image: P61,
             },
             {
                 model: "SKS-500-ST",
@@ -597,6 +684,7 @@ const Products = [
                 voltage: "220V",
                 power: "250W",
                 colour_choices: "Multiple",
+                image: P62,
             },
             {
                 model: "SKS-600-ST",
@@ -605,6 +693,7 @@ const Products = [
                 voltage: "220V",
                 power: "250W",
                 colour_choices: "Multiple",
+                image: P63,
             },
             {
                 model: "SKS-700-ST",
@@ -613,6 +702,7 @@ const Products = [
                 voltage: "220V",
                 power: "250W",
                 colour_choices: "Multiple",
+                image: P64,
             },
             {
                 model: "SKS-725-ST",
@@ -621,6 +711,7 @@ const Products = [
                 voltage: "220V",
                 power: "250W",
                 colour_choices: "Multiple",
+                image: P65,
             },
             {
                 model: "SKS-750-ST",
@@ -629,6 +720,7 @@ const Products = [
                 voltage: "220V",
                 power: "250W",
                 colour_choices: "Multiple",
+                image: P66,
             },
             {
                 model: "SKS-775-ST",
@@ -637,6 +729,7 @@ const Products = [
                 voltage: "220V",
                 power: "250W",
                 colour_choices: "Multiple",
+                image: P67,
             },
             {
                 model: "SKS-800-ST",
@@ -645,10 +738,10 @@ const Products = [
                 voltage: "220V",
                 power: "250W",
                 colour_choices: "Multiple",
+                image: P68,
             },
         ],
     },
 ];
-
 
 export default Products;

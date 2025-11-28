@@ -63,7 +63,7 @@ const SmartKitchenHomepage = () => {
               </div>
 
               {/* Main Heading */}
-              <h1 className="text-4xl lg:text-5xl font-bold text-white mb-4 leading-tight">
+              <h1 className="text-4xl lg:text-4xl font-bold text-white mb-4 leading-tight">
                 TRANSFORM YOUR
                 <span className="block text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-blue-500">
                   BUFFET EXPERIENCE
@@ -133,22 +133,18 @@ const SmartKitchenHomepage = () => {
               transition={{ repeat: Infinity, duration: 20, ease: "linear" }}
             >
               {/* Duplicate products for seamless loop */}
-              {Products.map((product, index) => (
+              {[...Products, ...Products].map((product, index) => (
                 <Link
                   key={index}
                   to="/products"
                   className="min-w-[300px] bg-[#282b40] border border-[#3a3f5c] overflow-hidden group hover:border-cyan-500 transition-all duration-300"
                 >
-                  <div className="relative h-64 overflow-hidden">
+                  <div className="relative h-64 overflow-hidden bg-white">
                     <img
                       src={product.image}
                       alt={product.product_name}
-                      className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                      className="w-full h-full object-contain p-2 transition-transform duration-500"
                     />
-                    <div className="absolute inset-0 bg-gradient-to-t from-[#282b40] via-transparent to-transparent opacity-60"></div>
-                    <span className="absolute top-4 right-4 bg-cyan-500 text-white px-3 py-1 text-xs font-bold uppercase">
-                      Featured
-                    </span>
                   </div>
                   <div className="p-4">
                     {/* <p className="text-cyan-400 text-xs uppercase tracking-wider mb-1">{product.category}</p> */}
@@ -167,7 +163,7 @@ const SmartKitchenHomepage = () => {
         <div className="max-w-7xl mx-auto px-6">
           <div className="text-center mb-16">
             <h2 className="text-4xl font-bold text-white mb-4 uppercase tracking-wide">
-              WHY CHOOSE <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-blue-500">US</span>
+              OUR <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-blue-500">FEATURES</span>
             </h2>
             <div className="w-24 h-1 bg-gradient-to-r from-cyan-500 to-blue-600 mx-auto"></div>
           </div>
@@ -227,6 +223,75 @@ const SmartKitchenHomepage = () => {
                   </p>
                 </div>
               ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Features Section */}
+      <section className="py-10 bg-[#282b40]">
+        <div className="max-w-7xl mx-auto px-6">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl font-bold text-white mb-4 uppercase tracking-wide">
+              WHY CHOOSE <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-blue-500">US?</span>
+            </h2>
+            <div className="w-24 h-1 bg-gradient-to-r from-cyan-500 to-blue-600 mx-auto"></div>
+          </div>
+
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {[
+              {
+                icon: "🛡️",
+                title: "DURABILITY",
+                description:
+                  "Engineered for long-term performance with robust materials designed to withstand intensive daily use."
+              },
+              {
+                icon: "⚙️",
+                title: "SPARE PARTS",
+                description:
+                  "Easily available spare parts ensure seamless maintenance and minimize downtime."
+              },
+              {
+                icon: "🔁",
+                title: "REPLACEABLE COMPONENTS",
+                description:
+                  "Modular design allows individual components to be replaced without affecting the entire system."
+              },
+              {
+                icon: "🪟",
+                title: "HIGH-QUALITY GLASS",
+                description:
+                  "Equipped with premium, heat-resistant glass ensuring superior durability and safety."
+              },
+              {
+                icon: "💎",
+                title: "HIGH-QUALITY COMPONENTS",
+                description:
+                  "Built using industry-grade components offering high reliability and extended operating life."
+              },
+              {
+                icon: "🛠️",
+                title: "SERVICE SUPPORT",
+                description:
+                  "Comprehensive service support with quick response and expert assistance for all installations."
+              }
+            ].map((feature, index) => (
+              <div
+                key={index}
+                className="bg-[#1f2235] p-8 border-2 border-[#3a3f5c] hover:border-cyan-500 transition-all duration-300 group"
+              >
+                <div className="text-5xl mb-6 group-hover:scale-110 transition-transform duration-300">
+                  {feature.icon}
+                </div>
+                <h3 className="text-lg font-bold text-white mb-4 uppercase tracking-wider group-hover:text-cyan-400 transition-colors">
+                  {feature.title}
+                </h3>
+                <p className="text-gray-400 leading-relaxed">
+                  {feature.description}
+                </p>
+              </div>
+            ))}
+
           </div>
         </div>
       </section>
