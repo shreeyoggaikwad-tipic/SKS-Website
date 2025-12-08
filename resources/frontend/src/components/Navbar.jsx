@@ -9,8 +9,8 @@ function Navbar() {
   const dropdownRef = useRef(null);
   const hoverTimeoutRef = useRef(null);
 
-  const activeClass = "text-white bg-[#3a3f5c] border-b-2 border-cyan-400";
-  const normalClass = "text-gray-300 hover:text-white hover:bg-[#3a3f5c] transition-all duration-300";
+  const activeClass = "text-white bg-[#4f567a] border-b-2 border-cyan-400";
+  const normalClass = "text-gray-300 hover:text-white hover:bg-[#4f567a] transition-all duration-300";
 
   // Clean up timeout on unmount
   useEffect(() => {
@@ -22,7 +22,7 @@ function Navbar() {
   }, []);
 
   return (
-    <header className="bg-[#282b40] shadow-xl sticky top-0 z-50 border-b-2 border-[#3a3f5c]">
+    <header className="bg-[#3b4059] shadow-xl sticky top-0 z-50 border-b-2 border-[#4f567a]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center py-4">
           {/* Logo Section */}
@@ -70,7 +70,7 @@ function Navbar() {
 
           {/* Mobile Menu Button */}
           <button
-            className="lg:hidden p-2 focus:outline-none bg-[#3a3f5c] hover:bg-[#4a4f6c] transition-colors duration-300"
+            className="lg:hidden p-2 focus:outline-none bg-[#4f567a] hover:bg-[#5f668a] transition-colors duration-300"
             onClick={() => setIsOpen(!isOpen)}
           >
             <div className="w-6 h-6 flex flex-col justify-center items-center">
@@ -83,17 +83,17 @@ function Navbar() {
 
         {/* Mobile Nav */}
         {isOpen && (
-          <nav className="lg:hidden pb-4 flex flex-col space-y-0 bg-[#1f2235] mt-2 border-t-2 border-[#3a3f5c]">
+          <nav className="lg:hidden pb-4 flex flex-col space-y-0 bg-[#32364a] mt-2 border-t-2 border-[#4f567a]">
             <NavLink
               to="/"
-              className={({ isActive }) => `px-5 py-4 flex items-center space-x-3 border-b border-[#282b40] ${isActive ? 'bg-[#3a3f5c] text-white font-semibold' : 'text-gray-300 hover:bg-[#282b40] hover:text-white'} transition-all duration-300`}
+              className={({ isActive }) => `px-5 py-4 flex items-center space-x-3 border-b border-[#3b4059] ${isActive ? 'bg-[#4f567a] text-white font-semibold' : 'text-gray-300 hover:bg-[#3b4059] hover:text-white'} transition-all duration-300`}
               onClick={() => setIsOpen(false)}
             >
               <span className="text-lg">🏠</span><span className="text-sm font-medium">HOME</span>
             </NavLink>
             <NavLink
               to="/about"
-              className={({ isActive }) => `px-5 py-4 flex items-center space-x-3 border-b border-[#282b40] ${isActive ? 'bg-[#3a3f5c] text-white font-semibold' : 'text-gray-300 hover:bg-[#282b40] hover:text-white'} transition-all duration-300`}
+              className={({ isActive }) => `px-5 py-4 flex items-center space-x-3 border-b border-[#3b4059] ${isActive ? 'bg-[#4f567a] text-white font-semibold' : 'text-gray-300 hover:bg-[#3b4059] hover:text-white'} transition-all duration-300`}
               onClick={() => setIsOpen(false)}
             >
               <span className="text-lg">ℹ️</span><span className="text-sm font-medium">WHO WE ARE?</span>
@@ -101,7 +101,7 @@ function Navbar() {
 
             <NavLink
               to="/products"
-              className={({ isActive }) => `px-5 py-4 flex items-center space-x-3 border-b border-[#282b40] ${isActive ? 'bg-[#3a3f5c] text-white font-semibold' : 'text-gray-300 hover:bg-[#282b40] hover:text-white'} transition-all duration-300`}
+              className={({ isActive }) => `px-5 py-4 flex items-center space-x-3 border-b border-[#3b4059] ${isActive ? 'bg-[#4f567a] text-white font-semibold' : 'text-gray-300 hover:bg-[#3b4059] hover:text-white'} transition-all duration-300`}
               onClick={() => setIsOpen(false)}
             >
               <span className="text-lg">📦</span><span className="text-sm font-medium">PRODUCTS</span>

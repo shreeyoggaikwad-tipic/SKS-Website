@@ -61,7 +61,7 @@ function ContactForm() {
 
     if (submitted) {
         return (
-            <div className="bg-[#1f2235] border-2 border-[#06b6d4] p-12 text-center animate-fade-in">
+            <div className="bg-[#32364a] border-2 border-[#06b6d4] p-12 text-center animate-fade-in">
                 <div className="w-20 h-20 bg-[#06b6d4] flex items-center justify-center mx-auto mb-6">
                     <span className="text-white text-4xl font-bold">✓</span>
                 </div>
@@ -72,7 +72,7 @@ function ContactForm() {
     }
 
     return (
-        <div className="bg-[#1f2235] border-2 border-[#06b6d4]/30 p-10 animate-fade-in">
+        <div className="bg-[#32364a] border-2 border-[#06b6d4]/30 p-10 animate-fade-in">
             <div className="mb-8">
                 <h3 className="text-3xl font-bold text-white mb-3">Send Us a Message</h3>
                 <p className="text-gray-300">We'd love to hear from you! Fill out the form below and we'll respond as quickly as possible.</p>
@@ -126,7 +126,7 @@ function ContactForm() {
                         onChange={handleChange}
                         required
                         rows="5"
-                        className="w-full px-4 py-3 bg-[#282b40] border border-[#06b6d4]/30 text-white placeholder-gray-500 focus:border-[#06b6d4] focus:outline-none transition-all duration-300 resize-none"
+                        className="w-full px-4 py-3 bg-[#3b4059] border border-[#06b6d4]/30 text-white placeholder-gray-500 focus:border-[#06b6d4] focus:outline-none transition-all duration-300 resize-none"
                         placeholder="Tell us about your project requirements..."
                     ></textarea>
                 </div>
@@ -160,7 +160,7 @@ function InputField({ label, name, value, onChange, placeholder, type = 'text' }
                 value={value}
                 onChange={onChange}
                 required
-                className="w-full px-4 py-3 bg-[#282b40] border border-[#06b6d4]/30 text-white placeholder-gray-500 focus:border-[#06b6d4] focus:outline-none transition-all duration-300"
+                className="w-full px-4 py-3 bg-[#3b4059] border border-[#06b6d4]/30 text-white placeholder-gray-500 focus:border-[#06b6d4] focus:outline-none transition-all duration-300"
                 placeholder={placeholder}
             />
         </div>
@@ -169,11 +169,11 @@ function InputField({ label, name, value, onChange, placeholder, type = 'text' }
 
 function ContactPage() {
     return (
-        <div className="min-h-screen bg-[#282b40]">
+        <div className="min-h-screen bg-[#3b4059]">
             <Navbar />
 
             {/* Hero Section */}
-            <section className="relative py-10 bg-[#282b40] border-b-2 border-cyan-500">
+            <section className="relative py-10 bg-[#3b4059] border-b-2 border-cyan-500">
                 <div className="absolute inset-0 opacity-5">
                     <div className="absolute top-0 left-0 w-96 h-96 bg-[#06b6d4] blur-3xl"></div>
                     <div className="absolute bottom-0 right-0 w-96 h-96 bg-[#06b6d4] blur-3xl"></div>
@@ -210,7 +210,7 @@ function ContactPage() {
 
 function ContactInfoCard({ icon, title, info, description }) {
     return (
-        <div className="bg-[#282b40] border border-[#06b6d4]/30 p-8 hover:border-[#06b6d4] transition-all duration-300 text-center">
+        <div className="bg-[#3b4059] border border-[#06b6d4]/30 p-8 hover:border-[#06b6d4] transition-all duration-300 text-center">
             <div className="text-5xl mb-4">{icon}</div>
             <h3 className="text-xl font-bold text-white mb-2">{title}</h3>
             <p className="text-[#06b6d4] font-semibold mb-2">{info}</p>
@@ -237,7 +237,7 @@ function MapAndBusinessHours() {
 
     return (
         <>
-            <div className="bg-[#1f2235] border-2 border-[#06b6d4]/30 overflow-hidden animate-fade-in-up" style={{ animationDelay: "0.3s" }}>
+            <div className="bg-[#32364a] border-2 border-[#06b6d4]/30 overflow-hidden animate-fade-in-up" style={{ animationDelay: "0.3s" }}>
                 <div className="p-6 border-b border-[#06b6d4]/30">
                     <h3 className="text-2xl font-bold text-white mt-2">Our Location</h3>
                 </div>
@@ -255,7 +255,7 @@ function MapAndBusinessHours() {
                 </div>
             </div>
 
-            <div className="bg-[#1f2235] border-2 border-[#06b6d4]/30 p-8 animate-fade-in-up" style={{ animationDelay: "0.4s" }}>
+            <div className="bg-[#32364a] border-2 border-[#06b6d4]/30 p-8 animate-fade-in-up" style={{ animationDelay: "0.4s" }}>
                 <div className="mb-6">
                     <h3 className="text-2xl font-bold text-white mt-2">Business Hours</h3>
                 </div>

@@ -26,7 +26,7 @@ function Footer() {
     ]
 
     return (
-        <footer className="bg-[#1a1d2e] text-white border-t-2 border-[#282b40]">
+        <footer className="bg-[#2a2d3e] text-white border-t-2 border-[#3b4059]">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 {/* Main Footer Content */}
                 <div className="py-8 grid md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -37,8 +37,8 @@ function Footer() {
                                 <img src={logo} alt="" />
                             </div>
                             <div>
-                                <h4 className="text-lg font-bold uppercase tracking-wider">Smart Kitchen Solutions</h4>
-                                <p className="text-xs text-cyan-400 uppercase tracking-wider">Innovation in Design</p>
+                               <h1 className="text-xl font-bold text-white tracking-wide uppercase">Smart Kitchen Solutions</h1>
+                <p className="text-xs text-cyan-400 font-medium tracking-wider">YOUR DESTINATIONS FOR UNRIVALED PRODUCTS</p>
                             </div>
                         </div>
                         <p className="text-gray-400 text-sm leading-relaxed">
@@ -76,7 +76,7 @@ function Footer() {
 
                     {/* Quick Links */}
                     <div>
-                        <h5 className="font-bold mb-6 uppercase tracking-wider text-sm border-b border-[#3a3f5c] pb-3">Quick Links</h5>
+                        <h5 className="font-bold mb-6 uppercase tracking-wider text-sm border-b border-[#4f567a] pb-3">Quick Links</h5>
                         <ul className="space-y-3 text-gray-400 text-sm">
                             <li>
                                 <Link to="/" className="hover:text-cyan-400 transition-colors duration-300 flex items-center space-x-2 group">
@@ -120,7 +120,7 @@ function Footer() {
 
                     {/* Contact Info */}
                     <div>
-                        <h5 className="font-bold mb-6 uppercase tracking-wider text-sm border-b border-[#3a3f5c] pb-3">Contact Info</h5>
+                        <h5 className="font-bold mb-6 uppercase tracking-wider text-sm border-b border-[#4f567a] pb-3">Contact Info</h5>
                         <div className="space-y-4 text-gray-400 text-sm">
                             {user.map((info, index) => (
                                 <a
@@ -140,7 +140,7 @@ function Footer() {
                 </div>
 
                 {/* Bottom Bar */}
-                <div className="border-t border-[#282b40] py-4">
+                <div className="border-t border-[#3b4059] py-4">
                     <div className="flex flex-col md:flex-row justify-center items-center space-y-4 md:space-y-0">
                         <p className="text-gray-400 text-sm">
                             &copy; 2025 <span className="text-cyan-400 font-semibold">Smart Kitchen Solutions</span>. All rights reserved.

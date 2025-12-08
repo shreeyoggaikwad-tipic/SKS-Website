@@ -2,6 +2,8 @@ import React, { useEffect, useState, useRef } from "react";
 import { Link } from "react-router-dom";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
+import BGAbout from "../assets/BGAbout.jpg";
+import { Zap, Sparkles, Target, Globe } from "lucide-react";
 
 const AboutPage = () => {
     const [isVisible, setIsVisible] = useState({});
@@ -32,25 +34,25 @@ const AboutPage = () => {
             title: "Innovation First",
             description:
                 "Cutting-edge smart kitchen technology designed for modern living.",
-            icon: "⚡",
+            icon: <Zap size={32} />,
         },
         {
             title: "Quality Craftsmanship",
             description:
                 "Premium materials and meticulous attention to detail in every product.",
-            icon: "✨",
+            icon: <Sparkles size={32} />,
         },
         {
             title: "User-Centric Design",
             description:
                 "Intuitive interfaces and seamless experiences for effortless cooking.",
-            icon: "🎯",
+            icon: <Target size={32} />,
         },
         {
             title: "Sustainability",
             description:
                 "Eco-friendly solutions that reduce energy consumption and waste.",
-            icon: "🌍",
+            icon: <Globe size={32} />,
         },
     ];
 
@@ -118,11 +120,11 @@ const AboutPage = () => {
     ];
 
     return (
-        <div className="min-h-screen bg-[#282b40]">
+        <div className="min-h-screen bg-[#3b4059]">
             <Navbar />
 
             {/* Hero Section */}
-            <section className="relative py-10 bg-[#282b40] border-b-2 border-cyan-500">
+            <section className="relative py-10 bg-[#3b4059] border-b-2 border-cyan-500">
                 <div className="absolute inset-0 opacity-5">
                     <div className="absolute top-0 left-0 w-96 h-96 bg-[#06b6d4] blur-3xl"></div>
                     <div className="absolute bottom-0 right-0 w-96 h-96 bg-[#06b6d4] blur-3xl"></div>
@@ -145,7 +147,7 @@ const AboutPage = () => {
             {/* Story Section */}
             <section
                 id="section-story"
-                className={`py-10 bg-[#1f2235] transition-all duration-1000 ${
+                className={`py-10 bg-[#32364a] transition-all duration-1000 ${
                     isVisible["section-story"]
                         ? "translate-y-0 opacity-100"
                         : "translate-y-10 opacity-0"
@@ -186,16 +188,10 @@ const AboutPage = () => {
                         </p>
                     </div>
                     <div className="relative">
-                        <div className="bg-[#282b40] border-2 border-[#06b6d4] p-12 text-center">
-                            <div className="text-7xl mb-6">🍳</div>
-                            <h3 className="text-3xl font-bold mb-4 text-white">
-                                Innovation Meets Tradition
-                            </h3>
-                            <p className="text-gray-300 text-lg">
-                                Blending cutting-edge technology with the
-                                timeless art of cooking to create extraordinary
-                                buffet experiences.
-                            </p>
+                        <div 
+                            className="bg-[#3b4059] border-2 border-[#06b6d4] h-96 w-full bg-cover bg-center"
+                            style={{ backgroundImage: `url(${BGAbout})` }}
+                        >
                         </div>
                     </div>
                 </div>
@@ -204,7 +200,7 @@ const AboutPage = () => {
             {/* Timeline Section - Horizontal Scrollable */}
             <section
                 id="section-timeline"
-                className={`py-10 bg-[#282b40] transition-all duration-1000 ${
+                className={`py-10 bg-[#3b4059] transition-all duration-1000 ${
                     isVisible["section-timeline"]
                         ? "translate-y-0 opacity-100"
                         : "translate-y-10 opacity-0"
@@ -226,16 +222,16 @@ const AboutPage = () => {
                         {timeline.map((item, index) => (
                             <div key={index} className="ml-8 relative">
                                 {/* Dot */}
-                                <div className="absolute -left-[36px] top-2 w-6 h-6 bg-[#06b6d4] rounded-full border-4 border-[#282b40]"></div>
+                                <div className="absolute -left-[36px] top-2 w-6 h-6 bg-[#06b6d4] rounded-full border-4 border-[#3b4059]"></div>
 
-                                <div className="bg-[#1f2235] p-6 rounded-xl shadow-lg hover:border-[#06b6d4] border border-transparent transition-all duration-300">
+                                <div className="bg-[#32364a] p-6 rounded-xl shadow-lg hover:border-[#06b6d4] border border-transparent transition-all duration-300">
                                     <span className="text-[#06b6d4] font-semibold">
                                         {item.year}
                                     </span>
                                     <h3 className="text-xl font-bold text-white mt-1">
                                         {item.title}
                                     </h3>
-                                    <p className="text-gray-300 mt-2">
+                                    <p className="text-gray-300 text-sm mt-2">
                                         {item.description}
                                     </p>
                                 </div>
@@ -248,7 +244,7 @@ const AboutPage = () => {
             {/* Values Section */}
             <section
                 id="section-values"
-                className={`py-10 bg-[#1f2235] transition-all duration-1000 ${
+                className={`py-10 bg-[#32364a] transition-all duration-1000 ${
                     isVisible["section-values"]
                         ? "translate-y-0 opacity-100"
                         : "translate-y-10 opacity-0"
@@ -268,9 +264,9 @@ const AboutPage = () => {
                         {values.map((value, index) => (
                             <div
                                 key={index}
-                                className="bg-[#282b40] border-2 border-[#06b6d4]/30 p-4 hover:border-[#06b6d4] hover:-translate-y-2 transition-all duration-300"
+                                className="bg-[#3b4059] border-2 border-[#06b6d4]/30 p-4 hover:border-[#06b6d4] hover:-translate-y-2 transition-all duration-300"
                             >
-                                <div className="w-10 h-10 flex items-center justify-center text-3xl text-white mb-2">
+                                <div className="flex items-center justify-center text-white mb-2">
                                     {value.icon}
                                 </div>
                                 <h3 className="text-xl font-bold text-white mb-3">
@@ -286,7 +282,7 @@ const AboutPage = () => {
             </section>
 
             {/* CTA Section */}
-            <section className="py-10 bg-[#282b40] border-t-2 border-[#06b6d4] text-center">
+            <section className="py-10 bg-[#3b4059] border-t-2 border-[#06b6d4] text-center">
                 <div className="max-w-4xl mx-auto px-4">
                     <h2 className="text-4xl font-bold text-white mb-6">
                         Ready to Transform Your Kitchen?

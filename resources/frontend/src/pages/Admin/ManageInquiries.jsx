@@ -72,7 +72,7 @@ function ManageInquiries() {
 
     if (loading) {
         return (
-            <div className="min-h-screen flex items-center justify-center bg-gradient-to-br bg-[#282b40]">
+            <div className="min-h-screen flex items-center justify-center bg-gradient-to-br bg-[#3b4059]">
                 <div className="flex flex-col items-center space-y-4">
                     <div className="animate-spin rounded-full h-12 w-12 border-4 border-cyan-500 border-t-transparent"></div>
                     <p className="text-cyan-700 font-medium">Loading inquiries...</p>
@@ -82,7 +82,7 @@ function ManageInquiries() {
     }
 
     return (
-        <div className="min-h-screen bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 relative overflow-hidden">
+        <div className="min-h-screen bg-gradient-to-br from-[#2a2d3e] via-[#32364a] to-[#2a2d3e] relative overflow-hidden">
             {/* Animated Background Elements */}
             <div className="absolute inset-0 overflow-hidden pointer-events-none">
                 <div className="absolute top-0 left-1/4 w-96 h-96 bg-cyan-500/10 blur-3xl animate-pulse"></div>

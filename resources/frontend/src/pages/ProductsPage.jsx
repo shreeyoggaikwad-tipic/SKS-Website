@@ -75,10 +75,10 @@ const ProductsPage = () => {
   };
 
   return (
-    <div className="min-h-screen bg-[#1a1d2e]">
+    <div className="min-h-screen bg-[#2a2d3e]">
       <Navbar />
       {/* Hero Section */}
-      <section className="relative py-10 bg-[#282b40] border-b-2 border-cyan-500">
+      <section className="relative py-10 bg-[#3b4059] border-b-2 border-cyan-500">
         <div className="absolute inset-0 opacity-5">
           <div className="absolute top-0 left-0 w-96 h-96 bg-[#06b6d4] blur-3xl"></div>
           <div className="absolute bottom-0 right-0 w-96 h-96 bg-[#06b6d4] blur-3xl"></div>
@@ -101,13 +101,13 @@ const ProductsPage = () => {
       </section>
 
       {/* Products Grid */}
-      <section className="py-20 bg-[#1a1d2e]">
+      <section className="py-20 bg-[#2a2d3e]">
         <div className="max-w-7xl mx-auto px-6">
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-16">
             {Products.map((product) => (
               <div
                 key={product.id}
-                className="bg-[#282b40] border-2 border-[#3a3f5c] overflow-hidden group hover:border-cyan-500 transition-all duration-300 cursor-pointer flex flex-col"
+                className="bg-[#3b4059] border-2 border-[#4f567a] overflow-hidden group hover:border-cyan-500 transition-all duration-300 cursor-pointer flex flex-col"
               >
                 <div className="relative overflow-hidden h-48 p-1">
                   <img
@@ -153,9 +153,9 @@ const ProductsPage = () => {
       {/* Modal Popup */}
       {selectedProduct && (
         <div className="fixed inset-0 bg-black/80 z-50 flex items-center justify-center p-4 overflow-y-auto">
-          <div className="bg-[#282b40] border-2 border-cyan-500 max-w-7xl w-full max-h-[90vh] overflow-y-auto">
+          <div className="bg-[#3b4059] border-2 border-cyan-500 max-w-7xl w-full max-h-[90vh] overflow-y-auto">
             {/* Modal Header */}
-            <div className="sticky top-0 bg-[#1f2235] border-b-2 border-cyan-500 p-6 flex justify-between items-center z-10">
+            <div className="sticky top-0 bg-[#32364a] border-b-2 border-cyan-500 p-6 flex justify-between items-center z-10">
               <div>
                 <h2 className="text-3xl font-bold text-white uppercase tracking-wide">
                   {selectedProduct.product_name}
@@ -173,7 +173,7 @@ const ProductsPage = () => {
             </div>
 
             {/* Features Section */}
-            <div className="p-6 bg-[#1f2235] border-b-2 border-[#3a3f5c]">
+            <div className="p-6 bg-[#32364a] border-b-2 border-[#4f567a]">
               <h3 className="text-xl font-bold text-cyan-400 mb-4 uppercase tracking-wider">KEY FEATURES</h3>
               <div className="flex flex-wrap gap-2">
                 {selectedProduct.features.map((feature, index) => (
@@ -198,7 +198,7 @@ const ProductsPage = () => {
                 {selectedProduct.models.map((model, index) => (
                   <div
                     key={index}
-                    className="bg-[#1f2235] border-2 border-[#3a3f5c] p-6 hover:border-cyan-500 transition-all duration-300 group"
+                    className="bg-[#32364a] border-2 border-[#4f567a] p-6 hover:border-cyan-500 transition-all duration-300 group"
                   >
                     {/* Model Image */}
                     {model.image && (
@@ -257,7 +257,7 @@ const ProductsPage = () => {
 
       {showModal && (
         <div className="fixed inset-0 bg-black/70 flex items-center justify-center z-50">
-          <div className="bg-[#1f2235] p-6 w-full max-w-md rounded-lg shadow-lg border border-cyan-500">
+          <div className="bg-[#32364a] p-6 w-full max-w-md rounded-lg shadow-lg border border-cyan-500">
 
             <h2 className="text-xl font-bold text-white mb-4">Enter Your Details</h2>
 
@@ -266,7 +266,7 @@ const ProductsPage = () => {
               placeholder="Your Name"
               value={formData.name}
               onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-              className="w-full mb-3 px-3 py-2 bg-[#282b40] border border-gray-600 text-white"
+              className="w-full mb-3 px-3 py-2 bg-[#3b4059] border border-gray-600 text-white"
             />
 
             <input
@@ -274,7 +274,7 @@ const ProductsPage = () => {
               placeholder="Your Email"
               value={formData.email}
               onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-              className="w-full mb-3 px-3 py-2 bg-[#282b40] border border-gray-600 text-white"
+              className="w-full mb-3 px-3 py-2 bg-[#3b4059] border border-gray-600 text-white"
             />
 
             <input
@@ -283,7 +283,7 @@ const ProductsPage = () => {
               value={formData.phone} // Changed from formData.mobile to formData.phone
               maxLength={10}
               onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
-              className="w-full mb-3 px-3 py-2 bg-[#282b40] border border-gray-600 text-white"
+              className="w-full mb-3 px-3 py-2 bg-[#3b4059] border border-gray-600 text-white"
             />
 
             <div className="flex justify-end gap-3 mt-4">

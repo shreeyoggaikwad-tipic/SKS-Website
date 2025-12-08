@@ -7,6 +7,10 @@ import { motion } from "framer-motion";
 import Broucher from "../assets/Broucher.pdf"
 
 
+import BgHome from "../assets/BgHome.jpg"
+import { Hotel, Globe, FlaskConical, CircleCheck, PartyPopper, Rocket, Shield, Settings, RefreshCw, Layers, Gem, Wrench, MapPin, Phone, Mail } from "lucide-react";
+
+
 const SmartKitchenHomepage = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
 
@@ -37,7 +41,7 @@ const SmartKitchenHomepage = () => {
 
 
   return (
-    <div className="min-h-screen bg-[#1a1d2e]">
+    <div className="min-h-screen bg-[#2a2d3e]">
       <Navbar />
 
       {/* Hero Section with Background Image */}
@@ -46,10 +50,10 @@ const SmartKitchenHomepage = () => {
         <div
           className="absolute inset-0 bg-cover bg-center"
           style={{
-            backgroundImage: "url('https://images.unsplash.com/photo-1556911220-bff31c812dba?w=1920&q=80')",
+            backgroundImage: `url(${BgHome})`,
           }}
         >
-          <div className="absolute inset-0 bg-gradient-to-r from-[#282b40]/95 via-[#282b40]/85 to-transparent"></div>
+          <div className="absolute inset-0 bg-gradient-to-r from-[#3b4059]/95 via-[#3b4059]/85 to-transparent"></div>
         </div>
 
         {/* Content */}
@@ -113,7 +117,7 @@ const SmartKitchenHomepage = () => {
       </section>
 
       {/* Featured Products Carousel */}
-      <section className="py-10 bg-[#1f2235]">
+      <section className="py-10 bg-[#32364a]">
         <div className="max-w-7xl mx-auto px-6">
           <div className="text-center mb-12">
             <h2 className="text-4xl font-bold text-white mb-4 uppercase tracking-wide">
@@ -137,7 +141,7 @@ const SmartKitchenHomepage = () => {
                 <Link
                   key={index}
                   to="/products"
-                  className="min-w-[300px] bg-[#282b40] border border-[#3a3f5c] overflow-hidden group hover:border-cyan-500 transition-all duration-300"
+                  className="min-w-[300px] bg-[#3b4059] border border-[#4f567a] overflow-hidden group hover:border-cyan-500 transition-all duration-300"
                 >
                   <div className="relative h-64 overflow-hidden bg-white">
                     <img
@@ -149,7 +153,7 @@ const SmartKitchenHomepage = () => {
                   <div className="p-4">
                     {/* <p className="text-cyan-400 text-xs uppercase tracking-wider mb-1">{product.category}</p> */}
                     <h3 className="text-lg font-bold text-white">{product.product_name}</h3>
-                    <p className="text-white mt-2">{product.description}</p>
+                    <p className="text-white text-sm mt-2">{product.description}</p>
                   </div>
                 </Link>
               ))}
@@ -159,7 +163,7 @@ const SmartKitchenHomepage = () => {
       </section>
 
       {/* Features Section */}
-      <section className="py-10 bg-[#282b40]">
+      <section className="py-10 bg-[#3b4059]">
         <div className="max-w-7xl mx-auto px-6">
           <div className="text-center mb-16">
             <h2 className="text-4xl font-bold text-white mb-4 uppercase tracking-wide">
@@ -171,37 +175,37 @@ const SmartKitchenHomepage = () => {
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
             {[
               {
-                icon: "🏨",
+                icon: <Hotel size={48} />,
                 title: "PROVEN IN LUXURY HOTELS",
                 description:
                   "Trusted by top hospitality brands including JW Marriott, Ritz Carlton, Hyatt Regency, Novotel Imagica, and DoubleTree by Hilton."
               },
               {
-                icon: "🌐",
+                icon: <Globe size={48} />,
                 title: "INTERNATIONAL PRESENCE",
                 description:
                   "Successfully executed solutions for RAAYA Maldives by Atmosphere, meeting global design and performance standards."
               },
               {
-                icon: "🧪",
+                icon: <FlaskConical size={48} />,
                 title: "TECH-DRIVEN INNOVATION",
                 description:
                   "Pioneered advancements like the Thermal Bridge Technology and Touch-Operated Digital Control Panels to meet modern requirements."
               },
               {
-                icon: "🔍",
+                icon: <CircleCheck size={48} />,
                 title: "CONSULTANT APPROVED",
                 description:
                   "Received formal approval from HPG Consultants, unlocking access to prestigious projects and elite consultant networks."
               },
               {
-                icon: "🎉",
+                icon: <PartyPopper size={48} />,
                 title: "PREFERRED FOR HIGH-PROFILE EVENTS",
                 description:
                   "Selected for premium installations including the globally renowned wedding of Mr. Anant Ambani, a testament to reliability and excellence."
               },
               {
-                icon: "🚀",
+                icon: <Rocket size={48} />,
                 title: "FUTURE-READY SOLUTIONS",
                 description:
                   "Continuously expanding with new product launches such as Drop-in Ceramic Hot Plates, Heated Decorative Lamps, and advanced Food Warmers."
@@ -210,9 +214,9 @@ const SmartKitchenHomepage = () => {
               .map((feature, index) => (
                 <div
                   key={index}
-                  className="bg-[#1f2235] p-8 border-2 border-[#3a3f5c] hover:border-cyan-500 transition-all duration-300 group"
+                  className="bg-[#32364a] p-8 border-2 border-[#4f567a] hover:border-cyan-500 transition-all duration-300 group"
                 >
-                  <div className="text-5xl mb-6 group-hover:scale-110 transition-transform duration-300">
+                  <div className="flex items-center justify-center text-cyan-500 mb-6 group-hover:scale-110 transition-transform duration-300">
                     {feature.icon}
                   </div>
                   <h3 className="text-lg font-bold text-white mb-4 uppercase tracking-wider group-hover:text-cyan-400 transition-colors">
@@ -228,7 +232,7 @@ const SmartKitchenHomepage = () => {
       </section>
 
       {/* Features Section */}
-      <section className="py-10 bg-[#282b40]">
+      <section className="py-10 bg-[#3b4059]">
         <div className="max-w-7xl mx-auto px-6">
           <div className="text-center mb-16">
             <h2 className="text-4xl font-bold text-white mb-4 uppercase tracking-wide">
@@ -240,37 +244,37 @@ const SmartKitchenHomepage = () => {
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
             {[
               {
-                icon: "🛡️",
+                icon: <Shield size={48} />,
                 title: "DURABILITY",
                 description:
                   "Engineered for long-term performance with robust materials designed to withstand intensive daily use."
               },
               {
-                icon: "⚙️",
+                icon: <Settings size={48} />,
                 title: "SPARE PARTS",
                 description:
                   "Easily available spare parts ensure seamless maintenance and minimize downtime."
               },
               {
-                icon: "🔁",
+                icon: <RefreshCw size={48} />,
                 title: "REPLACEABLE COMPONENTS",
                 description:
                   "Modular design allows individual components to be replaced without affecting the entire system."
               },
               {
-                icon: "🪟",
+                icon: <Layers size={48} />,
                 title: "HIGH-QUALITY GLASS",
                 description:
                   "Equipped with premium, heat-resistant glass ensuring superior durability and safety."
               },
               {
-                icon: "💎",
+                icon: <Gem size={48} />,
                 title: "HIGH-QUALITY COMPONENTS",
                 description:
                   "Built using industry-grade components offering high reliability and extended operating life."
               },
               {
-                icon: "🛠️",
+                icon: <Wrench size={48} />,
                 title: "SERVICE SUPPORT",
                 description:
                   "Comprehensive service support with quick response and expert assistance for all installations."
@@ -278,9 +282,9 @@ const SmartKitchenHomepage = () => {
             ].map((feature, index) => (
               <div
                 key={index}
-                className="bg-[#1f2235] p-8 border-2 border-[#3a3f5c] hover:border-cyan-500 transition-all duration-300 group"
+                className="bg-[#32364a] p-8 border-2 border-[#4f567a] hover:border-cyan-500 transition-all duration-300 group"
               >
-                <div className="text-5xl mb-6 group-hover:scale-110 transition-transform duration-300">
+                <div className="flex items-center justify-center text-cyan-500 mb-6 group-hover:scale-110 transition-transform duration-300">
                   {feature.icon}
                 </div>
                 <h3 className="text-lg font-bold text-white mb-4 uppercase tracking-wider group-hover:text-cyan-400 transition-colors">
@@ -297,7 +301,7 @@ const SmartKitchenHomepage = () => {
       </section>
 
       {/* Contact Section */}
-      <section className="py-10 bg-gradient-to-b from-[#1f2235] to-[#282b40]">
+      <section className="py-10 bg-gradient-to-b from-[#32364a] to-[#3b4059]">
         <div className="max-w-6xl mx-auto px-6 text-center">
           <h2 className="text-4xl font-bold text-white mb-4 uppercase tracking-wide">
             READY TO UPGRADE YOUR BUFFET?
@@ -310,19 +314,19 @@ const SmartKitchenHomepage = () => {
           <div className="grid md:grid-cols-3 gap-6 mb-12">
             {[
               {
-                icon: "📍",
+                icon: <MapPin size={48} />,
                 title: "VISIT OFFICE",
                 content: "Office No - 23, 2nd Floor Konark Business Center, Opp. Renuka Mata Mandir, Keshav Nagar, Mundhwa, Pune - 411036, Maharashtra",
                 a: "https://maps.app.goo.gl/xLnudZSzafmft5dL6"
               },
               {
-                icon: "📞",
+                icon: <Phone size={48} />,
                 title: "CALL US",
                 content: "+91 86005 16230\nCall now and get a free consultation",
                 a: "tel:+918600516230"
               },
               {
-                icon: "✉️",
+                icon: <Mail size={48} />,
                 title: "EMAIL US",
                 content: "info@smartkitchensolutions.in\nQuick Response Guaranteed",
                 a: "mailto:info@smartkitchensolutions.in"
@@ -330,9 +334,9 @@ const SmartKitchenHomepage = () => {
             ].map((contact, index) => (
               <div
                 key={index}
-                className="bg-[#282b40] border-2 border-[#3a3f5c] p-8 hover:border-cyan-500 transition-all duration-300 group"
+                className="bg-[#3b4059] border-2 border-[#4f567a] p-8 hover:border-cyan-500 transition-all duration-300 group"
               >
-                <div className="text-5xl mb-4 group-hover:scale-110 transform transition-transform">
+                <div className="flex items-center justify-center text-cyan-600 mb-4 group-hover:scale-110 transform transition-transform">
                   {contact.icon}
                 </div>
                 <h3 className="text-sm font-bold text-cyan-400 mb-3 uppercase tracking-wider">{contact.title}</h3>
