@@ -41,7 +41,7 @@ const SmartKitchenHomepage = () => {
 
 
   return (
-    <div className="min-h-screen bg-[#2a2d3e]">
+    <div className="min-h-screen bg-white">
       <Navbar />
 
       {/* Hero Section with Background Image */}
@@ -53,7 +53,7 @@ const SmartKitchenHomepage = () => {
             backgroundImage: `url(${BgHome})`,
           }}
         >
-          <div className="absolute inset-0 bg-gradient-to-r from-[#3b4059]/95 via-[#3b4059]/85 to-transparent"></div>
+          <div className="absolute inset-0 bg-gradient-to-r from-blue-950/95 via-blue-900/85 to-transparent"></div>
         </div>
 
         {/* Content */}
@@ -61,20 +61,20 @@ const SmartKitchenHomepage = () => {
           <div className="max-w-7xl mx-auto px-6 w-full">
             <div className="max-w-3xl">
               {/* Badge */}
-              <div className="inline-flex items-center space-x-2 bg-cyan-500/10 border border-cyan-500/30 px-4 py-2 mb-4">
+              <div className="inline-flex items-center space-x-2 bg-cyan-900/30 border border-cyan-400/30 px-4 py-2 mb-4">
                 <span className="w-2 h-2 bg-cyan-400 animate-pulse"></span>
-                <span className="text-cyan-400 text-sm font-medium tracking-wider uppercase">Innovation Meets Design</span>
+                <span className="text-cyan-300 text-sm font-medium tracking-wider uppercase">Innovation Meets Design</span>
               </div>
 
               {/* Main Heading */}
               <h1 className="text-4xl lg:text-4xl font-bold text-white mb-4 leading-tight">
                 TRANSFORM YOUR
-                <span className="block text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-blue-500">
+                <span className="block">
                   BUFFET EXPERIENCE
                 </span>
               </h1>
 
-              <p className="text-gray-300 text-lg mb-8 leading-relaxed max-w-2xl">
+              <p className="text-gray-200 text-lg mb-8 leading-relaxed max-w-2xl">
                 Discover cutting-edge smart buffet solutions that blend technology,
                 functionality, and aesthetic excellence. Build the buffet of your dreams
                 with our premium modular systems and intelligent appliances.
@@ -90,7 +90,7 @@ const SmartKitchenHomepage = () => {
                 </button>
                 <Link
                   to="/products"
-                  className="border-2 border-cyan-500 text-cyan-400 px-8 py-4 font-bold tracking-wider uppercase hover:bg-cyan-500 hover:text-white transition-all duration-300 text-center"
+                  className="border-2 border-white text-white px-8 py-4 font-bold tracking-wider uppercase hover:bg-cyan-500 hover:text-white transition-all duration-300 text-center"
                 >
                   View Products
                 </Link>
@@ -100,15 +100,15 @@ const SmartKitchenHomepage = () => {
               <div className="grid grid-cols-3 gap-8 max-w-2xl">
                 <div className="border-l-2 border-cyan-500 pl-4">
                   <p className="text-4xl font-bold text-white mb-1">500+</p>
-                  <p className="text-sm text-gray-400 uppercase tracking-wide">Projects Done</p>
+                  <p className="text-sm text-gray-300 uppercase tracking-wide">Projects Done</p>
                 </div>
                 <div className="border-l-2 border-cyan-500 pl-4">
                   <p className="text-4xl font-bold text-white mb-1">10+</p>
-                  <p className="text-sm text-gray-400 uppercase tracking-wide">Years in Industry</p>
+                  <p className="text-sm text-gray-300 uppercase tracking-wide">Years in Industry</p>
                 </div>
                 <div className="border-l-2 border-cyan-500 pl-4">
                   <p className="text-4xl font-bold text-white mb-1">3x</p>
-                  <p className="text-sm text-gray-400 uppercase tracking-wide">Larger Heating Coverage</p>
+                  <p className="text-sm text-gray-300 uppercase tracking-wide">Larger Heating Coverage</p>
                 </div>
               </div>
             </div>
@@ -117,31 +117,29 @@ const SmartKitchenHomepage = () => {
       </section>
 
       {/* Featured Products Carousel */}
-      <section className="py-10 bg-[#32364a]">
+      <section className="py-10 bg-gradient-to-b from-blue-900 to-blue-200">
         <div className="max-w-7xl mx-auto px-6">
           <div className="text-center mb-12">
             <h2 className="text-4xl font-bold text-white mb-4 uppercase tracking-wide">
-              FEATURED <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-blue-500">PRODUCTS</span>
+              FEATURED <span >PRODUCTS</span>
             </h2>
             <div className="w-24 h-1 bg-gradient-to-r from-cyan-500 to-blue-600 mx-auto"></div>
-            <p className="mt-6 text-gray-400 text-lg max-w-2xl mx-auto">
+            <p className="mt-6 text-white text-lg max-w-2xl mx-auto">
               Explore our premium selection of smart buffet solutions
             </p>
           </div>
 
           {/* Circular Carousel */}
           <div className="overflow-hidden">
-            <motion.div
-              className="flex gap-6"
-              animate={{ x: ["0%", "-100%"] }}
-              transition={{ repeat: Infinity, duration: 20, ease: "linear" }}
+            <div
+              className="flex gap-6 animate-marquee hover:[animation-play-state:paused]"
             >
               {/* Duplicate products for seamless loop */}
               {[...Products, ...Products].map((product, index) => (
                 <Link
                   key={index}
                   to="/products"
-                  className="min-w-[300px] bg-[#3b4059] border border-[#4f567a] overflow-hidden group hover:border-cyan-500 transition-all duration-300"
+                  className="min-w-[300px] bg-white border-4 border-cyan-200 overflow-hidden group  transition-all duration-300"
                 >
                   <div className="relative h-64 overflow-hidden bg-white">
                     <img
@@ -152,22 +150,22 @@ const SmartKitchenHomepage = () => {
                   </div>
                   <div className="p-4">
                     {/* <p className="text-cyan-400 text-xs uppercase tracking-wider mb-1">{product.category}</p> */}
-                    <h3 className="text-lg font-bold text-white">{product.product_name}</h3>
-                    <p className="text-white text-sm mt-2">{product.description}</p>
+                    <h3 className="text-lg font-bold text-blue-900">{product.product_name}</h3>
+                    <p className="text-gray-600 text-sm mt-2">{product.description}</p>
                   </div>
                 </Link>
               ))}
-            </motion.div>
+            </div>
           </div>
         </div>
       </section>
 
       {/* Features Section */}
-      <section className="py-10 bg-[#3b4059]">
+      <section className="py-10 bg-gradient-to-b from-blue-200 to-blue-900">
         <div className="max-w-7xl mx-auto px-6">
           <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold text-white mb-4 uppercase tracking-wide">
-              OUR <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-blue-500">FEATURES</span>
+            <h2 className="text-4xl font-bold mb-4 uppercase tracking-wide">
+              OUR <span >FEATURES</span>
             </h2>
             <div className="w-24 h-1 bg-gradient-to-r from-cyan-500 to-blue-600 mx-auto"></div>
           </div>
@@ -214,15 +212,15 @@ const SmartKitchenHomepage = () => {
               .map((feature, index) => (
                 <div
                   key={index}
-                  className="bg-[#32364a] p-8 border-2 border-[#4f567a] hover:border-cyan-500 transition-all duration-300 group"
+                  className="p-8 bg-white border-4 border-cyan-200 hover:border-cyan-500 transition-all duration-300 group"
                 >
                   <div className="flex items-center justify-center text-cyan-500 mb-6 group-hover:scale-110 transition-transform duration-300">
                     {feature.icon}
                   </div>
-                  <h3 className="text-lg font-bold text-white mb-4 uppercase tracking-wider group-hover:text-cyan-400 transition-colors">
+                  <h3 className="text-lg font-bold text-blue-900 mb-4 uppercase tracking-wider group-hover:text-cyan-600 transition-colors">
                     {feature.title}
                   </h3>
-                  <p className="text-gray-400 leading-relaxed">
+                  <p className="text-gray-600 leading-relaxed">
                     {feature.description}
                   </p>
                 </div>
@@ -232,11 +230,11 @@ const SmartKitchenHomepage = () => {
       </section>
 
       {/* Features Section */}
-      <section className="py-10 bg-[#3b4059]">
+      <section className="py-10 bg-gradient-to-b from-blue-900 to-blue-200">
         <div className="max-w-7xl mx-auto px-6">
           <div className="text-center mb-16">
             <h2 className="text-4xl font-bold text-white mb-4 uppercase tracking-wide">
-              WHY CHOOSE <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-blue-500">US?</span>
+              WHY CHOOSE <span >US?</span>
             </h2>
             <div className="w-24 h-1 bg-gradient-to-r from-cyan-500 to-blue-600 mx-auto"></div>
           </div>
@@ -282,15 +280,15 @@ const SmartKitchenHomepage = () => {
             ].map((feature, index) => (
               <div
                 key={index}
-                className="bg-[#32364a] p-8 border-2 border-[#4f567a] hover:border-cyan-500 transition-all duration-300 group"
+                className=" p-8 bg-white border-4 border-cyan-200 hover:border-cyan-500 transition-all duration-300 group"
               >
                 <div className="flex items-center justify-center text-cyan-500 mb-6 group-hover:scale-110 transition-transform duration-300">
                   {feature.icon}
                 </div>
-                <h3 className="text-lg font-bold text-white mb-4 uppercase tracking-wider group-hover:text-cyan-400 transition-colors">
+                <h3 className="text-lg font-bold text-blue-900 mb-4 uppercase tracking-wider group-hover:text-cyan-600 transition-colors">
                   {feature.title}
                 </h3>
-                <p className="text-gray-400 leading-relaxed">
+                <p className="text-gray-600 leading-relaxed">
                   {feature.description}
                 </p>
               </div>
@@ -301,13 +299,13 @@ const SmartKitchenHomepage = () => {
       </section>
 
       {/* Contact Section */}
-      <section className="py-10 bg-gradient-to-b from-[#32364a] to-[#3b4059]">
+      <section className="py-10 bg-gradient-to-b from-blue-200 to-blue-900">
         <div className="max-w-6xl mx-auto px-6 text-center">
-          <h2 className="text-4xl font-bold text-white mb-4 uppercase tracking-wide">
+          <h2 className="text-4xl font-bold  mb-4 uppercase tracking-wide">
             READY TO UPGRADE YOUR BUFFET?
           </h2>
           <div className="w-24 h-1 bg-gradient-to-r from-cyan-500 to-blue-600 mx-auto mb-6"></div>
-          <p className="text-lg text-gray-300 mb-12 max-w-2xl mx-auto">
+          <p className="text-lg  mb-12 max-w-2xl mx-auto">
             Contact our design experts today for a free consultation and transform your buffet into a masterpiece
           </p>
 
@@ -334,13 +332,13 @@ const SmartKitchenHomepage = () => {
             ].map((contact, index) => (
               <div
                 key={index}
-                className="bg-[#3b4059] border-2 border-[#4f567a] p-8 hover:border-cyan-500 transition-all duration-300 group"
+                className="bg-white border-2 border-cyan-200 p-8 hover:border-cyan-500 transition-all duration-300 group"
               >
                 <div className="flex items-center justify-center text-cyan-600 mb-4 group-hover:scale-110 transform transition-transform">
                   {contact.icon}
                 </div>
                 <h3 className="text-sm font-bold text-cyan-400 mb-3 uppercase tracking-wider">{contact.title}</h3>
-                <a href={contact.a} className="whitespace-pre-line text-sm text-gray-300">{contact.content}</a>
+                <a href={contact.a} className="whitespace-pre-line text-sm text-gray-600">{contact.content}</a>
               </div>
             ))}
           </div>

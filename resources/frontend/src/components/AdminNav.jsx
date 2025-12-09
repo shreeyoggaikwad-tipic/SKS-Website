@@ -34,15 +34,15 @@ function AdminNav() {
     }, []);
 
     return (
-        <nav className="bg-[#3b4059] shadow-xl sticky top-0 z-50 border-b-2 border-[#4f567a]">
+        <nav className="bg-white shadow-xl sticky top-0 z-50 border-b-2 border-cyan-500">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div className="flex justify-between items-center h-16">
 
                     {/* Logo + Brand */}
                     <div className="flex items-center space-x-3">
                         <div className="hidden sm:block">
-                            <p className="text-xl font-bold text-white">SMART KITCHEN SOLUTIONS</p>
-                            <p className="text-xs text-white">Admin Dashboard</p>
+                            <p className="text-xl font-bold text-blue-900">SMART KITCHEN SOLUTIONS</p>
+                            <p className="text-xs text-cyan-600">Admin Dashboard</p>
                         </div>
                     </div>
 
@@ -50,17 +50,17 @@ function AdminNav() {
                     <div className="relative hidden lg:block">
                         <button
                             onClick={() => setDropdownOpen(!dropdownOpen)}
-                            className="flex items-center px-3 py-2 rounded-none text-sm font-medium text-white hover:bg-cyan-100 transition-colors"
+                            className="flex items-center px-3 py-2 rounded-none text-sm font-medium text-blue-900 hover:bg-blue-50 transition-colors"
                         >
                             <span className="hidden lg:block font-semibold">Admin</span>
-                            <ChevronDown className="ml-1 w-4 h-4 text-white" />
+                            <ChevronDown className="ml-1 w-4 h-4 text-blue-900" />
                         </button>
 
                         {dropdownOpen && (
-                            <div className="absolute right-0 mt-2 w-52 bg-[#3b4059] rounded-none shadow-lg border border-cyan-100 py-2 z-50 animate-fadeIn">
+                            <div className="absolute right-0 mt-2 w-52 bg-white rounded-none shadow-lg border border-cyan-100 py-2 z-50 animate-fadeIn">
                                 <div className="px-4 py-3 border-b border-gray-100">
-                                    <p className="text-sm font-semibold text-white">Admin User</p>
-                                    <p className="text-xs text-white">{user?.email}</p>
+                                    <p className="text-sm font-semibold text-blue-900">Admin User</p>
+                                    <p className="text-xs text-gray-500">{user?.email}</p>
                                 </div>
                                 <button
                                     onClick={handleLogout}

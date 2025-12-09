@@ -26,7 +26,7 @@ function Footer() {
     ]
 
     return (
-        <footer className="bg-[#2a2d3e] text-white border-t-2 border-[#3b4059]">
+        <footer className="bg-blue-950 text-white border-t-2 border-cyan-500">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 {/* Main Footer Content */}
                 <div className="py-8 grid md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -37,11 +37,11 @@ function Footer() {
                                 <img src={logo} alt="" />
                             </div>
                             <div>
-                               <h1 className="text-xl font-bold text-white tracking-wide uppercase">Smart Kitchen Solutions</h1>
-                <p className="text-xs text-cyan-400 font-medium tracking-wider">YOUR DESTINATIONS FOR UNRIVALED PRODUCTS</p>
+                                <h1 className="text-xl font-bold text-white tracking-wide uppercase">Smart Kitchen Solutions</h1>
+                                <p className="text-xs text-cyan-400 font-medium tracking-wider">YOUR DESTINATIONS FOR UNRIVALED PRODUCTS</p>
                             </div>
                         </div>
-                        <p className="text-gray-400 text-sm leading-relaxed">
+                        <p className="text-white text-sm leading-relaxed">
                             Transforming commercial foodservice spaces with technology-driven solutions, premium materials, and innovative design - trusted by leading hospitality brands worldwide.
                         </p>
 
@@ -76,8 +76,8 @@ function Footer() {
 
                     {/* Quick Links */}
                     <div>
-                        <h5 className="font-bold mb-6 uppercase tracking-wider text-sm border-b border-[#4f567a] pb-3">Quick Links</h5>
-                        <ul className="space-y-3 text-gray-400 text-sm">
+                        <h5 className="font-bold mb-6 uppercase tracking-wider text-sm border-b border-cyan-500 pb-3">Quick Links</h5>
+                        <ul className="space-y-3 text-white text-sm">
                             <li>
                                 <Link to="/" className="hover:text-cyan-400 transition-colors duration-300 flex items-center space-x-2 group">
                                     <span className="w-0 group-hover:w-2 h-0.5 bg-cyan-400 transition-all duration-300"></span>
@@ -120,8 +120,8 @@ function Footer() {
 
                     {/* Contact Info */}
                     <div>
-                        <h5 className="font-bold mb-6 uppercase tracking-wider text-sm border-b border-[#4f567a] pb-3">Contact Info</h5>
-                        <div className="space-y-4 text-gray-400 text-sm">
+                        <h5 className="font-bold mb-6 uppercase tracking-wider text-sm border-b border-cyan-500 pb-3">Contact Info</h5>
+                        <div className="space-y-4 text-white text-sm">
                             {user.map((info, index) => (
                                 <a
                                     key={index}
@@ -140,7 +140,7 @@ function Footer() {
                 </div>
 
                 {/* Bottom Bar */}
-                <div className="border-t border-[#3b4059] py-4">
+                <div className="border-t border-cyan-500/30 py-4">
                     <div className="flex flex-col md:flex-row justify-center items-center space-y-4 md:space-y-0">
                         <p className="text-gray-400 text-sm">
                             &copy; 2025 <span className="text-cyan-400 font-semibold">Smart Kitchen Solutions</span>. All rights reserved.

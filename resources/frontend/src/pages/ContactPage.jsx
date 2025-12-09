@@ -34,7 +34,7 @@ function ContactForm() {
         } else if (!/^[9876]\d{9}$/.test(formData.phone)) {
             alert('Phone number must be 10 digits long and start with 9, 8, 7 or 6.');
             return;
-        } else if (!/^[\s\S]{2,500}$/.test(formData.message)) {
+        } else if (formData.message && !/^[\s\S]{2,500}$/.test(formData.message)) {
             alert('Message must be between 10 and 500 characters');
             return;
         }
@@ -61,21 +61,21 @@ function ContactForm() {
 
     if (submitted) {
         return (
-            <div className="bg-[#32364a] border-2 border-[#06b6d4] p-12 text-center animate-fade-in">
-                <div className="w-20 h-20 bg-[#06b6d4] flex items-center justify-center mx-auto mb-6">
+            <div className="bg-blue-50 border-2 border-cyan-500 p-12 text-center animate-fade-in">
+                <div className="w-20 h-20 bg-cyan-500 flex items-center justify-center mx-auto mb-6">
                     <span className="text-white text-4xl font-bold">✓</span>
                 </div>
-                <h3 className="text-3xl font-bold text-white mb-4">Thank You!</h3>
-                <p className="text-gray-300 text-lg">Your message has been received. We'll get back to you soon!</p>
+                <h3 className="text-3xl font-bold text-blue-900 mb-4">Thank You!</h3>
+                <p className="text-gray-600 text-lg">Your message has been received. We'll get back to you soon!</p>
             </div>
         );
     }
 
     return (
-        <div className="bg-[#32364a] border-2 border-[#06b6d4]/30 p-10 animate-fade-in">
+        <div className="bg-blue-50 border-2 border-cyan-500/30 p-10 animate-fade-in">
             <div className="mb-8">
-                <h3 className="text-3xl font-bold text-white mb-3">Send Us a Message</h3>
-                <p className="text-gray-300">We'd love to hear from you! Fill out the form below and we'll respond as quickly as possible.</p>
+                <h3 className="text-3xl font-bold text-blue-900 mb-3">Send Us a Message</h3>
+                <p className="text-gray-600">We'd love to hear from you! Fill out the form below and we'll respond as quickly as possible.</p>
             </div>
 
             <div className="space-y-6">
@@ -97,13 +97,12 @@ function ContactForm() {
                     required
                 />
                 <InputField
-                    label="Email Address *"
+                    label="Email Address"
                     name="email"
                     value={formData.email}
                     onChange={handleChange}
                     placeholder="Enter your email address"
                     type="email"
-                    required
                 />
                 <InputField
                     label="Phone Number *"
@@ -119,14 +118,13 @@ function ContactForm() {
                 />
 
                 <div>
-                    <label className="block text-sm font-semibold text-[#06b6d4] mb-2 uppercase tracking-wider">Message *</label>
+                    <label className="block text-sm font-semibold text-cyan-600 mb-2 uppercase tracking-wider">Message</label>
                     <textarea
                         name="message"
                         value={formData.message}
                         onChange={handleChange}
-                        required
                         rows="5"
-                        className="w-full px-4 py-3 bg-[#3b4059] border border-[#06b6d4]/30 text-white placeholder-gray-500 focus:border-[#06b6d4] focus:outline-none transition-all duration-300 resize-none"
+                        className="w-full px-4 py-3 bg-white border border-cyan-500/30 text-gray-800 placeholder-gray-500 focus:border-cyan-500 focus:outline-none transition-all duration-300 resize-none"
                         placeholder="Tell us about your project requirements..."
                     ></textarea>
                 </div>
@@ -134,7 +132,7 @@ function ContactForm() {
                 <button
                     onClick={handleSubmit}
                     disabled={isSubmitting}
-                    className="w-full bg-[#06b6d4] text-white py-4 font-semibold hover:bg-[#0891b2] transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed"
+                    className="w-full bg-cyan-600 text-white py-4 font-semibold hover:bg-cyan-700 transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed"
                 >
                     {isSubmitting ? (
                         <div className="flex items-center justify-center">
@@ -153,14 +151,14 @@ function ContactForm() {
 function InputField({ label, name, value, onChange, placeholder, type = 'text' }) {
     return (
         <div>
-            <label className="block text-sm font-semibold text-[#06b6d4] mb-2 uppercase tracking-wider">{label}</label>
+            <label className="block text-sm font-semibold text-cyan-600 mb-2 uppercase tracking-wider">{label}</label>
             <input
                 type={type}
                 name={name}
                 value={value}
                 onChange={onChange}
                 required
-                className="w-full px-4 py-3 bg-[#3b4059] border border-[#06b6d4]/30 text-white placeholder-gray-500 focus:border-[#06b6d4] focus:outline-none transition-all duration-300"
+                className="w-full px-4 py-3 bg-white border border-cyan-500/30 text-gray-800 placeholder-gray-500 focus:border-cyan-500 focus:outline-none transition-all duration-300"
                 placeholder={placeholder}
             />
         </div>
@@ -169,21 +167,21 @@ function InputField({ label, name, value, onChange, placeholder, type = 'text' }
 
 function ContactPage() {
     return (
-        <div className="min-h-screen bg-[#3b4059]">
+        <div className="min-h-screen bg-gradient-to-b from-blue-900 to-blue-200">
             <Navbar />
 
             {/* Hero Section */}
-            <section className="relative py-10 bg-[#3b4059] border-b-2 border-cyan-500">
+            <section className="relative py-10 bg-white border-b-2 border-cyan-500">
                 <div className="absolute inset-0 opacity-5">
-                    <div className="absolute top-0 left-0 w-96 h-96 bg-[#06b6d4] blur-3xl"></div>
-                    <div className="absolute bottom-0 right-0 w-96 h-96 bg-[#06b6d4] blur-3xl"></div>
+                    <div className="absolute top-0 left-0 w-96 h-96 bg-cyan-500 blur-3xl"></div>
+                    <div className="absolute bottom-0 right-0 w-96 h-96 bg-cyan-500 blur-3xl"></div>
                 </div>
 
                 <div className="max-w-7xl mx-auto px-4 text-center relative z-10">
-                    <h1 className="text-5xl sm:text-6xl font-bold text-white mb-6">
-                        Contact <span className="text-[#06b6d4]">Us</span>
+                    <h1 className="text-5xl sm:text-6xl font-bold text-blue-900  mb-6">
+                        Contact <span >Us</span>
                     </h1>
-                    <p className="text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed">
+                    <p className="text-xl max-w-3xl mx-auto leading-relaxed">
                         Have questions about our smart buffet solutions? We're here to help you transform your cooking space.
                     </p>
                 </div>
@@ -210,11 +208,11 @@ function ContactPage() {
 
 function ContactInfoCard({ icon, title, info, description }) {
     return (
-        <div className="bg-[#3b4059] border border-[#06b6d4]/30 p-8 hover:border-[#06b6d4] transition-all duration-300 text-center">
+        <div className="bg-blue-50 border border-cyan-500/30 p-8 hover:border-cyan-500 transition-all duration-300 text-center">
             <div className="text-5xl mb-4">{icon}</div>
-            <h3 className="text-xl font-bold text-white mb-2">{title}</h3>
-            <p className="text-[#06b6d4] font-semibold mb-2">{info}</p>
-            <p className="text-gray-400 text-sm">{description}</p>
+            <h3 className="text-xl font-bold text-blue-900 mb-2">{title}</h3>
+            <p className="text-cyan-600 font-semibold mb-2">{info}</p>
+            <p className="text-gray-600 text-sm">{description}</p>
         </div>
     );
 }
@@ -237,9 +235,9 @@ function MapAndBusinessHours() {
 
     return (
         <>
-            <div className="bg-[#32364a] border-2 border-[#06b6d4]/30 overflow-hidden animate-fade-in-up" style={{ animationDelay: "0.3s" }}>
-                <div className="p-6 border-b border-[#06b6d4]/30">
-                    <h3 className="text-2xl font-bold text-white mt-2">Our Location</h3>
+            <div className="bg-blue-50 border-2 border-cyan-500/30 overflow-hidden animate-fade-in-up" style={{ animationDelay: "0.3s" }}>
+                <div className="p-6 border-b border-cyan-500/30">
+                    <h3 className="text-2xl font-bold text-blue-900 mt-2">Our Location</h3>
                 </div>
                 <div className="h-96">
                     <iframe
@@ -255,17 +253,17 @@ function MapAndBusinessHours() {
                 </div>
             </div>
 
-            <div className="bg-[#32364a] border-2 border-[#06b6d4]/30 p-8 animate-fade-in-up" style={{ animationDelay: "0.4s" }}>
+            <div className="bg-blue-50 border-2 border-cyan-500/30 p-8 animate-fade-in-up" style={{ animationDelay: "0.4s" }}>
                 <div className="mb-6">
-                    <h3 className="text-2xl font-bold text-white mt-2">Business Hours</h3>
+                    <h3 className="text-2xl font-bold text-blue-900 mt-2">Business Hours</h3>
                 </div>
                 <div className="space-y-4">
-                    <div className="flex justify-between items-center py-3 border-b border-[#06b6d4]/20">
-                        <span className="text-gray-300 font-medium">Monday - Saturday</span>
-                        <span className="text-[#06b6d4] font-bold">{user?.business_hours || '9:00 AM - 8:00 PM'}</span>
+                    <div className="flex justify-between items-center py-3 border-b border-cyan-500/20">
+                        <span className="text-gray-600 font-medium">Monday - Saturday</span>
+                        <span className="text-cyan-600 font-bold">{user?.business_hours || '9:00 AM - 8:00 PM'}</span>
                     </div>
-                    <div className="flex justify-between items-center py-3 border-b border-[#06b6d4]/20">
-                        <span className="text-gray-300 font-medium">Sunday</span>
+                    <div className="flex justify-between items-center py-3 border-b border-cyan-500/20">
+                        <span className="text-gray-600 font-medium">Sunday</span>
                         <span className="text-red-400 font-bold">Closed</span>
                     </div>
                 </div>

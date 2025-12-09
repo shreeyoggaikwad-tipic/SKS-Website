@@ -27,10 +27,10 @@ const ProductsPage = () => {
 
   const Spec = ({ label, value }) => (
     <div className="flex justify-between items-center">
-      <span className="text-gray-400 text-sm uppercase tracking-wide">
+      <span className="text-gray-600 text-sm uppercase tracking-wide">
         {label}
       </span>
-      <span className="text-white font-bold">
+      <span className="text-blue-900 font-bold">
         {value}
       </span>
     </div>
@@ -75,25 +75,25 @@ const ProductsPage = () => {
   };
 
   return (
-    <div className="min-h-screen bg-[#2a2d3e]">
+    <div className="min-h-screen bg-white">
       <Navbar />
       {/* Hero Section */}
-      <section className="relative py-10 bg-[#3b4059] border-b-2 border-cyan-500">
+      <section className="relative py-10 bg-white border-b-2 border-cyan-500">
         <div className="absolute inset-0 opacity-5">
-          <div className="absolute top-0 left-0 w-96 h-96 bg-[#06b6d4] blur-3xl"></div>
-          <div className="absolute bottom-0 right-0 w-96 h-96 bg-[#06b6d4] blur-3xl"></div>
+          <div className="absolute top-0 left-0 w-96 h-96 bg-cyan-500 blur-3xl"></div>
+          <div className="absolute bottom-0 right-0 w-96 h-96 bg-cyan-500 blur-3xl"></div>
         </div>
         <div className="max-w-7xl mx-auto px-6">
           <div className="text-center">
 
-            <h1 className="text-5xl sm:text-6xl font-bold text-white mb-6">
+            <h1 className="text-5xl sm:text-6xl font-bold text-blue-900 mb-6">
               Explore Our
-              <span className="block text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-blue-500">
+              <span className="block ">
                 Premium Collection
               </span>
             </h1>
 
-            <p className="text-gray-300 text-lg max-w-3xl mx-auto leading-relaxed">
+            <p className=" text-lg max-w-3xl mx-auto leading-relaxed">
               Discover our comprehensive range of smart kitchen solutions designed to transform your cooking space into a modern, efficient masterpiece
             </p>
           </div>
@@ -101,15 +101,15 @@ const ProductsPage = () => {
       </section>
 
       {/* Products Grid */}
-      <section className="py-20 bg-[#2a2d3e]">
+      <section className="py-20 bg-gradient-to-b from-blue-900 to-blue-200">
         <div className="max-w-7xl mx-auto px-6">
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-16">
             {Products.map((product) => (
               <div
                 key={product.id}
-                className="bg-[#3b4059] border-2 border-[#4f567a] overflow-hidden group hover:border-cyan-500 transition-all duration-300 cursor-pointer flex flex-col"
+                className="bg-white border-4 overflow-hidden group border-cyan-200 transition-all duration-300 cursor-pointer flex flex-col"
               >
-                <div className="relative overflow-hidden h-48 p-1">
+                <div className="relative overflow-hidden h-64 p-1">
                   <img
                     src={product.image}
                     alt={product.product_name}
@@ -120,16 +120,16 @@ const ProductsPage = () => {
                   </div>
                 </div>
 
-                <div className="p-3 flex flex-col h-full">
-                  <h3 className="text-xl font-bold text-white mb-2 uppercase group-hover:text-cyan-400">
+                <div className="p-3 flex flex-col flex-grow">
+                  <h3 className="text-xl font-bold text-blue-900 mb-2 uppercase group-hover:text-cyan-600">
                     {product.product_name}
                   </h3>
-                  <p className="text-gray-400 text-sm leading-relaxed line-clamp-3">
+                  <p className="text-gray-600 text-sm leading-relaxed line-clamp-3">
                     {product.description}
                   </p>
 
-                  <div className="mt-auto">
-                    <button onClick={() => openProductModal(product.id)} className="w-full bg-gradient-to-r from-cyan-500 to-blue-600 text-white py-2 text-xs font-bold uppercase">
+                  <div className="mt-auto pt-4">
+                    <button onClick={() => openProductModal(product.id)} className="w-full bg-gradient-to-r from-cyan-500 to-blue-600 text-white py-2 text-xs font-bold uppercase hover:from-cyan-600 hover:to-blue-700">
                       View Models
                     </button>
                     <button
@@ -153,18 +153,18 @@ const ProductsPage = () => {
       {/* Modal Popup */}
       {selectedProduct && (
         <div className="fixed inset-0 bg-black/80 z-50 flex items-center justify-center p-4 overflow-y-auto">
-          <div className="bg-[#3b4059] border-2 border-cyan-500 max-w-7xl w-full max-h-[90vh] overflow-y-auto">
+          <div className="bg-white border-2 border-cyan-500 max-w-7xl w-full max-h-[90vh] overflow-y-auto">
             {/* Modal Header */}
-            <div className="sticky top-0 bg-[#32364a] border-b-2 border-cyan-500 p-6 flex justify-between items-center z-10">
+            <div className="sticky top-0 bg-blue-50 border-b-2 border-cyan-500 p-6 flex justify-between items-center z-10">
               <div>
-                <h2 className="text-3xl font-bold text-white uppercase tracking-wide">
+                <h2 className="text-3xl font-bold text-blue-900 uppercase tracking-wide">
                   {selectedProduct.product_name}
                 </h2>
-                <p className="text-cyan-400 mt-2">{selectedProduct.description}</p>
+                <p className="text-cyan-600 mt-2">{selectedProduct.description}</p>
               </div>
               <button
                 onClick={closeModal}
-                className="text-cyan-400 hover:text-white hover:bg-cyan-500 p-2 transition-all duration-300 border-2 border-cyan-500"
+                className="text-cyan-600 hover:text-white hover:bg-cyan-500 p-2 transition-all duration-300 border-2 border-cyan-500"
               >
                 <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="square" strokeLinejoin="miter" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
@@ -173,13 +173,13 @@ const ProductsPage = () => {
             </div>
 
             {/* Features Section */}
-            <div className="p-6 bg-[#32364a] border-b-2 border-[#4f567a]">
-              <h3 className="text-xl font-bold text-cyan-400 mb-4 uppercase tracking-wider">KEY FEATURES</h3>
+            <div className="p-6 bg-blue-50 border-b-2 border-cyan-200">
+              <h3 className="text-xl font-bold text-cyan-600 mb-4 uppercase tracking-wider">KEY FEATURES</h3>
               <div className="flex flex-wrap gap-2">
                 {selectedProduct.features.map((feature, index) => (
                   <div
                     key={index}
-                    className="bg-[#2b2e42] text-gray-300 text-xs px-3 py-1 rounded-full border border-cyan-500/30 hover:border-cyan-500 transition"
+                    className="bg-white text-gray-600 text-xs px-3 py-1 rounded-full border border-cyan-500/30 hover:border-cyan-500 transition"
                   >
                     {feature}
                   </div>
@@ -189,33 +189,33 @@ const ProductsPage = () => {
             </div>
 
             {/* Models Grid */}
-            <div className="p-6">
+            <div className="p-6 bg-gradient-to-b from-blue-900 to-blue-200">
               <h3 className="text-2xl font-bold text-white mb-6 uppercase tracking-wider">
-                AVAILABLE <span className="text-cyan-400">MODELS</span>
+                AVAILABLE <span >MODELS</span>
               </h3>
 
               <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
                 {selectedProduct.models.map((model, index) => (
                   <div
                     key={index}
-                    className="bg-[#32364a] border-2 border-[#4f567a] p-6 hover:border-cyan-500 transition-all duration-300 group"
+                    className="bg-white border-4 p-6 border-cyan-500 transition-all duration-300 group"
                   >
                     {/* Model Image */}
                     {model.image && (
                       <img
                         src={model.image}
                         alt={model.model}
-                        className="w-full h-48 object-contain mb-4 rounded-md bg-white/5 p-2"
+                        className="w-full h-48 object-contain mb-4 rounded-md bg-white p-2"
                       />
                     )}
 
                     {/* Model Header */}
                     <div className="border-b border-cyan-500/30 pb-4 mb-4">
-                      <h4 className="text-xl font-bold text-cyan-400 mb-2 uppercase tracking-wide group-hover:text-cyan-300">
+                      <h4 className="text-xl font-bold text-cyan-600 mb-2 uppercase tracking-wide group-hover:text-cyan-500">
                         {model.model}
                       </h4>
                       {model.description && (
-                        <p className="text-gray-400 text-sm">{model.description}</p>
+                        <p className="text-gray-600 text-sm">{model.description}</p>
                       )}
                     </div>
 
@@ -257,16 +257,16 @@ const ProductsPage = () => {
 
       {showModal && (
         <div className="fixed inset-0 bg-black/70 flex items-center justify-center z-50">
-          <div className="bg-[#32364a] p-6 w-full max-w-md rounded-lg shadow-lg border border-cyan-500">
+          <div className="bg-white p-6 w-full max-w-md rounded-lg shadow-lg border border-cyan-500">
 
-            <h2 className="text-xl font-bold text-white mb-4">Enter Your Details</h2>
+            <h2 className="text-xl font-bold text-blue-900 mb-4">Enter Your Details</h2>
 
             <input
               type="text"
               placeholder="Your Name"
               value={formData.name}
               onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-              className="w-full mb-3 px-3 py-2 bg-[#3b4059] border border-gray-600 text-white"
+              className="w-full mb-3 px-3 py-2 bg-blue-50 border border-gray-300 text-gray-800"
             />
 
             <input
@@ -274,16 +274,18 @@ const ProductsPage = () => {
               placeholder="Your Email"
               value={formData.email}
               onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-              className="w-full mb-3 px-3 py-2 bg-[#3b4059] border border-gray-600 text-white"
+              className="w-full mb-3 px-3 py-2 bg-blue-50 border border-gray-300 text-gray-800"
             />
 
             <input
-              type="number"
+              type="tel"
               placeholder="Your Mobile Number"
               value={formData.phone} // Changed from formData.mobile to formData.phone
-              maxLength={10}
-              onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
-              className="w-full mb-3 px-3 py-2 bg-[#3b4059] border border-gray-600 text-white"
+              onChange={(e) => {
+                const onlyDigits = e.target.value.replace(/\D/g, "");
+                setFormData({ ...formData, phone: onlyDigits.slice(0, 10) });
+              }}
+              className="w-full mb-3 px-3 py-2 bg-blue-50 border border-gray-300 text-gray-800"
             />
 
             <div className="flex justify-end gap-3 mt-4">

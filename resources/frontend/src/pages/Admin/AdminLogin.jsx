@@ -36,7 +36,7 @@ function AdminLogin() {
     };
 
     return (
-        <div className="min-h-screen bg-gradient-to-br from-[#2a2d3e] via-[#32364a] to-[#2a2d3e] flex items-center justify-center px-4 py-8 relative overflow-hidden">
+        <div className="min-h-screen bg-gradient-to-br from-white via-blue-50 to-white flex items-center justify-center px-4 py-8 relative overflow-hidden">
             {/* Animated Background Elements */}
             <div className="absolute inset-0 overflow-hidden">
                 <div className="absolute top-0 left-1/4 w-96 h-96 bg-cyan-500/10 blur-3xl animate-pulse"></div>
@@ -50,7 +50,7 @@ function AdminLogin() {
                 {/* Back Button */}
                 <button
                     onClick={() => navigate("/")}
-                    className="mb-6 flex items-center gap-2 text-slate-300 hover:text-white transition-colors group"
+                    className="mb-6 flex items-center gap-2 text-slate-600 hover:text-blue-600 transition-colors group"
                 >
                     <ArrowLeft className="w-5 h-5 group-hover:-translate-x-1 transition-transform" />
                     <span className="text-sm font-medium">Back to Home</span>

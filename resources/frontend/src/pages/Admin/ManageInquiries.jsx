@@ -72,7 +72,7 @@ function ManageInquiries() {
 
     if (loading) {
         return (
-            <div className="min-h-screen flex items-center justify-center bg-gradient-to-br bg-[#3b4059]">
+            <div className="min-h-screen flex items-center justify-center bg-blue-50">
                 <div className="flex flex-col items-center space-y-4">
                     <div className="animate-spin rounded-full h-12 w-12 border-4 border-cyan-500 border-t-transparent"></div>
                     <p className="text-cyan-700 font-medium">Loading inquiries...</p>
@@ -82,7 +82,7 @@ function ManageInquiries() {
     }
 
     return (
-        <div className="min-h-screen bg-gradient-to-br from-[#2a2d3e] via-[#32364a] to-[#2a2d3e] relative overflow-hidden">
+        <div className="min-h-screen bg-gradient-to-br from-white via-blue-50 to-white relative overflow-hidden">
             {/* Animated Background Elements */}
             <div className="absolute inset-0 overflow-hidden pointer-events-none">
                 <div className="absolute top-0 left-1/4 w-96 h-96 bg-cyan-500/10 blur-3xl animate-pulse"></div>
@@ -108,56 +108,56 @@ function ManageInquiries() {
                             <span className="px-4 py-2 bg-cyan-500/10 text-cyan-400 rounded-none text-sm font-semibold border border-cyan-500/20">
                                 CLIENT MANAGEMENT
                             </span>
-                            <h1 className="text-5xl md:text-6xl font-bold text-white mb-4">
+                            <h1 className="text-5xl md:text-6xl font-bold text-blue-900 mb-4">
                                 Inquiry{" "}
                                 <span className="bg-gradient-to-r from-cyan-400 to-cyan-600 bg-clip-text text-transparent">
                                     Dashboard
                                 </span>
                             </h1>
-                            <p className="text-slate-400 text-lg max-w-2xl mx-auto">
+                            <p className="text-slate-600 text-lg max-w-2xl mx-auto">
                                 Track and manage all customer inquiries across your business units
                             </p>
                         </div>
                     </section>
 
                     <div className="w-full max-w-7xl mb-20 animate-fade-in-up">
-                        <div className="bg-white/5 backdrop-blur-xl rounded-none shadow-2xl overflow-hidden border border-white/10">
+                        <div className="bg-white rounded-none shadow-2xl overflow-hidden border border-cyan-100">
                             {inquiries.length > 0 ? (
                                 <div className="overflow-x-auto">
                                     <table className="min-w-full">
-                                        <thead className="bg-white/5 border-b border-white/10">
+                                        <thead className="bg-blue-50 border-b border-cyan-100">
                                             <tr>
-                                                <th className="px-6 py-4 text-left text-xs font-semibold text-slate-300 uppercase tracking-wider">
+                                                <th className="px-6 py-4 text-left text-xs font-semibold text-blue-900 uppercase tracking-wider">
                                                     Sr. No.
                                                 </th>
-                                                <th className="px-6 py-4 text-left text-xs font-semibold text-slate-300 uppercase tracking-wider">
+                                                <th className="px-6 py-4 text-left text-xs font-semibold text-blue-900 uppercase tracking-wider">
                                                     Name
                                                 </th>
-                                                <th className="px-6 py-4 text-left text-xs font-semibold text-slate-300 uppercase tracking-wider">
+                                                <th className="px-6 py-4 text-left text-xs font-semibold text-blue-900 uppercase tracking-wider">
                                                     Email
                                                 </th>
-                                                <th className="px-6 py-4 text-left text-xs font-semibold text-slate-300 uppercase tracking-wider">
+                                                <th className="px-6 py-4 text-left text-xs font-semibold text-blue-900 uppercase tracking-wider">
                                                     Phone
                                                 </th>
-                                                <th className="px-6 py-4 text-left text-xs font-semibold text-slate-300 uppercase tracking-wider">
+                                                <th className="px-6 py-4 text-left text-xs font-semibold text-blue-900 uppercase tracking-wider">
                                                     Message
                                                 </th>
-                                                <th className="px-6 py-4 text-center text-xs font-semibold text-slate-300 uppercase tracking-wider">
+                                                <th className="px-6 py-4 text-center text-xs font-semibold text-blue-900 uppercase tracking-wider">
                                                     Status
                                                 </th>
-                                                <th className="px-6 py-4 text-center text-xs font-semibold text-slate-300 uppercase tracking-wider">
+                                                <th className="px-6 py-4 text-center text-xs font-semibold text-blue-900 uppercase tracking-wider">
                                                     Actions
                                                 </th>
                                             </tr>
                                         </thead>
-                                        <tbody className="divide-y divide-white/5">
+                                        <tbody className="divide-y divide-gray-100">
                                             {inquiries.map((inq, index) => (
-                                                <tr key={inq.id} className="hover:bg-white/5 transition-colors duration-200">
-                                                    <td className="px-6 py-4 text-sm text-slate-400">{index + 1}</td>
-                                                    <td className="px-6 py-4 text-white text-sm">{inq.name}</td>
-                                                    <td className="px-6 py-4 text-slate-300 text-sm">{inq.email || "N/A"}</td>
-                                                    <td className="px-6 py-4 text-slate-300 text-sm">{inq.phone}</td>
-                                                    <td className="px-6 py-4 text-slate-300 text-sm max-w-xs truncate">
+                                                <tr key={inq.id} className="hover:bg-blue-50 transition-colors duration-200">
+                                                    <td className="px-6 py-4 text-sm text-gray-600">{index + 1}</td>
+                                                    <td className="px-6 py-4 text-gray-800 text-sm">{inq.name}</td>
+                                                    <td className="px-6 py-4 text-gray-600 text-sm">{inq.email || "N/A"}</td>
+                                                    <td className="px-6 py-4 text-gray-600 text-sm">{inq.phone}</td>
+                                                    <td className="px-6 py-4 text-gray-600 text-sm max-w-xs truncate">
                                                         {inq.message}
                                                     </td>
                                                     <td className="px-6 py-4 text-center">
@@ -165,8 +165,8 @@ function ManageInquiries() {
                                                             <button
                                                                 onClick={() => toggleRequestServed(inq.id)}
                                                                 className={`relative inline-flex h-7 w-14 items-center rounded transition-all duration-300 ease-in-out ${inq.request_served
-                                                                        ? "bg-cyan-500 hover:bg-cyan-600 shadow-lg shadow-cyan-500/30 rounded-2xl"
-                                                                        : "bg-slate-600 hover:bg-slate-500 rounded-2xl"
+                                                                    ? "bg-cyan-500 hover:bg-cyan-600 shadow-lg shadow-cyan-500/30 rounded-2xl"
+                                                                    : "bg-slate-600 hover:bg-slate-500 rounded-2xl"
                                                                     }`}
                                                             >
                                                                 <span
@@ -197,10 +197,10 @@ function ManageInquiries() {
                                 </div>
                             ) : (
                                 <div className="p-12 text-center">
-                                    <div className="w-16 h-16 bg-slate-700 flex items-center justify-center mx-auto mb-4 rounded-none">
-                                        <Filter className="w-8 h-8 text-slate-500" />
+                                    <div className="w-16 h-16 bg-blue-100 flex items-center justify-center mx-auto mb-4 rounded-none">
+                                        <Filter className="w-8 h-8 text-blue-500" />
                                     </div>
-                                    <p className="text-slate-400 text-lg font-medium">No inquiries found</p>
+                                    <p className="text-gray-500 text-lg font-medium">No inquiries found</p>
                                 </div>
                             )}
                         </div>

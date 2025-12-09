@@ -6,7 +6,7 @@ function WatsappButton() {
 
     const handleWhatsAppClick = () => {
         const number = "8600516230"
-        const message = "Hello! I'm interested in your nursery plants. Could we discuss my requirements?";
+        const message = "Hello! I'm interested in your buffet products. Could we discuss my requirements?";
         let phoneNumber = number.replace(/\D/g, '');
         if (phoneNumber.length === 10) {
             phoneNumber = '91' + phoneNumber;
