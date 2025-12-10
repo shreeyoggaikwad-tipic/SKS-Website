@@ -16,6 +16,8 @@ Route::post('/auth/reset-password', [AuthController::class, 'resetPassword']);
 
 // Contact/Inquiry submission (public)
 Route::post('/inquiries', [InquiryController::class, 'store']);
+Route::post('/send-otp', [\App\Http\Controllers\OtpController::class, 'sendOtp']);
+Route::post('/verify-otp', [\App\Http\Controllers\OtpController::class, 'verifyOtp']);
 
 Route::get('/users/{id}', [UserController::class, 'show']);
 
