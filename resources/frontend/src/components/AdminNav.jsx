@@ -34,7 +34,7 @@ function AdminNav() {
     }, []);
 
     return (
-        <nav className="bg-white shadow-xl sticky top-0 z-50 border-b-2 border-cyan-500">
+        <nav className="bg-white shadow-xl fixed top-0 left-0 right-0 z-50 border-b-2 border-cyan-500">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div className="flex justify-between items-center h-16">
 
@@ -60,7 +60,7 @@ function AdminNav() {
                             <div className="absolute right-0 mt-2 w-52 bg-white rounded-none shadow-lg border border-cyan-100 py-2 z-50 animate-fadeIn">
                                 <div className="px-4 py-3 border-b border-gray-100">
                                     <p className="text-sm font-semibold text-blue-900">Admin User</p>
-                                    <p className="text-xs text-gray-500">{user?.email}</p>
+                                    <p className="text-xs text-gray-500 break-all">{user?.email}</p>
                                 </div>
                                 <button
                                     onClick={handleLogout}
