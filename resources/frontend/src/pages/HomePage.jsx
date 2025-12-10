@@ -148,8 +148,7 @@ const SmartKitchenHomepage = () => {
                       className="w-full h-full object-contain p-2 transition-transform duration-500"
                     />
                   </div>
-                  <div className="p-4">
-                    {/* <p className="text-cyan-400 text-xs uppercase tracking-wider mb-1">{product.category}</p> */}
+                  <div className="p-4 text-center">
                     <h3 className="text-lg font-bold text-blue-900">{product.product_name}</h3>
                     <p className="text-gray-600 text-sm mt-2">{product.description}</p>
                   </div>
@@ -212,7 +211,7 @@ const SmartKitchenHomepage = () => {
               .map((feature, index) => (
                 <div
                   key={index}
-                  className="p-8 bg-white border-4 border-cyan-200 hover:border-cyan-500 transition-all duration-300 group"
+                  className="p-8 text-center bg-white border-4 border-cyan-200 hover:border-cyan-500 transition-all duration-300 group"
                 >
                   <div className="flex items-center justify-center text-cyan-500 mb-6 group-hover:scale-110 transition-transform duration-300">
                     {feature.icon}
@@ -280,7 +279,7 @@ const SmartKitchenHomepage = () => {
             ].map((feature, index) => (
               <div
                 key={index}
-                className=" p-8 bg-white border-4 border-cyan-200 hover:border-cyan-500 transition-all duration-300 group"
+                className=" p-8 text-center bg-white border-4 border-cyan-200 hover:border-cyan-500 transition-all duration-300 group"
               >
                 <div className="flex items-center justify-center text-cyan-500 mb-6 group-hover:scale-110 transition-transform duration-300">
                   {feature.icon}

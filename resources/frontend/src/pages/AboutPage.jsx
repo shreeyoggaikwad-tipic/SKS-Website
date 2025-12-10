@@ -37,7 +37,7 @@ const AboutPage = () => {
             icon: <Zap size={32} />,
         },
         {
-            title: "Quality Craftsmanship",
+            title: "Quality",
             description:
                 "Premium materials and meticulous attention to detail in every product.",
             icon: <Sparkles size={32} />,
@@ -261,7 +261,7 @@ const AboutPage = () => {
                         {values.map((value, index) => (
                             <div
                                 key={index}
-                                className="bg-blue-50 border-2 border-cyan-500/30 p-4 hover:border-cyan-500 hover:-translate-y-2 transition-all duration-300"
+                                className="bg-blue-50 text-center border-2 border-cyan-500/30 p-4 hover:border-cyan-500 hover:-translate-y-2 transition-all duration-300"
                             >
                                 <div className="flex items-center justify-center text-blue-900 mb-2">
                                     {value.icon}

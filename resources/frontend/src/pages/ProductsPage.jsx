@@ -120,7 +120,7 @@ const ProductsPage = () => {
                   </div>
                 </div>
 
-                <div className="p-3 flex flex-col flex-grow">
+                <div className="p-3 text-center flex flex-col flex-grow">
                   <h3 className="text-xl font-bold text-blue-900 mb-2 uppercase group-hover:text-cyan-600">
                     {product.product_name}
                   </h3>
