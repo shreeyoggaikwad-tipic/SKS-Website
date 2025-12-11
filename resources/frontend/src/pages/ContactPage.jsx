@@ -72,7 +72,7 @@ function ContactForm() {
     }
 
     return (
-        <div className="bg-blue-50 border-2 border-cyan-500/30 p-10 animate-fade-in">
+        <div className="bg-white border-2 border-cyan-500 p-10 animate-fade-in">
             <div className="mb-8">
                 <h3 className="text-3xl font-bold text-blue-900 mb-3">Send Us a Message</h3>
                 <p className="text-gray-600">We'd love to hear from you! Fill out the form below and we'll respond as quickly as possible.</p>
@@ -167,7 +167,7 @@ function InputField({ label, name, value, onChange, placeholder, type = 'text' }
 
 function ContactPage() {
     return (
-        <div className="min-h-screen bg-gradient-to-b from-blue-900 to-blue-200">
+        <div className="min-h-screen ">
             <Navbar />
 
             {/* Hero Section */}
@@ -188,7 +188,7 @@ function ContactPage() {
             </section>
 
             {/* Contact Form and Info Section */}
-            <section className="py-16 px-4 sm:px-6 lg:px-8">
+            <section className="py-16 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-white via-white/0 to-blue-950">
                 <div className="max-w-7xl mx-auto">
                     <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
                         <div className="animate-fade-in-up" style={{ animationDelay: "0.2s" }}>
@@ -202,17 +202,6 @@ function ContactPage() {
             </section>
 
             <Footer />
-        </div>
-    );
-}
-
-function ContactInfoCard({ icon, title, info, description }) {
-    return (
-        <div className="bg-blue-50 border border-cyan-500/30 p-8 hover:border-cyan-500 transition-all duration-300 text-center">
-            <div className="text-5xl mb-4">{icon}</div>
-            <h3 className="text-xl font-bold text-blue-900 mb-2">{title}</h3>
-            <p className="text-cyan-600 font-semibold mb-2">{info}</p>
-            <p className="text-gray-600 text-sm">{description}</p>
         </div>
     );
 }
@@ -235,7 +224,7 @@ function MapAndBusinessHours() {
 
     return (
         <>
-            <div className="bg-blue-50 border-2 border-cyan-500/30 overflow-hidden animate-fade-in-up" style={{ animationDelay: "0.3s" }}>
+            <div className="bg-white border-2 border-cyan-500 overflow-hidden animate-fade-in-up" style={{ animationDelay: "0.3s" }}>
                 <div className="p-6 border-b border-cyan-500/30">
                     <h3 className="text-2xl font-bold text-blue-900 mt-2">Our Location</h3>
                 </div>
@@ -253,7 +242,7 @@ function MapAndBusinessHours() {
                 </div>
             </div>
 
-            <div className="bg-blue-50 border-2 border-cyan-500/30 p-8 animate-fade-in-up" style={{ animationDelay: "0.4s" }}>
+            <div className="bg-white border-2 border-cyan-500 p-8 animate-fade-in-up" style={{ animationDelay: "0.4s" }}>
                 <div className="mb-6">
                     <h3 className="text-2xl font-bold text-blue-900 mt-2">Business Hours</h3>
                 </div>

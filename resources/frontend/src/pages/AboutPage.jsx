@@ -121,6 +121,7 @@ const AboutPage = () => {
 
     return (
         <div className="min-h-screen bg-white">
+
             <Navbar />
 
             {/* Hero Section */}
@@ -144,160 +145,150 @@ const AboutPage = () => {
                 </div>
             </section>
 
-            {/* Story Section */}
-            <section
-                id="section-story"
-                className={`py-10 bg-gradient-to-b from-blue-900 to-blue-200 transition-all duration-1000 ${isVisible["section-story"]
-                        ? "translate-y-0 opacity-100"
-                        : "translate-y-10 opacity-0"
-                    }`}
-            >
-                <div className="max-w-7xl mx-auto px-4 grid lg:grid-cols-2 gap-16 items-center">
-                    <div>
-                        <div className="mb-6">
-                            <span className="text-white text-sm font-semibold tracking-wider uppercase">
+            <div className="bg-gradient-to-b from-white via-white/0 to-blue-950">
+                {/* Story Section */}
+                <section
+                    id="section-story"
+                    className={`py-10  transition-all duration-1000`}
+                >
+                    <div className="max-w-7xl mx-auto px-4 grid lg:grid-cols-2 gap-16 items-center">
+                        <div>
+                            <div className="mb-6">
+                                <h2 className="text-4xl text-blue-900 font-bold  mt-2">
+                                    Our{" "}
+                                    <span className="text-blue-900">Story</span>
+                                </h2>
+                                <div className="w-20 h-1 bg-cyan-500 mt-4"></div>
+                            </div>
+                            <p className="text-gray-600 leading-relaxed mb-6">
+                                For over 10 years, Smart Kitchen Solutions has been
+                                a trusted leader in the foodservice equipment
+                                industry, delivering innovative and reliable
+                                solutions tailored to the unique needs of hotels,
+                                catering services, restaurants, IT cafeterias,
+                                institutional kitchens, and coffee shops.
+                            </p>
+                            <p className="text-gray-600 leading-relaxed mb-6">
+                                We specialize in high-performance equipment designed
+                                to enhance operational efficiency and save time and
+                                cost - whether it's for heating, cooling, or
+                                holding.
+                            </p>
+                            <p className="text-gray-600 leading-relaxed">
+                                Backed by a dedicated design team and strong R&D, we
+                                provide customized solutions that combine
+                                functionality with visual appeal. Our commitment
+                                extends beyond installation, with exceptional
+                                after-sales support ensuring long-term satisfaction.
+                            </p>
+                        </div>
+                        <div className="relative">
+                            <div
+                                className="bg-white border-2 border-cyan-500 h-96 w-full bg-cover bg-center"
+                                style={{ backgroundImage: `url(${BGAbout})` }}
+                            >
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                {/* Timeline Section - Horizontal Scrollable */}
+                <section
+                    id="section-timeline"
+                    className={`py-10 transition-all duration-1000 `}
+                >
+                    <div className="max-w-5xl mx-auto px-4">
+                        <div className="text-center mb-16">
+                            <span className="text-blue-600 text-sm font-semibold tracking-wider uppercase">
                                 Our Journey
                             </span>
-                            <h2 className="text-4xl text-white font-bold  mt-2">
-                                Our{" "}
-                                <span className="text-white">Story</span>
+                            <h2 className="text-4xl font-bold text-blue-900 mt-2 mb-4">
+                                Growth{" "}
+                                <span >Timeline</span>
                             </h2>
-                            <div className="w-20 h-1 bg-cyan-500 mt-4"></div>
+                            <div className="w-20 h-1 bg-cyan-500 mx-auto"></div>
                         </div>
-                        <p className="text-white leading-relaxed mb-6">
-                            For over 10 years, Smart Kitchen Solutions has been
-                            a trusted leader in the foodservice equipment
-                            industry, delivering innovative and reliable
-                            solutions tailored to the unique needs of hotels,
-                            catering services, restaurants, IT cafeterias,
-                            institutional kitchens, and coffee shops.
-                        </p>
-                        <p className="text-white leading-relaxed mb-6">
-                            We specialize in high-performance equipment designed
-                            to enhance operational efficiency and save time and
-                            cost - whether it's for heating, cooling, or
-                            holding.
-                        </p>
-                        <p className="text-white leading-relaxed">
-                            Backed by a dedicated design team and strong R&D, we
-                            provide customized solutions that combine
-                            functionality with visual appeal. Our commitment
-                            extends beyond installation, with exceptional
-                            after-sales support ensuring long-term satisfaction.
-                        </p>
-                    </div>
-                    <div className="relative">
-                        <div
-                            className="bg-blue-50 border-2 border-cyan-500 h-96 w-full bg-cover bg-center"
-                            style={{ backgroundImage: `url(${BGAbout})` }}
-                        >
+
+                        <div className="relative border-l-4 border-blue-900 ml-4 space-y-12">
+                            {timeline.map((item, index) => (
+                                <div key={index} className="ml-8 relative">
+                                    {/* Dot */}
+                                    <div className="absolute -left-[36px] top-2 w-6 h-6 bg-blue-900 rounded-full border-8 border-blue-400"></div>
+
+                                    <div className="bg-white p-6 rounded-xl shadow-lg border-cyan-500 border-2 transition-all duration-300">
+                                        <span className="text-cyan-600 font-semibold">
+                                            {item.year}
+                                        </span>
+                                        <h3 className="text-xl font-bold text-blue-900 mt-1">
+                                            {item.title}
+                                        </h3>
+                                        <p className="text-gray-600 text-sm mt-2">
+                                            {item.description}
+                                        </p>
+                                    </div>
+                                </div>
+                            ))}
                         </div>
                     </div>
-                </div>
-            </section>
+                </section>
 
-            {/* Timeline Section - Horizontal Scrollable */}
-            <section
-                id="section-timeline"
-                className={`py-10 bg-gradient-to-b from-blue-200 to-blue-900 transition-all duration-1000 ${isVisible["section-timeline"]
-                        ? "translate-y-0 opacity-100"
-                        : "translate-y-10 opacity-0"
-                    }`}
-            >
-                <div className="max-w-5xl mx-auto px-4">
-                    <div className="text-center mb-16">
-                        <span className=" text-sm font-semibold tracking-wider uppercase">
-                            Our Journey
-                        </span>
-                        <h2 className="text-4xl font-bold  mt-2 mb-4">
-                            Growth{" "}
-                            <span >Timeline</span>
-                        </h2>
-                        <div className="w-20 h-1 bg-cyan-500 mx-auto"></div>
-                    </div>
-
-                    <div className="relative border-l-4 border-blue-900 ml-4 space-y-12">
-                        {timeline.map((item, index) => (
-                            <div key={index} className="ml-8 relative">
-                                {/* Dot */}
-                                <div className="absolute -left-[36px] top-2 w-6 h-6 bg-blue-900 rounded-full border-8 border-blue-50"></div>
-
-                                <div className="bg-white p-6 rounded-xl shadow-lg hover:border-cyan-500 border border-transparent transition-all duration-300">
-                                    <span className="text-cyan-600 font-semibold">
-                                        {item.year}
-                                    </span>
-                                    <h3 className="text-xl font-bold text-blue-900 mt-1">
-                                        {item.title}
+                {/* Values Section */}
+                <section
+                    id="section-values"
+                    className={`py-10  transition-all duration-1000 `}
+                >
+                    <div className="max-w-7xl mx-auto px-4">
+                        <div className="text-center mb-16">
+                            <span className=" text-sm text-white font-semibold tracking-wider uppercase">
+                                Core Principles
+                            </span>
+                            <h2 className="text-4xl font-bold text-white mt-2 mb-4">
+                                Our <span>Values</span>
+                            </h2>
+                            <div className="w-20 h-1 bg-cyan-500 mx-auto"></div>
+                        </div>
+                        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-8">
+                            {values.map((value, index) => (
+                                <div
+                                    key={index}
+                                    className="bg-white text-center border-2 border-cyan-500 p-4 hover:border-cyan-500 hover:-translate-y-2 transition-all duration-300"
+                                >
+                                    <div className="flex items-center justify-center text-blue-900 mb-2">
+                                        {value.icon}
+                                    </div>
+                                    <h3 className="text-xl font-bold text-blue-900 mb-3">
+                                        {value.title}
                                     </h3>
-                                    <p className="text-gray-600 text-sm mt-2">
-                                        {item.description}
+                                    <p className="text-gray-600">
+                                        {value.description}
                                     </p>
                                 </div>
-                            </div>
-                        ))}
+                            ))}
+                        </div>
                     </div>
-                </div>
-            </section>
+                </section>
 
-            {/* Values Section */}
-            <section
-                id="section-values"
-                className={`py-10 bg-gradient-to-b from-blue-900 to-blue-200 transition-all duration-1000 ${isVisible["section-values"]
-                        ? "translate-y-0 opacity-100"
-                        : "translate-y-10 opacity-0"
-                    }`}
-            >
-                <div className="max-w-7xl mx-auto px-4">
-                    <div className="text-center mb-16">
-                        <span className=" text-sm text-white font-semibold tracking-wider uppercase">
-                            Core Principles
-                        </span>
-                        <h2 className="text-4xl font-bold text-white mt-2 mb-4">
-                            Our <span>Values</span>
+                {/* CTA Section */}
+                <section className="py-10 border-t-2 border-cyan-500/30 text-center">
+                    <div className="max-w-4xl mx-auto px-4">
+                        <h2 className="text-4xl font-bold text-white mb-6">
+                            Ready to Transform Your Kitchen?
                         </h2>
-                        <div className="w-20 h-1 bg-cyan-500 mx-auto"></div>
-                    </div>
-                    <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-8">
-                        {values.map((value, index) => (
-                            <div
-                                key={index}
-                                className="bg-blue-50 text-center border-2 border-cyan-500/30 p-4 hover:border-cyan-500 hover:-translate-y-2 transition-all duration-300"
+                        <p className="text-xl text-white mb-10">
+                            Join thousands of satisfied customers who have upgraded
+                            to smart kitchen solutions.
+                        </p>
+                        <div className="flex flex-col sm:flex-row justify-center gap-6">
+                            <Link
+                                to="/products"
+                                className="bg-gradient-to-r from-cyan-500 to-blue-600 text-white px-10 py-4 font-bold tracking-wider uppercase hover:from-cyan-600 hover:to-blue-700 transition-all text-lg shadow-lg"
                             >
-                                <div className="flex items-center justify-center text-blue-900 mb-2">
-                                    {value.icon}
-                                </div>
-                                <h3 className="text-xl font-bold text-blue-900 mb-3">
-                                    {value.title}
-                                </h3>
-                                <p className="text-gray-600">
-                                    {value.description}
-                                </p>
-                            </div>
-                        ))}
+                                Explore Products
+                            </Link>
+                        </div>
                     </div>
-                </div>
-            </section>
-
-            {/* CTA Section */}
-            <section className="py-10 bg-white border-t-2 border-cyan-500 text-center">
-                <div className="max-w-4xl mx-auto px-4">
-                    <h2 className="text-4xl font-bold text-blue-900 mb-6">
-                        Ready to Transform Your Kitchen?
-                    </h2>
-                    <p className="text-xl text-gray-600 mb-10">
-                        Join thousands of satisfied customers who have upgraded
-                        to smart kitchen solutions.
-                    </p>
-                    <div className="flex flex-col sm:flex-row justify-center gap-6">
-                        <Link
-                            to="/products"
-                            className="border-2 border-cyan-600 text-cyan-600 px-10 py-4 font-semibold hover:bg-cyan-600 hover:text-white transition-all text-lg"
-                        >
-                            Explore Products
-                        </Link>
-                    </div>
-                </div>
-            </section>
+                </section>
+            </div>
 
             <Footer />
         </div>
